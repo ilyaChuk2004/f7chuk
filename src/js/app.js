@@ -59,3 +59,7 @@ var app = new Framework7({
     path: '/service-worker.js',
   },
 });
+
+
+import {f} from './mods/s-tabs'
+f();
