@@ -6,9 +6,27 @@ let pageEl = $('.'+page);
 let wHeight = window.innerHeight;
 let ms = {
     el:$('#mainScreen'),
-    height(){return this.el},
+    height(){return this.el.height()},
 }
-let scroll = pageEl.scrollTop();
+let tabsB = {
+    el:$('.tabsB'),
+    height(){return this.el.height()},
+}
+let scroll = ()=>{
+    return pageEl.scrollTop()
+};
 
-console.log(ms.height());
+if (underMs()) {
+    tabsB.el.css('opacity','1');
+}else{
+    tabsB.el.css('opacity','0');
+
+}
+
+function underMs() {
+    let paddind = tabsB.height();
+    if ((ms.height() - scroll() - wHeight)+paddind < 0) {
+        return true
+    }else false
+}
 }
