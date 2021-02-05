@@ -6,7 +6,7 @@ Framework7 app created with following options:
 
 ```
 {
-  "cwd": "C:\\Users\\iliya\\doc\\r\\AAWeb\\projekts\\koter9\\f7chuk",
+  <!-- "cwd": "C:\\Users\\iliya\\doc\\r\\AAWeb\\projekts\\koter9\\f7chuk", -->
   "type": [
     "pwa"
   ],
