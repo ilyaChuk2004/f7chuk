@@ -60,6 +60,12 @@ var app = new Framework7({
   },
 });
 
+import {s_tabs} from './mods/s-tabs'
+////events 
 
-import {f} from './mods/s-tabs'
-f();
+  document.addEventListener('scroll', function (event) {
+      if (event.target.className === 'page-content') { // or any other filtering condition        
+        s_tabs('page-content');
+      }
+  }, true /*Capture event*/);
+///////events

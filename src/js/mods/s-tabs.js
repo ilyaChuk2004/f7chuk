@@ -1,10 +1,14 @@
 import $ from 'dom7';
 
 
-export function f(a) {
-    document.addEventListener('scroll', function (event) {
-        if (event.target.className === 'page-content') { // or any other filtering condition        
-            
-        }
-    }, true /*Capture event*/);
+export function s_tabs(page) {
+let pageEl = $('.'+page);
+let wHeight = window.innerHeight;
+let ms = {
+    el:$('#mainScreen'),
+    height(){return this.el},
+}
+let scroll = pageEl.scrollTop();
+
+console.log(ms.height());
 }
