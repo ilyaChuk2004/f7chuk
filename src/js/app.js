@@ -68,4 +68,14 @@ import {s_tabs} from './mods/s-tabs'
         s_tabs('page-content');
       }
   }, true /*Capture event*/);
+
+  $(document).on('click','.mainScreen-tip', (e)=>{
+    let tipEl = e.target;
+    let tipId = tipEl.getAttribute('href').slice(-1);
+
+    let tabEl = $(`.tabsB-item[href='#tab${tipId}']`);
+    tabEl.addClass('tab-link-active');
+    console.log(tabEl);
+    
+  })
 ///////events
