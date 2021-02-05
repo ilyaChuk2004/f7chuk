@@ -1,0 +1,430 @@
+@main ScreenImg: chukKrivie.svg;
+body[data-themee='light'] {
+  --themeBool: white;
+  --day-bg: #f5f5f5;
+  --mainScreenImg: url(../img/chukKrivie.svg);
+  --mainScreenImgMob: url(../img/chukMKrivie.svg);
+  --mainScreenFilter: drop-shadow(0px 0px 45px #b0733f);
+  --footerImage: url(../img/chukKrivie.svg);
+  --footerBSh: #925f35 0px 0px 0px 170px, inset 0px -20px 16px -10px #00000070;
+  --iBGColor: #6b4124;
+  --iPcBGColor: #6b4124;
+  --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #f5f5f5;
+  --aboutBGColor: #f5f5f5;
+  --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
+  --pageWrapperBSh: 0 -180px 0 70px #f5f5f5;
+  --hColor: #110e4a;
+  --pColor: #464646;
+  --strongColor: #110e4a;
+  --nonColor: #b7b7b7;
+  --contentBGColor: #f5f5f5;
+  --postImgBSh: rgba(0, 0, 0, 0.58) 0 0 26px -7px, black 0 0 0 20px inset;
+  --iMenuBGColor: white;
+  --iMenuTelegText: #212121;
+  --iMenuArrColor: #a2a2a2;
+  --iMenuLineColor: #00000042;
+  --headerBGColor: white;
+  --headerBSh: rgba(0, 0, 0, 0.22) 0px 0px 26px -4px;
+  --miniPostBGColor: #fdbb85;
+  --miniPostTitColor: #476365;
+  --miniPostDiscColor: #717171;
+  --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
+  --chTitleColor: #404040;
+  --fillColor: #252525;
+  --chLoginBGColor: #f3f3f3;
+  --chatLogNotColor: #888888;
+  --shesWinFilter: invert(0);
+  --headerTipsBG: #d6d6d6;
+  --headerTipsColor: #373737;
+  --headerTipsMainColor: #925f35;
+}
+body[data-themee='dark'] {
+  --themeBool: black;
+  --day-bg: #151111;
+  --mainScreenImg: url(../img/chukKrivieNightsvg.svg);
+  --mainScreenImgMob: url(../img/chukMkrivieNight.svg);
+  --mainScreenFilter: drop-shadow(#53091b 0px 0px 45px);
+  --footerImage: url(../img/chukKrivieNightsvg.svg);
+  --footerBSh: #53091b 0px 0px 0px 170px, rgba(0, 0, 0, 0.44) 0px -20px 16px -10px inset;
+  --iBGColor: #53091b;
+  --iPcBGColor: #53091b;
+  --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #151111;
+  --aboutBGColor: #151111;
+  --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
+  --pageWrapperBSh: 0 -180px 0 70px #151111;
+  --hColor: #afaedc;
+  --pColor: #b7b7b7;
+  --strongColor: #dcdcdc;
+  --nonColor: #b7b7b7;
+  --contentBGColor: #151111;
+  --postImgBSh: 0 0 12px #739cff69;
+  --iMenuBGColor: #1d1c1c;
+  --iMenuTelegText: #c3c3c3;
+  --iMenuArr: #a2a2a2;
+  --iMenuLine: #383838;
+  --headerBGColor: #0e0400;
+  --headerBSh: #69222238 0 0 26px -4px;
+  --miniPostBGColor: #53091b;
+  --miniPostTitColor: #d4d4d4;
+  --miniPostDiscColor: #949494;
+  --miniPostHoverBSh: #3e0033 0px 0px 30px 0px;
+  --chTitleColor: #b3b3b3;
+  --fillColor: #e0e0e0;
+  --chLoginBGColor: #171717;
+  --chatLogNotColor: #888888;
+  --shesWinFilter: invert(1);
+  --headerTipsBG: #1e1e1e;
+  --headerTipsColor: #7f7f7f37 37;
+  --headerTipsMainColor: #530a1b;
+}
+@media (prefers-color-scheme: light) {
+  #mediaFlag500 {
+    color: white;
+  }
+  body {
+    --themeBool: white;
+    --day-bg: #f5f5f5;
+    --mainScreenImg: url(../img/chukKrivie.svg);
+    --mainScreenImgMob: url(../img/chukMKrivie.svg);
+    --mainScreenFilter: drop-shadow(0px 0px 45px #b0733f);
+    --footerImage: url(../img/chukKrivie.svg);
+    --footerBSh: #925f35 0px 0px 0px 170px, inset 0px -20px 16px -10px #00000070;
+    --iBGColor: #6b4124;
+    --iPcBGColor: #6b4124;
+    --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #f5f5f5;
+    --aboutBGColor: #f5f5f5;
+    --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
+    --pageWrapperBSh: 0 -180px 0 70px #f5f5f5;
+    --hColor: #110e4a;
+    --pColor: #464646;
+    --strongColor: #110e4a;
+    --nonColor: #b7b7b7;
+    --contentBGColor: #f5f5f5;
+    --postImgBSh: rgba(0, 0, 0, 0.58) 0 0 26px -7px, black 0 0 0 20px inset;
+    --iMenuBGColor: white;
+    --iMenuTelegText: #212121;
+    --iMenuArrColor: #a2a2a2;
+    --iMenuLineColor: #00000042;
+    --headerBGColor: white;
+    --headerBSh: rgba(0, 0, 0, 0.22) 0px 0px 26px -4px;
+    --miniPostBGColor: #fdbb85;
+    --miniPostTitColor: #476365;
+    --miniPostDiscColor: #717171;
+    --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
+    --chTitleColor: #404040;
+    --fillColor: #252525;
+    --chLoginBGColor: #f3f3f3;
+    --chatLogNotColor: #888888;
+    --shesWinFilter: invert(0);
+    --headerTipsBG: #d6d6d6;
+    --headerTipsColor: #373737;
+    --headerTipsMainColor: #925f35;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  #mediaFlag500 {
+    color: black;
+  }
+  body {
+    --f7-page-bg-color: var(--day-bg);
+    --themeBool: black;
+    --day-bg: #151111;
+    --mainScreenImg: url(../img/chukKrivieNightsvg.svg);
+    --mainScreenImgMob: url(../img/chukMkrivieNight.svg);
+    --mainScreenFilter: drop-shadow(#53091b 0px 0px 45px);
+    --footerImage: url(../img/chukKrivieNightsvg.svg);
+    --footerBSh: #53091b 0px 0px 0px 170px, rgba(0, 0, 0, 0.44) 0px -20px 16px -10px inset;
+    --iBGColor: #53091b;
+    --iPcBGColor: #53091b;
+    --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #151111;
+    --aboutBGColor: #151111;
+    --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
+    --pageWrapperBSh: 0 -180px 0 70px #151111;
+    --hColor: #afaedc;
+    --pColor: #b7b7b7;
+    --strongColor: #dcdcdc;
+    --nonColor: #b7b7b7;
+    --contentBGColor: #151111;
+    --postImgBSh: 0 0 12px #739cff69;
+    --iMenuBGColor: #1d1c1c;
+    --iMenuTelegText: #c3c3c3;
+    --iMenuArr: #a2a2a2;
+    --iMenuLine: #383838;
+    --headerBGColor: #0e0400;
+    --headerBSh: #69222238 0 0 26px -4px;
+    --miniPostBGColor: #53091b;
+    --miniPostTitColor: #d4d4d4;
+    --miniPostDiscColor: #949494;
+    --miniPostHoverBSh: #3e0033 0px 0px 30px 0px;
+    --chTitleColor: #b3b3b3;
+    --fillColor: #e0e0e0;
+    --chLoginBGColor: #171717;
+    --chatLogNotColor: #888888;
+    --shesWinFilter: invert(1);
+    --headerTipsBG: #1e1e1e;
+    --headerTipsColor: #7f7f7f;
+    --headerTipsMainColor: #530a1b;
+  }
+}
+::selection {
+  background: #6c4124;
+  color: white;
+}
+::-moz-selection {
+  background: #6c4124;
+  color: white;
+}
+::-webkit-scrollbar-button {
+  background-image: url('');
+  background-repeat: no-repeat;
+  width: 5px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  background-color: #971d2d00;
+}
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  background-color: #6c4124;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6c4124;
+}
+::-webkit-resizer {
+  background-image: url('');
+  background-repeat: no-repeat;
+  width: 4px;
+  height: 0px;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 3px;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  background-color: var(--day-bg);
+}
+strong {
+  color: var(--strongColor);
+  font-weight: 500;
+}
+h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.9em;
+  color: var(--hColor);
+  margin-top: 2em;
+}
+h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5em;
+  color: var(--hColor);
+  margin-top: 2em;
+}
+p {
+  color: var(--pColor);
+  margin: 30px 90px;
+  font-size: 19pt;
+  line-height: 30px;
+  font-family: 'Inter', sans-serif;
+}
+@media (max-width: 700px) {
+  p {
+    margin: 0px;
+    font-size: 14pt;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+  }
+}
+non {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: var(--nonColor);
+  display: inline-block;
+}
+.mainScreen {
+  background-image: var(--mainScreenImg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  background-position: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+  height: 116%;
+  border-radius: 0px 0px 115px 115px;
+  filter: var(--mainScreenFilter);
+}
+@media (max-width: 700px) {
+  .mainScreen {
+    border-radius: 0px 0px 65px 65px;
+    background-image: var(--mainScreenImgMob);
+  }
+}
+.mainScreen-tips {
+  display: inline-block;
+  left: 20%;
+  color: #ffffffe0;
+  font-size: 30px;
+  position: relative;
+  top: calc(100% - 45%);
+  transform: translateX(-50%);
+}
+@media (max-width: 700px) {
+  .mainScreen-tips {
+    left: 35%;
+  }
+}
+.mainScreen-tip {
+  width: min-content;
+  margin-top: 0.2em;
+  font-size: 20pt;
+  font-weight: 500;
+  -webkit-text-stroke: 1px;
+  color: #6c4124;
+  background-color: #fff0e4;
+  padding: 0.7rem 1.3rem;
+  border-radius: 40px;
+}
+.header {
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  z-index: 4;
+  top: calc(-10vh - 1px);
+  opacity: 0;
+  background-color: var(--headerBGColor);
+  box-shadow: var(--headerBSh);
+  transform: translateY(0%);
+  transition-duration: 0.4s;
+}
+@media (max-width: 700px) {
+  .header {
+    top: calc(-7vh - 1px);
+    height: 7vh;
+  }
+}
+.header-logo {
+  height: 80%;
+  top: 10%;
+  left: 20px;
+  position: relative;
+}
+.header-itemes {
+  height: auto;
+  display: inline-block;
+  transform: translateY(-50%);
+  top: 50%;
+  position: absolute;
+  right: 0px;
+  border-radius: 1000px;
+  background-color: var(--headerTipsBG);
+  /* text-decoration-color: bisque; */
+  padding: 2px;
+  margin: 0px 1em;
+  text-decoration: none;
+}
+.header-disactiveTip {
+  border-radius: 1000px;
+  color: #cdcdcd;
+  text-decoration: inherit;
+  transition: 0.3s ease;
+  position: relative;
+  display: inline-block;
+  padding: 0.5em;
+  z-index: 1;
+}
+.header-activeTip {
+  border-radius: 1000px;
+  color: var(--headerTipsColor);
+  padding: 0.5em;
+  display: inline-block;
+  text-decoration: inherit;
+  position: relative;
+  transition: 0.3s ease;
+  z-index: 1;
+}
+.header-block {
+  background-color: var(--headerTipsMainColor);
+  height: 35px;
+  width: 92px;
+  position: absolute;
+  top: 50%;
+  z-index: 0;
+  left: 0px;
+  will-change: transform;
+  border-radius: 100px;
+  transition: 0.3s ease;
+  transform: translateY(-50%);
+}
+.activeTip {
+  width: fit-content;
+  /* margin-top: 0.2em; */
+  font-size: 16pt;
+  font-weight: 500;
+  color: #6c4124;
+  /* background-color: rgb(255, 240, 228); */
+  -webkit-text-stroke: 1px;
+  padding: 5px 13px;
+  position: relative;
+  border-radius: 40px;
+  right: 13px;
+  display: inline-block;
+  text-decoration: underline;
+}
+#mediaFlag500 {
+  display: none;
+  position: absolute;
+}
+@media (max-width: 500px) {
+  #mediaFlag500 {
+    display: block;
+  }
+}
+#disactiveTip {
+  display: inline-block;
+  opacity: 0.6;
+  text-decoration: underline;
+  transition: all 0.2s ease 0s;
+  width: min-content;
+}
+#disactiveTip:hover {
+  display: inline-block;
+  transition: 0.2s;
+  opacity: 0.9;
+}
+.tabsB {
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  box-sizing: border-box;
+  width: 100vw;
+  z-index: 3;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+.tabsB-item {
+  padding: 1rem 2rem;
+  color: var(--iBGColor);
+}
+.tabsB-item > * {
+  pointer-events: none;
+}
+.tabsB-item.tab-link-active {
+  color: red;
+}
