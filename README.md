@@ -1,4 +1,4 @@
-# chukкккк
+# chuk
 
 ## Framework7 CLI Options
 
