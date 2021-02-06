@@ -133,7 +133,7 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)(\?.*)?$/,
-        loader: 'html-loader',
+        loader: 'url-loader',
         options: {
           limit: 10000,
           name: 'images/[name].[ext]',

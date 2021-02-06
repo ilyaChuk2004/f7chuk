@@ -69,13 +69,8 @@ import {s_tabs} from './mods/s-tabs'
       }
   }, true /*Capture event*/);
 
+import {s_ms_tips} from './mods/s-ms-tips'
   $(document).on('click','.mainScreen-tip', (e)=>{
-    let tipEl = e.target;
-    let tipId = tipEl.getAttribute('href').slice(-1);
-
-    let tabEl = $(`.tabsB-item[href='#tab${tipId}']`);
-    tabEl.addClass('tab-link-active');
-    console.log(tabEl);
-    
+    s_ms_tips();
   })
 ///////events

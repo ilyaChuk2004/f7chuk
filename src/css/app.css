@@ -74,7 +74,7 @@ body[data-themee='dark'] {
   --chatLogNotColor: #888888;
   --shesWinFilter: invert(1);
   --headerTipsBG: #1e1e1e;
-  --headerTipsColor: #7f7f7f37 37;
+  --headerTipsColor: #7f7f7f3737;
   --headerTipsMainColor: #530a1b;
 }
 @media (prefers-color-scheme: light) {
