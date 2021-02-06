@@ -68,4 +68,9 @@ import {s_tabs} from './mods/s-tabs'
         s_tabs('page-content');
       }
   }, true /*Capture event*/);
+
+import {s_ms_tips} from './mods/s-ms-tips'
+  $(document).on('click','.mainScreen-tip', (e)=>{
+    s_ms_tips();
+  })
 ///////events
