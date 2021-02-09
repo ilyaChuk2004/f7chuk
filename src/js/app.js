@@ -71,6 +71,11 @@ import {s_tabs} from './mods/s-tabs'
 
 import {s_ms_tips} from './mods/s-ms-tips'
   $(document).on('click','.mainScreen-tip', (e)=>{
-    s_ms_tips();
-  })
+    s_ms_tips(e);
+  });
 ///////events
+
+app.request.getJSON('/static/data.json')
+  .then(function (res) {
+    console.log(res.data);
+  }); 

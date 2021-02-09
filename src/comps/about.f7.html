@@ -3,12 +3,12 @@
   <div id="about">
     <div style="text-align:left;" class="pageWrapper">
         <h2>Привет 
-          <picture>
-            <source srcset="img/wavHand.webp" type="image/webp" alt="👋"/>
-            <img class="fak" style="height:1em; transform:translateY(0%);" src='../img/wavHand.webp' alt=""/>
-          </picture>
+            <picture>
+                          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt=""/>
+                          <source srcset=${wawHandWebp} type="image/webp" alt="👋"/>
+            </picture>
         </h2>
-
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit voluptas necessitatibus quasi amet.</p>
     </div>
 </div>
   </template>
@@ -18,8 +18,8 @@
   }
 </style>
 <script>
-  // import Logo from '../img/wavHand.png';
-  // import LogoWebp from '../img/wavHand.webp';
+  import wawHand from '../img/wavHand.png';
+  import wawHandWebp from '../img/wavHand.webp';
     export default (props) => {
       return $render;
     }

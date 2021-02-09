@@ -1,7 +1,7 @@
 import $ from 'dom7';
 
 
-export function s_ms_tips() {
+export function s_ms_tips(e) {
     let tipEl = e.target;
     let tipId = tipEl.getAttribute('href').slice(-1);
 
