@@ -72,3 +72,8 @@ s_scroll_event();
 import {s_imports} from './mods/imports/s-imports'
 s_imports();
 ////import to store
+
+
+console.log(store);
+window.store = store;
+window.app = app;
