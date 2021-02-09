@@ -60,22 +60,15 @@ var app = new Framework7({
   },
 });
 
-import {s_tabs} from './mods/s-tabs'
+export {app}
+
+
 ////events 
-
-  document.addEventListener('scroll', function (event) {
-      if (event.target.className === 'page-content') { // or any other filtering condition        
-        s_tabs('page-content');
-      }
-  }, true /*Capture event*/);
-
-import {s_ms_tips} from './mods/s-ms-tips'
-  $(document).on('click','.mainScreen-tip', (e)=>{
-    s_ms_tips(e);
-  });
+import {s_scroll_event} from './mods/events/s-scroll-event'
+s_scroll_event();
 ///////events
 
-app.request.getJSON('/static/data.json')
-  .then(function (res) {
-    console.log(res.data);
-  }); 
+//import to store
+import {s_imports} from './mods/imports/s-imports'
+s_imports();
+////import to store

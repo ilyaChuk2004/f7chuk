@@ -5,6 +5,8 @@ const store = createStore({
   state: {
     appData:{
       
+    },
+    data:{
     }
   },
 })
