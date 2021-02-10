@@ -62,31 +62,31 @@
 
     $f7.on('e-tabShow', function (data, callback) {
 
-      console.log('call');
-        console.group($store.state.appData.tab);
+      // console.log('call');
+        // console.group($store.state.appData.tab);
         for (let index = 0; index < Object.keys(data).length; index++) {
           const val = Object.values(data)[index];
           const key = Object.keys(data)[index];
-          console.group(`if ${$store.state.appData.tab} == ${key}`);
+          // console.group(`if ${$store.state.appData.tab} == ${key}`);
           if ($store.state.appData.tab == key) {
             content = val;
             // console.log('get');
-            console.log(content);
-            console.log(`yes`);
+            // console.log(content);
+            // console.log(`yes`);
 
           } else {
-            console.log(`no`);
+            // console.log(`no`);
           }
-          console.groupEnd();
+          // console.groupEnd();
 
 
         }
-        console.groupEnd();
+        // console.groupEnd();
 
       
 
       $update(function(){
-        console.log('updated');
+        // console.log('updated');
       });
 
     });

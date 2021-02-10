@@ -74,6 +74,6 @@ s_imports();
 // //import to store
 
 
-console.log(store);
+// console.log(store);
 window.store = store;
 window.app = app;
