@@ -12,9 +12,6 @@ export function s_tab_show(e, callback) {
     store.state.appData.tab=e.target.id.slice(-1);
   }
 
-  app.emit('e-tabShow', function(){
-    $update();
-});
 
   if (callback != undefined) {
     s_store_about_imp(callback())

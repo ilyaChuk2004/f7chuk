@@ -68,10 +68,10 @@ import {s_scroll_event} from './mods/events/s-scroll-event'
 s_scroll_event();
 ///////events
 
-//import to store
-// import {s_imports} from './mods/imports/s-imports'
-// s_imports();
-////import to store
+// import to store
+import {s_imports} from './mods/imports/s-imports'
+s_imports();
+// //import to store
 
 
 console.log(store);

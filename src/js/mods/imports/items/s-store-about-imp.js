@@ -17,6 +17,8 @@ export function s_store_about_imp(callback) {
             callback();
         }
 
+        app.emit('e-tabShow', st);
+
         
 
     }); 

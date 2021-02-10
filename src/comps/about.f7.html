@@ -41,8 +41,10 @@
     $store,
     $f7,
     $h,
-    $update
+    $update,
+    $onBeforeMount
   }) => {
+
 
     var content;
 
@@ -57,38 +59,44 @@
       `
     }
 
-    function aboutInit() {
-      s_store_about_imp(function () {
-        for (let index = 0; index < Object.keys($store.state.data.about).length; index++) {
-          const val = Object.values($store.state.data.about)[index];
-          const key = Object.keys($store.state.data.about)[index];
-          // console.group(`if ${$store.state.appData.tab} == ${key}`);
+
+    $f7.on('e-tabShow', function (data, callback) {
+
+      console.log('call');
+        console.group($store.state.appData.tab);
+        for (let index = 0; index < Object.keys(data).length; index++) {
+          const val = Object.values(data)[index];
+          const key = Object.keys(data)[index];
+          console.group(`if ${$store.state.appData.tab} == ${key}`);
           if ($store.state.appData.tab == key) {
             content = val;
+            // console.log('get');
             console.log(content);
-            // console.group(`yes`);
+            console.log(`yes`);
+
           } else {
-            // console.group(`no`);
+            console.log(`no`);
           }
-          // console.groupEnd();
+          console.groupEnd();
 
 
         }
-      });
+        console.groupEnd();
 
       
-    }
 
-
-    $f7.on('e-tabShow', function (callback) {
-      $update();
-      // console.log('upd');
-      aboutInit();
+      $update(function(){
+        console.log('updated');
+      });
 
     });
 
-    aboutInit();
 
+//     setTimeout(() => {
+//   $f7.emit('e-tabShow', function(){
+//     $update();
+// });
+// }, 1);
 
 
 
