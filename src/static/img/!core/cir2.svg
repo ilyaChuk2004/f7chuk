@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="b">
+<stop stop-color="red" offset="0">
+<animate attributeName="stop-color" dur="2s" keyTimes="0; 0.5; 1" repeatCount="indefinite" values="#fe35e1;#0019ff;#fe35e1"/>
+</stop>
+<stop stop-color="#fe35e1" offset="1">
+<animate attributeName="stop-color" dur="2s" keyTimes="0; 0.5; 1" repeatCount="indefinite" values="#0019ff;#fe35e1;#0019ff"/>
+</stop>
+</linearGradient>
+</defs>
+<defs>
+<filter id="a" x="-100%" y="-100%" width="400%" height="400%">
+<feGaussianBlur stdDeviation="10"/>
+</filter>
+</defs>
+<circle cx="60" cy="50" r="20" fill="url(#b)" filter="url(#a)">
+<animate attributeName="stop-color" attributeType="CSS" dur="2s" keyTimes="0; 0.5; 1" repeatCount="indefinite" values="url(#gradient); url(#gradient2); url(#gradient)"/>
+<animate attributeName="cx" attributeType="CSS" calcMode="spline" dur="10s" keySplines="0.78, 0.18, 0.95, 1.01;0.78, 0.18, 0.95, 1.01" keyTimes="0; 0.5; 1" repeatCount="indefinite" values="60; 55; 60"/>
+<animate attributeName="r" attributeType="CSS" calcMode="spline" dur="3.5s" keySplines="0.78, 0.18, 0.95, 1.01;0.78, 0.18, 0.95, 1.01" keyTimes="0; 0.5; 1" repeatCount="indefinite" values="20; 10; 20"/>
+</circle>
+</svg>

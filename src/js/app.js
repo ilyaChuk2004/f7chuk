@@ -69,8 +69,8 @@ s_scroll_event();
 ///////events
 
 //import to store
-import {s_imports} from './mods/imports/s-imports'
-s_imports();
+// import {s_imports} from './mods/imports/s-imports'
+// s_imports();
 ////import to store
 
 

@@ -1,19 +1,30 @@
 <template>
-  
+
   <div id="about">
-    <div style="text-align:left;" class="pageWrapper">
-        <h2>Привет 
-            <picture>
-                          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt=""/>
-                          <source srcset=${wawHandWebp} type="image/webp" alt="👋"/>
-            </picture>
-        </h2>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit voluptas necessitatibus quasi amet.</p>
-    </div>
-</div>
-  </template>
+    <!-- <h2>Привет
+        <picture>
+          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt="" />
+          <source srcset=${wawHandWebp} type="image/webp" alt="👋" />
+        </picture>
+      </h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit
+        voluptas necessitatibus quasi amet.</p> -->
+
+      <!-- <h2>Привет
+        <picture>
+          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt="" />
+          <source srcset=${wawHandWebp} type="image/webp" alt="👋" />
+        </picture>
+      </h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit
+        voluptas necessitatibus quasi amet.</p> -->
+
+        <${cont}/>
+
+  </div>
+</template>
 <style>
-  div{
+  div {
     color: red !important;
   }
 </style>
@@ -21,9 +32,67 @@
   import wawHand from '../img/wavHand.png';
   import wawHandWebp from '../img/wavHand.webp';
 
+  import {
+    s_store_about_imp
+  } from '../js/mods/imports/items/s-store-about-imp'
 
-    export default (props, {$store}) => {
-      
-      return $render;
+
+  export default (props, {
+    $store,
+    $f7,
+    $h,
+    $update
+  }) => {
+
+    var content;
+
+    const contIn = (props, { $h }) => {
+    return () => $h`${content}`;
+  }
+
+    const cont = (props, {$h}) => {
+      return () => $h `
+      <div style="text-align:left;" class="pageWrapper" innerHTML=${content}>
+      </div>
+      `
     }
-  </script>
+
+    function aboutInit() {
+      s_store_about_imp(function () {
+        for (let index = 0; index < Object.keys($store.state.data.about).length; index++) {
+          const val = Object.values($store.state.data.about)[index];
+          const key = Object.keys($store.state.data.about)[index];
+          // console.group(`if ${$store.state.appData.tab} == ${key}`);
+          if ($store.state.appData.tab == key) {
+            content = val;
+            console.log(content);
+            // console.group(`yes`);
+          } else {
+            // console.group(`no`);
+          }
+          // console.groupEnd();
+
+
+        }
+      });
+
+      
+    }
+
+
+    $f7.on('e-tabShow', function (callback) {
+      $update();
+      // console.log('upd');
+      aboutInit();
+
+    });
+
+    aboutInit();
+
+
+
+
+
+    return $render;
+  }
+</script>

@@ -1,27 +1,34 @@
 <template>
   <div class="tabs">
     <!-- each tabs is a "page-content" -->
-    <div class="page-content tab tab-active" id="tab1" >
+    <div class="page-content tab tab-active" id="tab1">
       <q-rhome></q-rhome>
     </div>
     <div class="page-content tab" id="tab2">
       <q-png></q-png>
     </div>
-</div>
-  </template>
-  <script>
-    export default (props, {$on, $store}) => {
-      // $('#tab1').on('tab:show', (e)=>{
-      //   console.log(1);
-      // });
+  </div>
+</template>
+<script>
+  import {
+    s_tab_show
+  } from '../../js/mods/events/s-tab-show'
 
-      // $('#tab2').on('tab:show', (e)=>{
-      //   console.log(2);
-      // });
-      $on('tabShow', (e) => {
-    $store.state.appData.tab=e.target.id.slice(-1);
+  export default (props, {
+    $on,
+    $store
+  }) => {
+    // $('#tab1').on('tab:show', (e)=>{
+    //   console.log(1);
+    // });
 
-  });
-      return $render;
-    }
-  </script>
+    // $('#tab2').on('tab:show', (e)=>{
+    //   console.log(2);
+    // });
+    $on('tabShow', (e) => {
+      s_tab_show(e);
+
+    });
+    return $render;
+  }
+</script>
