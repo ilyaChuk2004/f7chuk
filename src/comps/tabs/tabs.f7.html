@@ -3,16 +3,32 @@
     <!-- each tabs is a "page-content" -->
     <div class="page-content tab tab-active" id="tab1">
       <q-rhome></q-rhome>
-      111111111
     </div>
     <div class="page-content tab" id="tab2">
       <q-png></q-png>
-      444444444
     </div>
-</div>
-  </template>
-  <script>
-    export default (props) => {
-      return $render;
-    }
-  </script>
+  </div>
+</template>
+<script>
+  import {
+    s_tab_show
+  } from '../../js/mods/events/s-tab-show'
+
+  export default (props, {
+    $on,
+    $store
+  }) => {
+    // $('#tab1').on('tab:show', (e)=>{
+    //   console.log(1);
+    // });
+
+    // $('#tab2').on('tab:show', (e)=>{
+    //   console.log(2);
+    // });
+    $on('tabShow', (e) => {
+      s_tab_show(e);
+
+    });
+    return $render;
+  }
+</script>

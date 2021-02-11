@@ -1,26 +1,106 @@
 <template>
-  
-  <div id="about">
-    <div style="text-align:left;" class="pageWrapper">
-        <h2>Привет 
-          <picture>
-            <source srcset="img/wavHand.webp" type="image/webp" alt="👋"/>
-            <img class="fak" style="height:1em; transform:translateY(0%);" src='../img/wavHand.webp' alt=""/>
-          </picture>
-        </h2>
 
-    </div>
-</div>
-  </template>
+  <div id="about">
+    <!-- <h2>Привет
+        <picture>
+          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt="" />
+          <source srcset=${wawHandWebp} type="image/webp" alt="👋" />
+        </picture>
+      </h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit
+        voluptas necessitatibus quasi amet.</p> -->
+
+      <!-- <h2>Привет
+        <picture>
+          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt="" />
+          <source srcset=${wawHandWebp} type="image/webp" alt="👋" />
+        </picture>
+      </h2>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit
+        voluptas necessitatibus quasi amet.</p> -->
+
+        <${cont}/>
+
+  </div>
+</template>
 <style>
-  div{
+  div {
     color: red !important;
   }
 </style>
 <script>
-  // import Logo from '../img/wavHand.png';
-  // import LogoWebp from '../img/wavHand.webp';
-    export default (props) => {
-      return $render;
+  import wawHand from '../img/wavHand.png';
+  import wawHandWebp from '../img/wavHand.webp';
+
+  import {
+    s_store_about_imp
+  } from '../js/mods/imports/items/s-store-about-imp'
+
+
+  export default (props, {
+    $store,
+    $f7,
+    $h,
+    $update,
+    $onBeforeMount
+  }) => {
+
+
+    var content;
+
+    const contIn = (props, { $h }) => {
+    return () => $h`${content}`;
+  }
+
+    const cont = (props, {$h}) => {
+      return () => $h `
+      <div style="text-align:left;" class="pageWrapper" innerHTML=${content}>
+      </div>
+      `
     }
-  </script>
+
+
+    $f7.on('e-tabShow', function (data, callback) {
+
+      // console.log('call');
+        // console.group($store.state.appData.tab);
+        for (let index = 0; index < Object.keys(data).length; index++) {
+          const val = Object.values(data)[index];
+          const key = Object.keys(data)[index];
+          // console.group(`if ${$store.state.appData.tab} == ${key}`);
+          if ($store.state.appData.tab == key) {
+            content = val;
+            // console.log('get');
+            // console.log(content);
+            // console.log(`yes`);
+
+          } else {
+            // console.log(`no`);
+          }
+          // console.groupEnd();
+
+
+        }
+        // console.groupEnd();
+
+      
+
+      $update(function(){
+        // console.log('updated');
+      });
+
+    });
+
+
+//     setTimeout(() => {
+//   $f7.emit('e-tabShow', function(){
+//     $update();
+// });
+// }, 1);
+
+
+
+
+    return $render;
+  }
+</script>
