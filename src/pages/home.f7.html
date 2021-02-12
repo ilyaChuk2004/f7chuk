@@ -1,18 +1,32 @@
 <template>
   <div class="page" data-name="home">
     <!-- Scrollable page content-->
+    ${$store.state.appData.desktop && $h`
+      `
+    }
+
+    ${!$store.state.appData.desktop &&  $h`
+      <${q_tabs}/>
+      `
+
+    }
+
+    
+
     <div class="page-content">
 
       <q-mainScreen></q-main_screen>
         <q-about></q-about>
-      <q-tabsButt></q-tabsButt>
       <q-tabs></q-tabs>
 
     </div>
   </div>
 </template>
 <script>
-export default () => {
+  import q_navbar from '../comps/tabs/navbar.f7.html'
+  import q_tabs from '../comps/tabs/tabsButt.f7.html'
+export default (props, {$store}) => {
+  // var desk=
   return $render;
 }
 </script>

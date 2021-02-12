@@ -54,14 +54,28 @@ var app = new Framework7({
   store: store,
   // App routes
   routes: routes,
+  toolbar:{
+    hideOnPageScroll:true,
+    showOnPageScrollEnd:false,
+    showOnPageScrollTop:true
+  },
+
+  navbar:{
+    showOnPageScrollEnd:false,
+    hideOnPageScroll:true
+  },
   // Register service worker
   serviceWorker: {
     path: '/service-worker.js',
   },
 });
 
-export {app}
+export {app,}
 
+store.state.appData.desktop=Framework7.device.desktop;
+
+import {s_theme_color_init} from './mods/s-theme-color-init'
+s_theme_color_init();
 
 ////events 
 import {s_scroll_event} from './mods/events/s-scroll-event'

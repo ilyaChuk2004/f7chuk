@@ -12,14 +12,17 @@ let tabsB = {
     el:$('.tabsB'),
     height(){return this.el.height()},
 }
+
 let scroll = ()=>{
     return pageEl.scrollTop()
 };
 
 if (underMs()) {
     tabsB.el.css('opacity','1');
+    // console.log(1);
 }else{
     tabsB.el.css('opacity','0');
+    // console.log(0);
 
 }
 

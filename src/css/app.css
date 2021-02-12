@@ -1,82 +1,4 @@
 @main ScreenImg: chukKrivie.svg;
-body[data-themee='light'] {
-  --themeBool: white;
-  --day-bg: #f5f5f5;
-  --mainScreenImg: url(../img/chukKrivie.svg);
-  --mainScreenImgMob: url(../img/chukMKrivie.svg);
-  --mainScreenFilter: drop-shadow(0px 0px 45px #b0733f);
-  --footerImage: url(../img/chukKrivie.svg);
-  --footerBSh: #925f35 0px 0px 0px 170px, inset 0px -20px 16px -10px #00000070;
-  --iBGColor: #6b4124;
-  --iPcBGColor: #6b4124;
-  --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #f5f5f5;
-  --aboutBGColor: #f5f5f5;
-  --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
-  --pageWrapperBSh: 0 -180px 0 70px #f5f5f5;
-  --hColor: #110e4a;
-  --pColor: #464646;
-  --strongColor: #110e4a;
-  --nonColor: #b7b7b7;
-  --contentBGColor: #f5f5f5;
-  --postImgBSh: rgba(0, 0, 0, 0.58) 0 0 26px -7px, black 0 0 0 20px inset;
-  --iMenuBGColor: white;
-  --iMenuTelegText: #212121;
-  --iMenuArrColor: #a2a2a2;
-  --iMenuLineColor: #00000042;
-  --headerBGColor: white;
-  --headerBSh: rgba(0, 0, 0, 0.22) 0px 0px 26px -4px;
-  --miniPostBGColor: #fdbb85;
-  --miniPostTitColor: #476365;
-  --miniPostDiscColor: #717171;
-  --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
-  --chTitleColor: #404040;
-  --fillColor: #252525;
-  --chLoginBGColor: #f3f3f3;
-  --chatLogNotColor: #888888;
-  --shesWinFilter: invert(0);
-  --headerTipsBG: #d6d6d6;
-  --headerTipsColor: #373737;
-  --headerTipsMainColor: #925f35;
-}
-body[data-themee='dark'] {
-  --themeBool: black;
-  --day-bg: #151111;
-  --mainScreenImg: url(../img/chukKrivieNightsvg.svg);
-  --mainScreenImgMob: url(../img/chukMkrivieNight.svg);
-  --mainScreenFilter: drop-shadow(#53091b 0px 0px 45px);
-  --footerImage: url(../img/chukKrivieNightsvg.svg);
-  --footerBSh: #53091b 0px 0px 0px 170px, rgba(0, 0, 0, 0.44) 0px -20px 16px -10px inset;
-  --iBGColor: #53091b;
-  --iPcBGColor: #53091b;
-  --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #151111;
-  --aboutBGColor: #151111;
-  --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
-  --pageWrapperBSh: 0 -180px 0 70px #151111;
-  --hColor: #afaedc;
-  --pColor: #b7b7b7;
-  --strongColor: #dcdcdc;
-  --nonColor: #b7b7b7;
-  --contentBGColor: #151111;
-  --postImgBSh: 0 0 12px #739cff69;
-  --iMenuBGColor: #1d1c1c;
-  --iMenuTelegText: #c3c3c3;
-  --iMenuArr: #a2a2a2;
-  --iMenuLine: #383838;
-  --headerBGColor: #0e0400;
-  --headerBSh: #69222238 0 0 26px -4px;
-  --miniPostBGColor: #53091b;
-  --miniPostTitColor: #d4d4d4;
-  --miniPostDiscColor: #949494;
-  --miniPostHoverBSh: #3e0033 0px 0px 30px 0px;
-  --chTitleColor: #b3b3b3;
-  --fillColor: #e0e0e0;
-  --chLoginBGColor: #171717;
-  --chatLogNotColor: #888888;
-  --shesWinFilter: invert(1);
-  --headerTipsBG: #1e1e1e;
-  --headerTipsColor: #7f7f7f3737;
-  --headerTipsMainColor: #530a1b;
-}
 @media (prefers-color-scheme: light) {
   #mediaFlag500 {
     color: white;
@@ -84,6 +6,7 @@ body[data-themee='dark'] {
   body {
     --themeBool: white;
     --day-bg: #f5f5f5;
+    --day-bg-e1: #e7e7e7;
     --mainScreenImg: url(../img/chukKrivie.svg);
     --mainScreenImgMob: url(../img/chukMKrivie.svg);
     --mainScreenFilter: drop-shadow(0px 0px 45px #b0733f);
@@ -107,6 +30,8 @@ body[data-themee='dark'] {
     --iMenuLineColor: #00000042;
     --headerBGColor: white;
     --headerBSh: rgba(0, 0, 0, 0.22) 0px 0px 26px -4px;
+    --tabsIcoSh: drop-shadow(0px 0px 9px #a46b3bb8);
+    --tabsIcoColor: #a46b3b;
     --miniPostBGColor: #fdbb85;
     --miniPostTitColor: #476365;
     --miniPostDiscColor: #717171;
@@ -127,8 +52,10 @@ body[data-themee='dark'] {
   }
   body {
     --f7-page-bg-color: var(--day-bg);
+    --f7-elevation-20: 0px 10px 13px -6px rgba(209, 209, 209, 0.2), 0px 20px 31px 3px rgba(189, 189, 189, 0.14), 0px 8px 38px 7px rgba(173, 173, 173, 0.12) !important;
     --themeBool: black;
     --day-bg: #151111;
+    --day-bg-e1: #1d1717;
     --mainScreenImg: url(../img/chukKrivieNightsvg.svg);
     --mainScreenImgMob: url(../img/chukMkrivieNight.svg);
     --mainScreenFilter: drop-shadow(#53091b 0px 0px 45px);
@@ -152,6 +79,8 @@ body[data-themee='dark'] {
     --iMenuLine: #383838;
     --headerBGColor: #0e0400;
     --headerBSh: #69222238 0 0 26px -4px;
+    --tabsIcoSh: drop-shadow(0px 0px 9px #fa4d6a8f);
+    --tabsIcoColor: #962240;
     --miniPostBGColor: #53091b;
     --miniPostTitColor: #d4d4d4;
     --miniPostDiscColor: #949494;
@@ -452,15 +381,18 @@ non {
   width: 100vw;
   z-index: 3;
   opacity: 0;
+  background-color: var(--day-bg-e1) !important;
   transition: 0.3s ease;
 }
 .tabsB-item {
   padding: 1rem 2rem;
-  color: var(--iBGColor);
+  color: var(--iBGColor) !important;
+  transition: 0.2s ease;
 }
 .tabsB-item > * {
   pointer-events: none;
 }
 .tabsB-item.tab-link-active {
-  color: red;
+  color: var(--tabsIcoColor) !important;
+  filter: var(--tabsIcoSh);
 }
