@@ -1,0 +1,41 @@
+<template>
+  <div class="fab fab-right-bottom">
+    <a class="ripple-color-black" href="#">
+      <!-- First icon is visible when Speed Dial actions are closed -->
+      я
+    </a>
+    <!-- Speed Dial action buttons -->
+    <div class="fab-buttons fab-buttons-top">
+      <!-- additional "fab-label-button" class on fab button -->
+      <a href="#" class="fab-label-button">
+        <!-- original button content -->
+        <span>1</span>
+        <!-- button label -->
+        <span class="fab-label">Action 1</span>
+      </a>
+      <a href="#" class="fab-label-button">
+        <span>2</span>
+        <span class="fab-label">Action 2</span>
+      </a>
+    </div>
+  </div>
+</template>
+<script>
+
+  export default (props, {$on,$store, $f7, $el, $, $onMounted}) => {
+
+$onMounted(() => {
+
+  var sheet = $f7.sheet.create({
+        el: $el.value[0],
+        swipeToClose: true,
+        backdrop: true,
+      });
+
+  // sheet.open(true)
+
+  });
+
+    return $render;
+  }
+</script>

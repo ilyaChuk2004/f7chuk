@@ -1,0 +1,30 @@
+<template>
+<div>
+
+  ${$store.state.appData.desktop && $h`
+    <!-- <a href="#" data-fab=".fab-buttons" class="contactsBtn fab fab-open">
+      я
+        </a> -->
+    `
+  }
+
+  ${!$store.state.appData.desktop &&  $h`
+    <a href="#" data-sheet=".sheet-modal" class="contactsBtn sheet-open">
+      я
+        </a>
+    `
+
+  }
+  </div>
+</template>
+<script>
+
+
+  export default (props, {
+    $on,
+    $store
+  }) => {
+
+    return $render;
+  }
+</script>

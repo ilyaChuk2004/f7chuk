@@ -209,7 +209,7 @@ strong {
 
 h2 {
 	font-family: @fontFamily;
-    font-size: 1.9em;
+    font-size: 26pt;
     color: var(--hColor);
     margin-top: 2em;
 }
@@ -482,3 +482,80 @@ non {
         }
     }
 }
+
+  .contacts{
+    // z-index: 4;
+    // position: fixed;
+    width: 100vw;
+    height: auto;
+    
+    // bottom: 0px;
+    background-color: var(--iMenuBGColor);
+    box-sizing: border-box;
+    padding:2rem 1rem 3rem;
+    padding-bottom: 3rem;
+    border-radius: 2rem 2rem 0rem 0rem;
+
+    & .swipe-handler{
+        height: 0.5rem;
+        width: 3.4rem;
+        background-color: var(--pColor);
+        border-radius: 11rem;
+        margin: auto;
+        opacity: 0.3;
+        transform: translateY(-200%);
+    }
+    & i{
+        position: absolute;
+        right: 1rem;
+        bottom: 50%;
+        transform: translateY(50%);
+        opacity: 0.2;
+    }
+
+    & .swiper-slide{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        box-sizing: border-box;
+        flex-direction: column;
+
+        & span{
+            color: var(--pColor);
+            font-size: 15pt;
+        }
+        & button{
+            margin-top: 1.5rem;
+            font-size: 16pt;
+            padding: 1.5rem;
+            border-radius: 111rem;
+        }
+
+
+        
+    }
+
+    &Btn{
+        display: flex;
+        /* color: red; */
+        // position: fixed;
+        bottom: 1.75rem;
+        color: inherit;
+        right: 1.75rem;
+        // transform: translate(-50%, -40%);
+        width: 3.5rem;
+        height: 3.5rem;
+        /* height: 4rem; */
+        background-color: var(--iBGColor) !important;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100%;
+        font-size: 15pt;
+        opacity: 0.7;
+
+        &>a{
+            background-color: transparent;
+        }
+    }
+  }

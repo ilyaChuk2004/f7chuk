@@ -1,0 +1,35 @@
+<template>
+  <div class="sheet-modal contacts my-sheet-swipe-to-close elevation-20">
+    <div class="swipe-handler"></div>
+    <i class="f7-icons">chevron_right</i>
+    <div class="sheet-modal-inner">
+      
+      <div data-space-between="0" data-slides-per-view="auto" threshold='10' data-centered-slides="true" class="swiper-container swiper-init">
+        <div class="swiper-wrapper">
+          ${$store.state.data.contacts.map((item) => $h`
+            <q-contactsPopSlide text=${item.disc} btn_text=${item.text} btn_bgcol=${item.btn_bgcol} btn_href=${item.href} ></q-contactsPopSlide>
+          `)}
+        </div>
+    </div>
+    </div>
+  </div>
+</template>
+<script>
+
+  export default (props, {$on,$store, $f7, $el, $, $onMounted}) => {
+
+$onMounted(() => {
+
+  var sheet = $f7.sheet.create({
+        el: $el.value[0],
+        swipeToClose: true,
+        backdrop: true,
+      });
+
+  // sheet.open(true)
+
+  });
+
+    return $render;
+  }
+</script>
