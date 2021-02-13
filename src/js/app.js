@@ -30,6 +30,7 @@ import contactsBtn from '../comps/contacts/contactsBtn.f7.html';
 import contactsPop from '../comps/contacts/contactsPop.f7.html';
 import contactsPopSlide from '../comps/contacts/contactsPopSlide.f7.html';
 import fab from '../comps/contacts/fab.f7.html';
+import post from '../comps/post.f7.html';
 
 function imp(tag, comp) {
   Framework7.registerComponent(
@@ -51,6 +52,7 @@ imp('contactsBtn', contactsBtn);
 imp('contactsPop', contactsPop);
 imp('contactsPopSlide', contactsPopSlide);
 imp('fab', fab);
+imp('post', post);
 
 var app = new Framework7({
   name: 'chuk', // App name
@@ -64,10 +66,11 @@ var app = new Framework7({
   routes: routes,
   touch: {
     iosTouchRipple: true,
+    disableContextMenu:true
   },
   lazy: {
-    threshold: 50,
-    sequential: false,
+    threshold: 800,
+    sequential: true,
     placeholder:'/static/img/ww2.png'
   },
   toolbar: {

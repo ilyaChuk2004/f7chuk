@@ -4,15 +4,15 @@
         
 
         ${$store.state.data.posts.map((item) => $h`
-          <a class="post" href="posts/трип">
+          <a class="post"  style="cursor:${item.cursor()}" href="posts/трип">
             
             ${support_format_webp() && $h`
-              <img id="tripImg" data-src=${item.img_webp()} alt='Приложение «трип» постер.png' class="lazy lazy-fade-in post-img"/>
+              <img data-src=${item.img_webp()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/>
               `
             }
     
             ${!support_format_webp() &&  $h`
-              <img id="tripImg" data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' class="lazy lazy-fade-in post-img"/>
+              <img data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/>
               `
     
             }
@@ -24,10 +24,28 @@
         `)}
 
         <!-- style="cursor: url(img/trip/tripCur.cur), auto;" -->
+        <style>
+          ${css}
+        </style>
   </div>
   </template>
+
   <script>
   export default (props, {$store, $f7, $, $onMounted}) => {
+
+    let css = ``;
+
+    $store.state.data.posts.map((item) =>{
+      css=css+`#post-${item.name}:hover{
+        box-shadow:${item.h_box_shadow};
+        ${item.h_filter} !important;
+      }
+      ${item.h_animation}`
+    });
+
+    // console.log(css);
+
+
     function support_format_webp()
 {
  var elem = document.createElement('canvas');
@@ -44,8 +62,14 @@
  }
 }
     $onMounted(() => {
-      $f7.lazy.create($('.page-wrapper'))
+      $f7.lazy.create($('.page-wrapper'));
 
+  });
+
+  $f7.on('lazyLoaded', (e)=>{
+    setTimeout(() => {
+      e.style.animation='none'
+    }, 500);
   })
     return $render;
   }

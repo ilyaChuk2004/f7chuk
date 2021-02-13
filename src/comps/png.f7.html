@@ -1,9 +1,54 @@
 <template>
-    <div>
-    </div>
+  <div class="content page-wrapper" id="pageWrapper">
+
+        
+
+    ${$store.state.data.posts.map((item) => $h`
+      <a class="post" href="posts/трип">
+        
+        ${support_format_webp() && $h`
+          <!-- <img data-src=${item.img_webp()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/> -->
+          `
+        }
+
+        ${!support_format_webp() &&  $h`
+          <!-- <img data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/> -->
+          `
+
+        }
+        <!-- <picture>
+          <source data-src=${item.img_webp()} alt='Приложение «трип» постер.png' type="image/webp"/>
+            <img id="tripImg" data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' class="lazy lazy-fade-in post-img"/>
+        </picture> -->
+    </a>
+    `)}
+
+</div>
   </template>
   <script>
-  export default () => {
+  export default (props, {$store, $f7, $, $onMounted}) => {
+
+
+function support_format_webp()
+{
+var elem = document.createElement('canvas');
+
+if (!!(elem.getContext && elem.getContext('2d')))
+{
+// was able or not to get WebP representation
+return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+}
+else
+{
+// very old browser like IE 8, canvas not supported
+return false;
+}
+}
+$onMounted(() => {
+  $f7.lazy.create($('.page-wrapper'))
+
+})
+
     return $render;
   }
   </script>
