@@ -26,10 +26,14 @@ import tabsButtItem from '../comps/tabs/tabsButtItem.f7.html';
 import about from '../comps/about.f7.html';
 import rhome from '../comps/rhome.f7.html';
 import png from '../comps/png.f7.html';
+import contactsBtn from '../comps/contacts/contactsBtn.f7.html';
+import contactsPop from '../comps/contacts/contactsPop.f7.html';
+import contactsPopSlide from '../comps/contacts/contactsPopSlide.f7.html';
+import fab from '../comps/contacts/fab.f7.html';
 
 function imp(tag, comp) {
   Framework7.registerComponent(
-    'q-'+tag,
+    'q-' + tag,
     comp
   )
 }
@@ -43,6 +47,10 @@ imp('tabsButtItem', tabsButtItem);
 imp('about', about);
 imp('rhome', rhome);
 imp('png', png);
+imp('contactsBtn', contactsBtn);
+imp('contactsPop', contactsPop);
+imp('contactsPopSlide', contactsPopSlide);
+imp('fab', fab);
 
 var app = new Framework7({
   name: 'chuk', // App name
@@ -54,15 +62,18 @@ var app = new Framework7({
   store: store,
   // App routes
   routes: routes,
-  toolbar:{
-    hideOnPageScroll:true,
-    showOnPageScrollEnd:false,
-    showOnPageScrollTop:true
+  touch: {
+    iosTouchRipple: true,
+  },
+  toolbar: {
+    hideOnPageScroll: true,
+    showOnPageScrollEnd: false,
+    showOnPageScrollTop: true
   },
 
-  navbar:{
-    showOnPageScrollEnd:false,
-    hideOnPageScroll:true
+  navbar: {
+    showOnPageScrollEnd: false,
+    hideOnPageScroll: true
   },
   // Register service worker
   serviceWorker: {
@@ -70,20 +81,20 @@ var app = new Framework7({
   },
 });
 
-export {app,}
+export { app, }
 
-store.state.appData.desktop=Framework7.device.desktop;
+store.state.appData.desktop = Framework7.device.desktop;
 
-import {s_theme_color_init} from './mods/s-theme-color-init'
+import { s_theme_color_init } from './mods/s-theme-color-init'
 s_theme_color_init();
 
 ////events 
-import {s_scroll_event} from './mods/events/s-scroll-event'
+import { s_scroll_event } from './mods/events/s-scroll-event'
 s_scroll_event();
 ///////events
 
 // import to store
-import {s_imports} from './mods/imports/s-imports'
+import { s_imports } from './mods/imports/s-imports'
 s_imports();
 // //import to store
 

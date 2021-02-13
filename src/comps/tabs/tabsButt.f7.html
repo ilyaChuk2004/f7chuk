@@ -2,6 +2,7 @@
   <div class="tabsB toolbar tabbar toolbar-bottom hide-toolbar-on-scroll elevation-20">
     <q-tabsButtItem text='house_fill' link='/rhome/' tab='1' cl='tab-link-active'></q-tabsButtItem>
     <q-tabsButtItem text='logo_instagram' link='/png/' tab='2' cl=''></q-tabsButtItem>
+    
   </div>
   </template>
 <style>
@@ -10,7 +11,7 @@
   }
 </style>
 <script>
-    export default (props) => {
+    export default (props, {$store}) => {
       return $render;
     }
   </script>

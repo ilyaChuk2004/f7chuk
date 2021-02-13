@@ -2,15 +2,20 @@
   <div class="page" data-name="home">
     <!-- Scrollable page content-->
     ${$store.state.appData.desktop && $h`
+      <div class="fab-backdrop"></div>
+      <q-fab></q-fab>
       `
     }
 
     ${!$store.state.appData.desktop &&  $h`
-      <${q_tabs}/>
+<q-tabsButt></q-tabsButt>
       `
 
     }
 
+    <q-contactsBtn></q-contactsBtn>
+    
+    <q-contactsPop></q-contactsPop>
     
 
     <div class="page-content">
@@ -23,8 +28,6 @@
   </div>
 </template>
 <script>
-  import q_navbar from '../comps/tabs/navbar.f7.html'
-  import q_tabs from '../comps/tabs/tabsButt.f7.html'
 export default (props, {$store}) => {
   // var desk=
   return $render;

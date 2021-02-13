@@ -1,0 +1,25 @@
+<template>
+  <div class="fab fab-right-bottom ripple-color-black contactsBtn">
+    <a class="no-active-state" href="#">
+      <!-- First icon is visible when Speed Dial actions are closed -->
+      я
+    </a>
+    <!-- Speed Dial action buttons -->
+    <div class="fab-buttons fab-buttons-top">
+      ${$store.state.data.contacts.map((item) => $h`
+      <a href='${item.href}' class="fab-label-button">
+        <!-- original button content -->
+        <span
+          style='background-image: url(/static/img/${item.img}); width: 100%; height: 100%; background-size: cover;'></span>
+        <!-- button label -->
+        <span style="pointer-events: all;" class="fab-label">${item.disc}</span>
+      </a>
+      `)}
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, { $on, $store, $f7, $el, $, $onMounted }) => {
+    return $render;
+  }
+</script>
