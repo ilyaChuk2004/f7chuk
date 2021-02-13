@@ -33,7 +33,7 @@ import fab from '../comps/contacts/fab.f7.html';
 
 function imp(tag, comp) {
   Framework7.registerComponent(
-    'q-'+tag,
+    'q-' + tag,
     comp
   )
 }
@@ -62,15 +62,18 @@ var app = new Framework7({
   store: store,
   // App routes
   routes: routes,
-  toolbar:{
-    hideOnPageScroll:true,
-    showOnPageScrollEnd:false,
-    showOnPageScrollTop:true
+  touch: {
+    iosTouchRipple: true,
+  },
+  toolbar: {
+    hideOnPageScroll: true,
+    showOnPageScrollEnd: false,
+    showOnPageScrollTop: true
   },
 
-  navbar:{
-    showOnPageScrollEnd:false,
-    hideOnPageScroll:true
+  navbar: {
+    showOnPageScrollEnd: false,
+    hideOnPageScroll: true
   },
   // Register service worker
   serviceWorker: {
@@ -78,20 +81,20 @@ var app = new Framework7({
   },
 });
 
-export {app,}
+export { app, }
 
-store.state.appData.desktop=Framework7.device.desktop;
+store.state.appData.desktop = Framework7.device.desktop;
 
-import {s_theme_color_init} from './mods/s-theme-color-init'
+import { s_theme_color_init } from './mods/s-theme-color-init'
 s_theme_color_init();
 
 ////events 
-import {s_scroll_event} from './mods/events/s-scroll-event'
+import { s_scroll_event } from './mods/events/s-scroll-event'
 s_scroll_event();
 ///////events
 
 // import to store
-import {s_imports} from './mods/imports/s-imports'
+import { s_imports } from './mods/imports/s-imports'
 s_imports();
 // //import to store
 

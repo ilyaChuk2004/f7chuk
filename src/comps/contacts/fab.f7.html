@@ -1,41 +1,25 @@
 <template>
-  <div class="fab fab-right-bottom">
-    <a class="ripple-color-black" href="#">
+  <div class="fab fab-right-bottom ripple-color-black contactsBtn">
+    <a class="no-active-state" href="#">
       <!-- First icon is visible when Speed Dial actions are closed -->
       я
     </a>
     <!-- Speed Dial action buttons -->
     <div class="fab-buttons fab-buttons-top">
-      <!-- additional "fab-label-button" class on fab button -->
-      <a href="#" class="fab-label-button">
+      ${$store.state.data.contacts.map((item) => $h`
+      <a href='${item.href}' class="fab-label-button">
         <!-- original button content -->
-        <span>1</span>
+        <span
+          style='background-image: url(/static/img/${item.img}); width: 100%; height: 100%; background-size: cover;'></span>
         <!-- button label -->
-        <span class="fab-label">Action 1</span>
+        <span style="pointer-events: all;" class="fab-label">${item.disc}</span>
       </a>
-      <a href="#" class="fab-label-button">
-        <span>2</span>
-        <span class="fab-label">Action 2</span>
-      </a>
+      `)}
     </div>
   </div>
 </template>
 <script>
-
-  export default (props, {$on,$store, $f7, $el, $, $onMounted}) => {
-
-$onMounted(() => {
-
-  var sheet = $f7.sheet.create({
-        el: $el.value[0],
-        swipeToClose: true,
-        backdrop: true,
-      });
-
-  // sheet.open(true)
-
-  });
-
+  export default (props, { $on, $store, $f7, $el, $, $onMounted }) => {
     return $render;
   }
 </script>

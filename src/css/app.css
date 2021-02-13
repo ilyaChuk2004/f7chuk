@@ -437,14 +437,17 @@ non {
   margin-top: 1.5rem;
   font-size: 16pt;
   padding: 1.5rem;
+  width: auto;
   border-radius: 111rem;
 }
 .contactsBtn {
   display: flex;
   /* color: red; */
-  bottom: 1.75rem;
+  position: fixed;
+  bottom: 0rem;
   color: inherit;
-  right: 1.75rem;
+  right: 0rem;
+  transform: translate(-50%, -40%) !important;
   width: 3.5rem;
   height: 3.5rem;
   /* height: 4rem; */
@@ -457,4 +460,124 @@ non {
 }
 .contactsBtn > a {
   background-color: transparent;
+}
+.ripple-wave {
+  background-color: rgba(0, 0, 0, 0.253);
+  background-color: rgba(255, 255, 255, 0.253);
+}
+.content {
+  height: auto;
+  background-color: var(--contentBGColor);
+  transition-duration: 0.4s;
+  display: grid;
+  border-radius: 0px 0px 65px 65px;
+  padding-bottom: 70px;
+  position: relative;
+  z-index: -1;
+}
+.post {
+  width: fit-content;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+  z-index: 2;
+  position: relative;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  display: inline-block;
+  transition: all 0.5s ease 0s;
+  margin: 50px 0px;
+  transition-timing-function: cubic-bezier(1, 0.01, 1, 0);
+}
+@media (max-width: 700px) {
+  .post {
+    width: fit-content;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    max-width: 95%;
+    transition: all 0.2s ease 0s;
+    margin: 50px 0px;
+  }
+}
+.post:hover #kschImg {
+  filter: hue-rotate(125deg);
+  box-shadow: rgba(46, 53, 255, 0.42) 0 24px 50px -7px, black 0 0 0 20px inset;
+}
+.post:hover #medImg {
+  filter: saturate(3);
+  box-shadow: rgba(178, 208, 255, 0.39) 0px 24px 50px -7px, black 0px 0px 0px 20px inset;
+}
+.post :hover #singleImg {
+  filter: sepia(3.6);
+  box-shadow: rgba(132, 117, 91, 0.75) 0 24px 50px -7px, black 0 0 0 20px inset;
+}
+.post:hover #tripImg {
+  animation: tripPrewAni 2s ease infinite;
+  box-shadow: rgba(15, 255, 75, 0.39) 0px 24px 50px -7px, black 0px 0px 0px 20px inset;
+}
+.post:hover .pod {
+  opacity: 0.1;
+}
+.post-img {
+  width: auto;
+  position: relative;
+  min-width: 30vw;
+  max-width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  max-height: 90vh;
+  box-shadow: var(--postImgBSh);
+  transition: all 1s ease 0s;
+  border-radius: 40px;
+}
+@media (max-width: 700px) {
+  .post-img {
+    width: fit-content;
+    position: relative;
+    min-width: 36vw;
+    display: inline-block;
+    max-height: 76vh;
+    box-shadow: #767676 0px 0px 50px -7px;
+    border-radius: 40px;
+    max-width: 96%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+}
+.post-tit {
+  position: absolute;
+  top: 0px;
+  -webkit-text-stroke: -337px;
+  font-weight: 800;
+  z-index: 3;
+  color: #ffffff;
+  margin: 33px;
+  font-size: 30pt;
+  transition: all 0.5s ease 0s;
+}
+@media (max-width: 700px) {
+  .post-tit {
+    margin: 22px;
+    font-size: 20pt;
+  }
+}
+.post:hover .post-tit {
+  opacity: 0.1;
+}
+.pageWrapper {
+  text-align: justify;
+  padding: 30px 30px 50px 30px;
+  margin-bottom: 2em;
+  -ms-user-select: text;
+  -moz-user-select: text;
+  -khtml-user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+  box-shadow: var(--pageWrapperBSh);
 }
