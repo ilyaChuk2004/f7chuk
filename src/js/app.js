@@ -65,6 +65,11 @@ var app = new Framework7({
   touch: {
     iosTouchRipple: true,
   },
+  lazy: {
+    threshold: 50,
+    sequential: false,
+    placeholder:'/static/img/ww2.png'
+  },
   toolbar: {
     hideOnPageScroll: true,
     showOnPageScrollEnd: false,
