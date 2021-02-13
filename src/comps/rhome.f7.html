@@ -1,5 +1,4 @@
 <template>
-    <div>
       <div class="content" id="pageWrapper">
 
         
@@ -7,15 +6,14 @@
         ${$store.state.data.posts.map((item) => $h`
           <a class="post" href="posts/трип">
             <picture>
-                <source srcset='img/trip/trip.webp' alt='Приложение «трип» постер.png' type="image/webp"/>
-                <img id="tripImg" src='img/trip/trip.jpg' alt='Приложение «трип» постер.png' class="post-img"/>
+                <source srcset=${item.img_webp()} alt='Приложение «трип» постер.png' type="image/webp"/>
+                <img id="tripImg" src=${item.img_jpg()} alt='Приложение «трип» постер.png' class="post-img"/>
             </picture>
         </a>
         `)}
 
         <!-- style="cursor: url(img/trip/tripCur.cur), auto;" -->
   </div>
-    </div>
   </template>
   <script>
   export default ({$store}) => {

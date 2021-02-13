@@ -33,10 +33,31 @@ const store = createStore({
       {
         name:'trip',
         name_ru:'трип',
-        img_png(){return `/static/${this.name}.png`},
-        img_jpg(){return `/static/${this.name}.jpg`},
-        img_webp(){return `/static/${this.name}.webp`},
-      }
+        img_png(){return `/static/img/${this.name}/${this.name}.png`},
+        img_jpg(){return `/static/img/${this.name}/${this.name}.jpg`},
+        img_webp(){return `/static/img/${this.name}/${this.name}.webp`},
+      },
+      {
+        name:'medKit',
+        name_ru:'сборка медитаций',
+        img_png(){return `/static/img/${this.name}/${this.name}.png`},
+        img_jpg(){return `/static/img/${this.name}/${this.name}.jpg`},
+        img_webp(){return `/static/img/${this.name}/${this.name}.webp`},
+      },
+      {
+        name:'ksch',
+        name_ru:'КСЧ',
+        img_png(){return `/static/img/${this.name}/${this.name}.png`},
+        img_jpg(){return `/static/img/${this.name}/${this.name}.jpg`},
+        img_webp(){return `/static/img/${this.name}/${this.name}.webp`},
+      },
+      {
+        name:'single',
+        name_ru:'историческая запись',
+        img_png(){return `/static/img/${this.name}/${this.name}.png`},
+        img_jpg(){return `/static/img/${this.name}/${this.name}.jpg`},
+        img_webp(){return `/static/img/${this.name}/${this.name}.webp`},
+      },
     ]
   }
   },
