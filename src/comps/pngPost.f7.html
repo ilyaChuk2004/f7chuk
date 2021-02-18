@@ -1,0 +1,28 @@
+<template>
+  <p><a class="button button-fill pb-standalone" href="#">Standalone</a></p>
+</template>
+<script>
+
+
+export default (props, { $, $f7, $onMounted }) => {
+    $onMounted(() => {
+      setTimeout(() => {
+        /*=== Default standalone ===*/
+      var myPhotoBrowserStandalone = $f7.photoBrowser.create({
+        photos: [
+          'https://cdn.framework7.io/placeholder/sports-1024x1024-1.jpg',
+          'https://cdn.framework7.io/placeholder/sports-1024x1024-2.jpg',
+          'https://cdn.framework7.io/placeholder/sports-1024x1024-3.jpg',
+        ]
+      });
+      //Open photo browser on click
+      $('.pb-standalone').on('click', function () {
+        myPhotoBrowserStandalone.open();
+      });
+      }, 100);
+    })
+
+
+    return $render;
+  }
+</script>

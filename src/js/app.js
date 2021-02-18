@@ -1,6 +1,7 @@
 import $ from 'dom7';
 import Framework7 from 'framework7/bundle';
 
+
 // Import F7  Styles    
 import 'framework7/framework7-bundle.css';
 
@@ -26,11 +27,7 @@ import tabsButtItem from '../comps/tabs/tabsButtItem.f7.html';
 import about from '../comps/about.f7.html';
 import rhome from '../comps/rhome.f7.html';
 import png from '../comps/png.f7.html';
-import contactsBtn from '../comps/contacts/contactsBtn.f7.html';
-import contactsPop from '../comps/contacts/contactsPop.f7.html';
-import contactsPopSlide from '../comps/contacts/contactsPopSlide.f7.html';
-import fab from '../comps/contacts/fab.f7.html';
-import post from '../comps/post.f7.html';
+import pngPost from '../comps/pngPost.f7.html';
 
 function imp(tag, comp) {
   Framework7.registerComponent(
@@ -48,11 +45,7 @@ imp('tabsButtItem', tabsButtItem);
 imp('about', about);
 imp('rhome', rhome);
 imp('png', png);
-imp('contactsBtn', contactsBtn);
-imp('contactsPop', contactsPop);
-imp('contactsPopSlide', contactsPopSlide);
-imp('fab', fab);
-imp('post', post);
+imp('pngPost', pngPost);
 
 var app = new Framework7({
   name: 'chuk', // App name
