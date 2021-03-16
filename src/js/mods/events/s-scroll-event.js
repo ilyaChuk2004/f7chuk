@@ -5,7 +5,8 @@ import {s_ms_tips} from '../s-ms-tips'
 export function s_scroll_event(e) {
 
     document.addEventListener('scroll', function (event) {
-        if (event.target.className === 'page-content') { // or any other filtering condition        
+      console.log(event.target.className);
+        if (event.target.className.includes('page-content') && event.target.className.includes('home')) { // or any other filtering condition        
           s_tabs('page-content');
         }
     }, true /*Capture event*/);

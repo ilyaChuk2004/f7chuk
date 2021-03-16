@@ -7,12 +7,16 @@
           <a class="post"  style="cursor:${item.cursor()}" href="posts/трип">
             
             ${support_format_webp() && $h`
+              <a href="/single/">
               <img data-src=${item.img_webp()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/>
+              </a>
               `
             }
     
             ${!support_format_webp() &&  $h`
+              <a href="/single/">
               <img data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/>
+              </a>
               `
     
             }
