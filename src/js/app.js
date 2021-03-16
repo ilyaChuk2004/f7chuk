@@ -70,9 +70,9 @@ var app = new Framework7({
   // App routes
   routes: routes,
   touch: {
-    iosTouchRipple: true,
+    mdTouchRipple:false,
     disableContextMenu:true,
-    touchRippleElements:'',
+    touchRippleElements:'.ripple',
   },
   lazy: {
     threshold: 800,

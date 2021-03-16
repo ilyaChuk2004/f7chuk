@@ -582,6 +582,7 @@ non {
         border-radius: 100%;
         font-size: 15pt;
         opacity: 0.7;
+        color: rgba(255, 255, 255, 0.767);
         // z-index: 5;
 
         &>a{
@@ -621,12 +622,11 @@ non {
     transition-timing-function: cubic-bezier(1, 0.01, 1, 0);
 
     @media (@bp-tablet) {
-        width: fit-content;
+        width: 95%;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
         display: inline-block;
-        max-width: 95%;
         transition: all 0.2s ease 0s;
         margin: 50px 0px;
     }
@@ -661,13 +661,14 @@ non {
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
-    max-height: 90vh;
+    height: 90vh;
+    height: 90vh;
     box-shadow: var(--postImgBSh);
     transition: all 1s ease 0s;
     border-radius: 40px;
     
         @media (@bp-tablet) {
-            width: fit-content;
+            width: 100%;
             position: relative;
             display: inline-block;
             min-width: 36vw;
