@@ -74,6 +74,30 @@ const store = createStore({
         h_filter:'filter: sepia(3.6)',
         h_animation:''
       },
+    ],
+
+    pngs:[
+      {
+        name:'autummLandscapeCopy'
+      },
+      {
+        name:'pixelLandscapeEdited'
+      },
+      {
+        name:'firewatchCopy'
+      },
+      {
+        name:'mount'
+      },
+      {
+        name:'pinkLandscapeCopeeEdited'
+      },
+      {
+        name:'forest'
+      },
+      {
+        name:'winter'
+      },
     ]
   }
   },
