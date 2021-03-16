@@ -9,12 +9,16 @@
   }
 
   ${!$store.state.appData.desktop &&  $h`
-    <a href="#" data-sheet=".contacts" @click=${swiperInit} style="z-index: 5;" class="contactsBtn sheet-open">
+    <a href="#" data-sheet=".contacts" @click=${swiperInit} style=${css} class="contactsBtn sheet-open">
       я
         </a>
     `
 
   }
+
+  <style innerHTML=${css}>
+
+  </style>
   </div>
 </template>
 <script>
@@ -22,7 +26,7 @@
 
   export default (props, {
     $on,
-    $store, $f7
+    $store, $f7,$, $update
   }) => {
 
     function swiperInit() {
@@ -33,6 +37,13 @@
 
 console.log(9);
     }
+
+    let css='z-index:5;';
+    $f7.on('qTabsLoad', function(){
+      $update();
+      console.log('upd');
+      css=`z-index:5;transform: translate(-50%, -${$('.tabsB')[0].offsetHeight+10}px) !important;`;
+    })
 
     return $render;
   }

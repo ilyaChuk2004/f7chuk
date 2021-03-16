@@ -8,7 +8,12 @@
 <style>
 </style>
 <script>
-    export default (props, {$store}) => {
+    export default (props, {$store, $onMounted, $f7}) => {
+
+      $onMounted(() => {
+        $f7.emit('qTabsLoad');
+  });
+
       return $render;
     }
   </script>

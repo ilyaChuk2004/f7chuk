@@ -71,7 +71,8 @@ var app = new Framework7({
   routes: routes,
   touch: {
     iosTouchRipple: true,
-    disableContextMenu:true
+    disableContextMenu:true,
+    touchRippleElements:'',
   },
   lazy: {
     threshold: 800,
