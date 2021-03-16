@@ -9,7 +9,7 @@
   }
 
   ${!$store.state.appData.desktop &&  $h`
-    <a href="#" data-sheet=".contacts" style="z-index: 5;" class="contactsBtn sheet-open">
+    <a href="#" data-sheet=".contacts" @click=${swiperInit} style="z-index: 5;" class="contactsBtn sheet-open">
       я
         </a>
     `
@@ -22,8 +22,17 @@
 
   export default (props, {
     $on,
-    $store
+    $store, $f7
   }) => {
+
+    function swiperInit() {
+      var swiper = $f7.swiper.create('.Scontacts', {
+    speed: 400,
+    spaceBetween: 100
+});
+
+console.log(9);
+    }
 
     return $render;
   }

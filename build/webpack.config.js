@@ -41,6 +41,8 @@ module.exports = {
   },
   devtool: env === 'production' ? 'source-map' : 'eval',
   devServer: {
+    host: '192.168.0.106',//your ip address
+    port: 8080,
     hot: true,
     open: true,
     compress: true,
