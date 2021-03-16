@@ -58,7 +58,7 @@ imp('home', home);
 
 var app = new Framework7({
   name: 'chuk', // App name
-  theme: 'auto', // Automatic theme detection
+  theme: 'ios', // Automatic theme detection
   el: '#app', // App root element
   component: App, // App main component
   view: {
