@@ -32,6 +32,7 @@ import contactsPopSlide from '../comps/contacts/contactsPopSlide.f7.html';
 import fab from '../comps/contacts/fab.f7.html';
 import pngPost from '../comps/pngPost.f7.html';
 import home from '../pages/home.f7.html';
+import footer from '../comps/footer.f7.html';
 
 function imp(tag, comp) {
   Framework7.registerComponent(
@@ -55,6 +56,7 @@ imp('contactsPopSlide', contactsPopSlide);
 imp('fab', fab);
 imp('pngPost', pngPost);
 imp('home', home);
+imp('footer', footer);
 
 var app = new Framework7({
   name: 'chuk', // App name
