@@ -30,6 +30,8 @@ import contactsBtn from '../comps/contacts/contactsBtn.f7.html';
 import contactsPop from '../comps/contacts/contactsPop.f7.html';
 import contactsPopSlide from '../comps/contacts/contactsPopSlide.f7.html';
 import fab from '../comps/contacts/fab.f7.html';
+import pngPost from '../comps/pngPost.f7.html';
+import home from '../pages/home.f7.html';
 
 function imp(tag, comp) {
   Framework7.registerComponent(
@@ -51,30 +53,42 @@ imp('contactsBtn', contactsBtn);
 imp('contactsPop', contactsPop);
 imp('contactsPopSlide', contactsPopSlide);
 imp('fab', fab);
+imp('pngPost', pngPost);
+imp('home', home);
 
 var app = new Framework7({
   name: 'chuk', // App name
-  theme: 'auto', // Automatic theme detection
+  theme: 'ios', // Automatic theme detection
   el: '#app', // App root element
   component: App, // App main component
+  view: {
+    browserHistory:true
+  },
 
   // App store
   store: store,
   // App routes
   routes: routes,
   touch: {
-    iosTouchRipple: true,
+    mdTouchRipple:false,
+    disableContextMenu:true,
+    touchRippleElements:'.ripple',
   },
+  lazy: {
+    threshold: 800,
+    sequential: true,
+    placeholder:'/static/img/ww2.png'
+  },
+
   toolbar: {
     hideOnPageScroll: true,
-    showOnPageScrollEnd: false,
-    showOnPageScrollTop: true
   },
 
   navbar: {
     showOnPageScrollEnd: false,
     hideOnPageScroll: true
   },
+
   // Register service worker
   serviceWorker: {
     path: '/service-worker.js',
@@ -82,6 +96,8 @@ var app = new Framework7({
 });
 
 export { app, }
+
+
 
 store.state.appData.desktop = Framework7.device.desktop;
 

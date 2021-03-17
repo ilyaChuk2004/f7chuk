@@ -1,0 +1,83 @@
+<template>
+  <a class=${classFull} href="#">
+    <img data-src=${src} class="lazy lazy-fade-in" alt=""/>
+  </a>
+</template>
+<script>
+
+
+export default (props, { $, $f7, $onMounted, $on }) => {
+  let src = ()=>{
+    if (support_format_webp()){
+      return `static/img/${props.data_src}.webp`
+    }else{
+      return `static/img/${props.data_src}.jpg`
+    }
+  }
+  src=src();
+
+  function getRandomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
+let classN = 'pb'+getRandomInRange(0, 10000000);
+let classFull = classN+' col-100 medium-33 pngPost'
+let navbar=false;
+
+if ($f7.device.desktop) {
+  navbar=true
+}
+
+    $onMounted(() => {
+      setTimeout(() => {
+        /*=== Default standalone ===*/
+      var myPhotoBrowserStandalone = $f7.photoBrowser.create({
+        photos: [
+          src
+        ],
+        theme:'dark',
+        navbar:navbar,
+        toolbar:false,
+        routableModals:true,
+        url:'/png',
+        popupCloseLinkText:'<i class="f7-icons">multiply</i>'
+        // type:'popup'
+      });
+      window.pb=myPhotoBrowserStandalone;
+
+      myPhotoBrowserStandalone.on('close', function(){
+        myPhotoBrowserStandalone.el.style.opacity='0';
+      })
+
+      document.addEventListener("keydown", event => {
+  if (event.isComposing || event.keyCode === 27) { //esc
+    myPhotoBrowserStandalone.close();
+    return;
+  }
+  // do something
+});
+      //Open photo browser on click
+      $(`.${classN}`).on('click', function () {
+        myPhotoBrowserStandalone.open();
+      });
+      }, 100);
+    })
+function support_format_webp()
+{
+ var elem = document.createElement('canvas');
+
+ if (!!(elem.getContext && elem.getContext('2d')))
+ {
+  // was able or not to get WebP representation
+  return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+ }
+ else
+ {
+  // very old browser like IE 8, canvas not supported
+  return false;
+ }
+}
+
+    return $render;
+  }
+</script>

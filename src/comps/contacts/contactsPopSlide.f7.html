@@ -1,7 +1,9 @@
 <template>
   <div class="swiper-slide">
     <span>${props.text}</span>
-      <button @click=${()=>alee(props.btn_href)} style=${styles} class="button button-raised button-fill">${props.btn_text}</button>
+    <a href='${props.btn_href}' class="external">
+      <button style=${styles} class="button button-raised button-fill">${props.btn_text}</button>
+    </a>
     
     
   </div>
@@ -10,11 +12,18 @@
 </style>
 <script>
 
-  export default (props) => {
+  export default (props,{$onMounted, $f7}) => {
 var styles = `background-color:${props.btn_bgcol} !important;`
-function alee(x){
-  location.href=x
-}
+
+
+
+$onMounted(() => {
+  $f7.emit('e-got986');
+
+
+  });
+
+
     return $render;
   }
 </script>

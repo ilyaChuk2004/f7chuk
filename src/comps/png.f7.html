@@ -1,9 +1,69 @@
 <template>
-    <div>
-    </div>
+  <div class="content page-wrapper png" id="pageWrapper">
+
+<!--         
+    <a href="" form='' hreef='img/autummLandscapeCopy' class="fancybox" data-fancybox="gallery" data-caption="3 сентября<br>autummLandscape.png">
+      <img class="pngWinPostBlock" form='' hreef='img/autummLandscapeCopy' src="/static/img/autummLandscapeCopy.jpg" alt="Осенний пейзаж" />
+  </a> -->
+
+  <!-- <div class="row">
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+  </div>
+  <div class="row">
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+  </div>
+  <div class="row">
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+    <div class="col-100 medium-33">.col-100.medium-33</div>
+  </div>-->
+
+
+  <!-- <a href="/static/img/forest.jpg" data-fancybox data-caption="Caption for single image">
+    <img data-src='/static/img/forest.jpg' alt='Приложение «трип» постер.png'/>
+  </a> -  <div class="row">-->
+<div class="row">
+    ${$store.state.data.pngs.map((item) => $h`
+      <q-pngPost data_src=${item.name}></q-pngPost>
+    `)}
+  </div>
+ </div> 
   </template>
   <script>
-  export default () => {
+  export default (props, {$store, $f7, $, $onMounted}) => {
+
+    $onMounted(()=>{
+setTimeout(() => {
+  $f7.lazy.create($('.page-wrapper.png'));
+  
+}, 10);    });
+
+
+function support_format_webp()
+{
+var elem = document.createElement('canvas');
+
+if (!!(elem.getContext && elem.getContext('2d')))
+{
+// was able or not to get WebP representation
+return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+}
+else
+{
+// very old browser like IE 8, canvas not supported
+return false;
+}
+}
+
+var format='jpg';
+if (support_format_webp()) {
+  format = 'webp'
+}
+
     return $render;
   }
   </script>

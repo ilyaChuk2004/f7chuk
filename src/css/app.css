@@ -181,6 +181,9 @@ non {
   color: var(--nonColor);
   display: inline-block;
 }
+.page {
+  background-color: var(--day-bg);
+}
 .mainScreen {
   background-image: var(--mainScreenImg);
   background-repeat: no-repeat;
@@ -189,7 +192,7 @@ non {
   background-position: center;
   width: 100%;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   height: 116%;
   border-radius: 0px 0px 115px 115px;
   filter: var(--mainScreenFilter);
@@ -336,7 +339,7 @@ non {
   box-shadow: var(--aboutBSh);
   border-radius: 0px 0px 40px 40px;
   position: relative;
-  z-index: 0;
+  z-index: 2;
   background-color: var(--aboutBGColor);
 }
 .pageWrapper {

@@ -1,77 +1,110 @@
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.select {
+    -webkit-touch-callout: text;
+    /* iOS Safari */
+    -webkit-user-select: text;
+    /* Safari */
+    -khtml-user-select: text;
+    /* Konqueror HTML */
+    -moz-user-select: text;
+    /* Old versions of Firefox */
+    -ms-user-select: text;
+    /* Internet Explorer/Edge */
+    user-select: text;
+}
+
+
+
 @fontFamily: 'Inter', sans-serif;
 @PFontFamily: 'Inter', sans-serif;
-@scrollBar:#6c4124;
-@iColor:#6b4124;
+@scrollBar: #6c4124;
+@iColor: #6b4124;
 @strongColor: #110e4a;
 // @hColor: #110e4a;
 // @pColor: #464646;
 @mainScreenImg: chukKrivie.svg;
-@bp-mobile:~'max-width: 500px';
-@bp-tablet:~'max-width: 700px';
+@bp-mobile: ~'max-width: 500px';
+@bp-tablet: ~'max-width: 700px';
 
 //night colors
-@night-bg:#151111;  
+@night-bg: #151111;
 
 //dayly colors
-@day-bg:#f5f5f5; 
+@day-bg: #f5f5f5;
+
+
 
 
 @media (prefers-color-scheme: light) {
     #mediaFlag500 {
         color: white;
     }
-    body{
-        --themeBool:white;
-        --day-bg:#f5f5f5;
-        --day-bg-e1:#e7e7e7;
-        --mainScreenImg:url(../img/chukKrivie.svg);
-        --mainScreenImgMob:url(../img/chukMKrivie.svg);
-        --mainScreenFilter:drop-shadow(0px 0px 45px #b0733f);
-        --footerImage:url(../img/chukKrivie.svg);
-        --footerBSh:rgb(146, 95, 53) 0px 0px 0px 170px, inset 0px -20px 16px -10px #00000070;
-    
-        --iBGColor:#6b4124;
-        --iPcBGColor:#6b4124;
-    
-        --aboutBSh:0px 20px 80px #75757536, 0px -250px 0px 200px #f5f5f5;
-        --aboutBGColor:#f5f5f5;
-    
-        --pngWinPostBlockBSh:0px 0px 38px -14px #7803ffa1;
-    
-        --pageWrapperBSh:0 -180px 0 70px #f5f5f5;
-    
-        --hColor:#110e4a;
-        --pColor:#464646;
-        --strongColor:#110e4a;
-        --nonColor:#b7b7b7;
-    
-        --contentBGColor:#f5f5f5;
-        --postImgBSh:rgba(0,0,0,0.58) 0 0 26px -7px, black 0 0 0 20px inset;
-        --iMenuBGColor:white;
-        --iMenuTelegText:#212121;
-        --iMenuArrColor:#a2a2a2;
-        --iMenuLineColor:#00000042;
-    
-        --headerBGColor:white;
-        --headerBSh:rgba(0, 0, 0, 0.22) 0px 0px 26px -4px;
-        --tabsIcoSh:drop-shadow(0px 0px 9px #a46b3bb8);
-        --tabsIcoColor:#a46b3b;
-        
-    
-        --miniPostBGColor:#fdbb85;
-        --miniPostTitColor:#476365;
-        --miniPostDiscColor:#717171;
+
+    body {
+        --themeBool: white;
+        --day-bg: #f5f5f5;
+        --day-bg-e1: #e7e7e7;
+        --mainScreenImg: url(../img/chukKrivie.svg);
+        --mainScreenImgMob: url(../img/chukMKrivie.svg);
+        --mainScreenFilter: drop-shadow(0px 0px 45px #b0733f);
+        --footerImage: url(../img/chukKrivie.svg);
+        --footerBSh: rgb(146, 95, 53) 0px 0px 0px 170px, inset 0px -20px 16px -10px #00000070;
+
+        --iBGColor: #6b4124;
+        --iPcBGColor: #6b4124;
+
+        --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #f5f5f5;
+        --aboutBGColor: #f5f5f5;
+
+        --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
+
+        --pageWrapperBSh: 0 -180px 0 70px #f5f5f5;
+
+        --hColor: #110e4a;
+        --pColor: #464646;
+        --strongColor: #110e4a;
+        --nonColor: #b7b7b7;
+
+        --contentBGColor: #f5f5f5;
+        --postImgBSh: rgba(0, 0, 0, 0.58) 0 0 26px -7px, black 0 0 0 20px inset;
+        --iMenuBGColor: white;
+        --iMenuTelegText: #212121;
+        --iMenuArrColor: #a2a2a2;
+        --iMenuLineColor: #00000042;
+
+        --headerBGColor: white;
+        --headerBSh: rgba(0, 0, 0, 0.22) 0px 0px 26px -4px;
+        --tabsIcoSh: drop-shadow(0px 0px 9px #a46b3bb8);
+        --tabsIcoColor: #a46b3b;
+
+
+        --miniPostBGColor: #fdbb85;
+        --miniPostTitColor: #476365;
+        --miniPostDiscColor: #717171;
         --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
-    
+
         --chTitleColor: #404040;
         --fillColor: #252525;
-        --chLoginBGColor:#f3f3f3;
-        --chatLogNotColor:#888888;
-    
-        --shesWinFilter:invert(0);
-        --headerTipsBG:#d6d6d6;
-        --headerTipsColor:#373737;
-        --headerTipsMainColor:#925f35;
+        --chLoginBGColor: #f3f3f3;
+        --chatLogNotColor: #888888;
+
+        --shesWinFilter: invert(0);
+        --headerTipsBG: #d6d6d6;
+        --headerTipsColor: #373737;
+        --headerTipsMainColor: #925f35;
 
     }
 }
@@ -80,72 +113,69 @@
     #mediaFlag500 {
         color: black;
     }
-    body{
-        --f7-page-bg-color:var(--day-bg);
-        --f7-elevation-20:0px 10px 13px -6px rgba(209, 209, 209, 0.2), 0px 20px 31px 3px rgba(189, 189, 189, 0.14), 0px 8px 38px 7px rgba(173, 173, 173, 0.12) !important;
 
-        --themeBool:black;
-        --day-bg:#151111;
-        --day-bg-e1:#1d1717;
-        --mainScreenImg:url(../img/chukKrivieNightsvg.svg);
-        --mainScreenImgMob:url(../img/chukMkrivieNight.svg);
-        --mainScreenFilter:drop-shadow(#53091b 0px 0px 45px);
-        --footerImage:url(../img/chukKrivieNightsvg.svg);
-        --footerBSh:rgb(83, 9, 27) 0px 0px 0px 170px, rgba(0, 0, 0, 0.44) 0px -20px 16px -10px inset;
-    
-        --iBGColor:#53091b;
-        --iPcBGColor:#53091b;
-    
-        --aboutBSh:0px 20px 80px #75757536, 0px -250px 0px 200px #151111;
-        --aboutBGColor:#151111;
-    
-        --pngWinPostBlockBSh:0px 0px 38px -14px #7803ffa1;
-    
-        --pageWrapperBSh:0 -180px 0 70px #151111;
-    
-        --hColor:#afaedc;
-        --pColor:#b7b7b7;
-        --strongColor:#dcdcdc;
-        --nonColor:#b7b7b7;
-    
-        --contentBGColor:#151111;
-        --postImgBSh:0 0 12px #739cff69;
-        --iMenuBGColor:#1d1c1c;
-        --iMenuTelegText:#c3c3c3;
-        --iMenuArr:#a2a2a2;
-        --iMenuLine:#383838;
-    
-        --headerBGColor:#0e0400;
-        --headerBSh:#69222238 0 0 26px -4px;
-        --tabsIcoSh:drop-shadow(0px 0px 9px #fa4d6a8f);
-        --tabsIcoColor:#962240;
+    body {
+        --f7-page-bg-color: var(--day-bg);
+        // --f7-elevation-20:0px 10px 13px -6px rgba(209, 209, 209, 0.2), 0px 20px 31px 3px rgba(189, 189, 189, 0.14), 0px 8px 38px 7px rgba(173, 173, 173, 0.12) !important;
 
-    
-        --miniPostBGColor:#53091b;
-        --miniPostTitColor:#d4d4d4;
-        --miniPostDiscColor:#949494;
+        --themeBool: black;
+        --day-bg: #151111;
+        --day-bg-e1: #1d1717;
+        --mainScreenImg: url(../img/chukKrivieNightsvg.svg);
+        --mainScreenImgMob: url(../img/chukMkrivieNight.svg);
+        --mainScreenFilter: drop-shadow(#53091b 0px 0px 45px);
+        --footerImage: url(../img/chukKrivieNightsvg.svg);
+        --footerBSh: rgb(83, 9, 27) 0px 0px 0px 170px, rgba(0, 0, 0, 0.44) 0px -20px 16px -10px inset;
+
+        --iBGColor: #53091b;
+        --iPcBGColor: #53091b;
+
+        --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #151111;
+        --aboutBGColor: #151111;
+
+        --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
+
+        --pageWrapperBSh: 0 -180px 0 70px #151111;
+
+        --hColor: #afaedc;
+        --pColor: #b7b7b7;
+        --strongColor: #dcdcdc;
+        --nonColor: #b7b7b7;
+
+        --contentBGColor: #151111;
+        --postImgBSh: 0 0 12px #739cff69;
+        --iMenuBGColor: #1d1c1c;
+        --iMenuTelegText: #c3c3c3;
+        --iMenuArr: #a2a2a2;
+        --iMenuLine: #383838;
+
+        --headerBGColor: #0e0400;
+        --headerBSh: #69222238 0 0 26px -4px;
+        --tabsIcoSh: drop-shadow(0px 0px 9px #fa4d6a8f);
+        --tabsIcoColor: #962240;
+
+
+        --miniPostBGColor: #53091b;
+        --miniPostTitColor: #d4d4d4;
+        --miniPostDiscColor: #949494;
         --miniPostHoverBSh: rgb(62, 0, 51) 0px 0px 30px 0px;
-    
+
         --chTitleColor: #b3b3b3;
         --fillColor: #e0e0e0;
-        --chLoginBGColor:#171717;
-        --chatLogNotColor:#888888;
-        --shesWinFilter:invert(1);
-        --headerTipsBG:#1e1e1e;
-        --headerTipsColor:#7f7f7f;
-        --headerTipsMainColor:#530a1b;
+        --chLoginBGColor: #171717;
+        --chatLogNotColor: #888888;
+        --shesWinFilter: invert(1);
+        --headerTipsBG: #1e1e1e;
+        --headerTipsColor: #7f7f7f;
+        --headerTipsMainColor: #530a1b;
     }
 }
 
-
-
-
-.select(){
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
+:root{
+    --f7-grid-gap: 2rem !important;
 }
+
+
 
 ::selection {
     background: @scrollBar;
@@ -189,26 +219,34 @@
 ::-webkit-scrollbar {
     width: 6px;
     height: 3px;
+
+    @media(@bp-tablet) {
+        width: 0px;
+    }
 }
 
 
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
-     font-family: @fontFamily;
-     -webkit-tap-highlight-color:  transparent;
-    .select();
-    background-color:var(--day-bg);
+    font-family: @fontFamily;
+    -webkit-tap-highlight-color: transparent;
+    .noselect();
+    background-color: var(--day-bg);
+    
 }
 
 strong {
     color: var(--strongColor);
     font-weight: 500;
-    }
-
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: 900;
+}
 h2 {
-	font-family: @fontFamily;
+    font-family: @fontFamily;
     font-size: 26pt;
     color: var(--hColor);
     margin-top: 2em;
@@ -216,34 +254,39 @@ h2 {
 
 h4 {
     font-family: @fontFamily;
-font-size: 1.5em;
-color: var(--hColor);
-margin-top: 2em;
+    font-size: 1.5em;
+    color: var(--hColor);
+    margin-top: 2em;
 }
 
-p{
+p {
     color: var(--pColor);
     margin: 30px 90px;
     font-size: 19pt;
     line-height: 30px;
+    font-weight: 500;
 
     font-family: @PFontFamily;
 
     @media(@bp-tablet) {
         margin: 0px;
-        font-size:14pt;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+        font-size: 14pt;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
     }
 }
 
 non {
     text-decoration: line-through;
     opacity: 0.5;
-    color:var(--nonColor);
+    color: var(--nonColor);
     display: inline-block;
+}
+
+.page {
+    background-color: var(--day-bg);
 }
 
 .mainScreen {
@@ -254,12 +297,12 @@ non {
     background-position: center;
     width: 100%;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     height: 116%;
     border-radius: 0px 0px 115px 115px;
     filter: var(--mainScreenFilter);
 
-    @media (@bp-tablet){
+    @media (@bp-tablet) {
         border-radius: 0px 0px 65px 65px;
         background-image: var(--mainScreenImgMob);
     }
@@ -270,20 +313,19 @@ non {
         color: #ffffffe0;
         font-size: 30px;
         position: relative;
-        top: calc( 100% - 45% );
+        top: calc(100% - 45%);
         transform: translateX(-50%);
 
-        @media (@bp-tablet){
+        @media (@bp-tablet) {
             left: 35%;
         }
     }
 
     &-tip {
-        width:min-content;
+        width: min-content;
         margin-top: 0.2em;
         font-size: 20pt;
-        font-weight: 500;
-        -webkit-text-stroke: 1px;
+        font-weight: 700;
         color: rgb(108, 65, 36);
         background-color: rgb(255, 240, 228);
         padding: 0.7rem 1.3rem;
@@ -291,105 +333,12 @@ non {
     }
 }
 
-.header {
-        width: 100%;
-    height: 10vh;
-    position: fixed;
-    z-index: 4;
-    top: calc(-10vh - 1px);
-    opacity: 0;
-    background-color: var(--headerBGColor);
-    box-shadow: var(--headerBSh);
-    transform: translateY(0%);
-    transition-duration: 0.4s;
-
-    @media (@bp-tablet){
-        top: calc(-7vh - 1px);
-        height: 7vh;
-    }
-
-    &-logo {
-        height: 80%;
-        top: 10%;
-        left: 20px;
-        position: relative;
-    }
-
-    &-itemes {
-        height: auto;
-        border-radius: 1000px;
-        display: inline-block;
-        transform: translateY(-50%);
-        top: 50%;
-        position: absolute;
-        right: 0px;
-        border-radius: 1000px;
-        background-color: var(--headerTipsBG);
-        /* text-decoration-color: bisque; */
-        padding: 2px;
-        margin: 0px 1em;
-        text-decoration: none;
-    }
-
-    &-disactiveTip{
-        // background-color: var(--headerTipsMainColor);
-        border-radius: 1000px;
-        color: #cdcdcd;
-        text-decoration: inherit;
-        transition: 0.3s ease;
-        position: relative;
-        display: inline-block;
-
-        padding: 0.5em;
-        z-index: 1;
-    }
-    &-activeTip {
-        border-radius: 1000px;
-        color: var(--headerTipsColor);
-        padding: 0.5em;
-        display: inline-block;
-        text-decoration: inherit;
-        position: relative;
-        // background-color: var(--headerTipsBG);
-        transition: 0.3s ease;
-        z-index: 1;
-
-    }
-    &-block{
-        background-color: var(--headerTipsMainColor);
-    height: 35px;
-    width: 92px;
-    position: absolute;
-    top: 50%;
-    z-index: 0;
-    left: 0px;
-    will-change: transform;
-    border-radius: 100px;
-    transition: 0.3s ease;
-    transform: translateY(-50%);
-    }
-}
-
-.activeTip {
-    width: fit-content;
-    /* margin-top: 0.2em; */
-    font-size: 16pt;
-    font-weight: 500;
-    color: rgb(108, 65, 36);
-    /* background-color: rgb(255, 240, 228); */
-    -webkit-text-stroke: 1px;
-    padding: 5px 13px;
-    position: relative;
-    border-radius: 40px;
-    right: 13px;
-    display: inline-block;
-    text-decoration: underline;
-}
 
 #mediaFlag500 {
-    display:none;
+    display: none;
     position: absolute;
-    @media (@bp-mobile){
+
+    @media (@bp-mobile) {
         display: block;
     }
 
@@ -413,7 +362,7 @@ non {
     box-shadow: var(--aboutBSh);
     border-radius: 0px 0px 40px 40px;
     position: relative;
-    z-index: 0;
+    z-index: 2;
     background-color: var(--aboutBGColor);
 }
 
@@ -421,19 +370,16 @@ non {
     text-align: justify;
     padding: 30px 30px 50px 30px;
     margin-bottom: 2em;
-    -ms-user-select: text;-moz-user-select: text;-khtml-user-select: text;-webkit-user-select: text;
-  cursor:text;
-  box-shadow:var(--pageWrapperBSh);
+    .select();
+    cursor: text;
+    box-shadow: var(--pageWrapperBSh);
 }
 
 
 .fak {
     margin-bottom: -0.1em;
     display: inline-block;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
+    .noselect();
 }
 
 .content {
@@ -449,8 +395,8 @@ non {
 
 
 
-.tabsB{
-    color: red;
+.tabsB {
+    // color: red;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -465,38 +411,38 @@ non {
     background-color: var(--day-bg-e1) !important;
     transition: 0.3s ease;
 
-    &-item{
+    &-item {
         padding: 1rem 2rem;
         color: var(--iBGColor) !important;
         transition: 0.2s ease;
 
-        
-        &>*{
+
+        &>* {
             pointer-events: none;
         }
 
-        &.tab-link-active{
+        &.tab-link-active {
             color: var(--tabsIcoColor) !important;
             filter: var(--tabsIcoSh);
-            
+
         }
     }
 }
 
-  .contacts{
+.contacts {
     // z-index: 4;
     // position: fixed;
     width: 100vw;
     height: auto;
-    
+
     // bottom: 0px;
     background-color: var(--iMenuBGColor);
     box-sizing: border-box;
-    padding:2rem 1rem 3rem;
+    padding: 2rem 1rem 3rem;
     padding-bottom: 3rem;
     border-radius: 2rem 2rem 0rem 0rem;
 
-    & .swipe-handler{
+    & .swipe-handler {
         height: 0.5rem;
         width: 3.4rem;
         background-color: var(--pColor);
@@ -505,7 +451,8 @@ non {
         opacity: 0.3;
         transform: translateY(-200%);
     }
-    & i{
+
+    & i {
         position: absolute;
         right: 1rem;
         bottom: 50%;
@@ -513,7 +460,7 @@ non {
         opacity: 0.2;
     }
 
-    & .swiper-slide{
+    & .swiper-slide {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -521,11 +468,12 @@ non {
         box-sizing: border-box;
         flex-direction: column;
 
-        & span{
+        & span {
             color: var(--pColor);
             font-size: 15pt;
         }
-        & button{
+
+        & button {
             margin-top: 1.5rem;
             font-size: 16pt;
             padding: 1.5rem;
@@ -534,10 +482,10 @@ non {
         }
 
 
-        
+
     }
 
-    &Btn{
+    &Btn {
         display: flex;
         /* color: red; */
         position: fixed;
@@ -554,20 +502,22 @@ non {
         border-radius: 100%;
         font-size: 15pt;
         opacity: 0.7;
+        color: rgba(255, 255, 255, 0.767);
         // z-index: 5;
 
-        &>a{
+        &>a {
             background-color: transparent;
+            box-shadow: none;
         }
     }
-  }
+}
 
-  .ripple-wave{
-      background-color: rgba(0, 0, 0, 0.253);
-      background-color: rgba(255, 255, 255, 0.253);
-  }
+.ripple-wave {
+    background-color: rgba(0, 0, 0, 0.253);
+    background-color: rgba(255, 255, 255, 0.253);
+}
 
-  .content {
+.content {
     height: auto;
     background-color: var(--contentBGColor);
     transition-duration: 0.4s;
@@ -579,9 +529,7 @@ non {
 }
 
 .post {
-    width: fit-content;
-    -ms-user-select: none;-moz-user-select: none;-khtml-user-select: none;-webkit-user-select: none;
-    cursor:default;
+    cursor: default;
     z-index: 2;
     position: relative;
     left: 50%;
@@ -593,12 +541,10 @@ non {
     transition-timing-function: cubic-bezier(1, 0.01, 1, 0);
 
     @media (@bp-tablet) {
-        width: fit-content;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
         display: inline-block;
-        max-width: 95%;
         transition: all 0.2s ease 0s;
         margin: 50px 0px;
     }
@@ -607,13 +553,15 @@ non {
         filter: hue-rotate(125deg);
         box-shadow: rgba(46, 53, 255, 0.42) 0 24px 50px -7px, black 0 0 0 20px inset;
     }
+
     &:hover #medImg {
         filter: saturate(3);
         box-shadow: rgba(178, 208, 255, 0.39) 0px 24px 50px -7px, black 0px 0px 0px 20px inset;
     }
+
     :hover #singleImg {
         filter: sepia(3.6);
-    box-shadow: rgba(132, 117, 91, 0.75) 0 24px 50px -7px, black 0 0 0 20px inset;
+        box-shadow: rgba(132, 117, 91, 0.75) 0 24px 50px -7px, black 0 0 0 20px inset;
     }
 
     &:hover #tripImg {
@@ -622,32 +570,32 @@ non {
     }
 
     &:hover .pod {
-      opacity: 0.1;
+        opacity: 0.1;
     }
 
     &-img {
         width: auto;
-    position: relative;
-    min-width: 30vw;
-    max-width: 95%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
-    max-height: 90vh;
-    box-shadow: var(--postImgBSh);
-    transition: all 1s ease 0s;
-    border-radius: 40px;
-    
+        position: relative;
+        min-width: 30vw;
+        left: 50%;
+        max-width: 90vw;
+        transform: translateX(-50%);
+        display: inline-block;
+        max-height: 90vh;
+        box-shadow: var(--postImgBSh);
+        transition: all 1s ease 0s;
+        border-radius: 40px;
+
         @media (@bp-tablet) {
-            width: fit-content;
+            width: 100%;
             position: relative;
             display: inline-block;
+            height: auto;
             min-width: 36vw;
             display: inline-block;
             max-height: 76vh;
             box-shadow: rgb(118, 118, 118) 0px 0px 50px -7px;
             border-radius: 40px;
-            max-width: 96%;
             transform: translateX(-50%);
             left: 50%;
         }
@@ -676,11 +624,44 @@ non {
     }
 
 }
-.pageWrapper {
-    text-align: justify;
-    padding: 30px 30px 50px 30px;
-    margin-bottom: 2em;
-    -ms-user-select: text;-moz-user-select: text;-khtml-user-select: text;-webkit-user-select: text;
-  cursor:text;
-  box-shadow:var(--pageWrapperBSh);
+.page-wrapper.png {
+    margin: 1rem 4rem;
+    @media (@bp-mobile){
+        margin: 1rem 1rem;
+    }
+}
+
+.pngPost{
+    margin: ;
+    @media (@bp-mobile){
+        &:not(:last-child){
+            margin-bottom: 3rem;
+        }
+    }
+    
+    & img{
+        width: 100%;
+        border-radius: 2rem;
+        box-shadow: 0px 0px 13px 0px #00000057;
+    }
+}
+
+.photo-browser-swiper-container{
+    // background: transparent !important;
+    
+}
+.photo-browser-swiper-wrapper{
+    box-shadow: 1px 1px 0 2000px #000000b0;
+    
+}
+.photo-browser-popup img{
+    box-shadow: 1px 1px 0 2000px #000000b0;
+}
+.photo-browser-popup .page{
+    background-color: transparent;
+}
+.photo-browser-popup{
+    box-shadow: 1px 1px 0 2000px #000000;
+    transition: 0.3s;
+
 }
