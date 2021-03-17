@@ -1,7 +1,9 @@
 <template>
       <div class="content page-wrapper" id="pageWrapper">
 
-        
+        <style innerHTML=${css}>
+
+        </style>
 
         ${$store.state.data.posts.map((item) => $h`
           <a class="post"  style="cursor:${item.cursor()}" href="/single/">
@@ -28,9 +30,6 @@
       
   </div>
   </template>
-  <style innerHTML=${css}>
-
-  </style>
   <script>
   export default (props, {$store, $f7, $, $onMounted}) => {
 

@@ -1,6 +1,7 @@
 <template>
   <a class=${classFull} href="#">
     <img data-src=${src} class="lazy lazy-fade-in" alt=""/>
+    <img data-src=${src} class="lazy lazy-fade-in imgUnder" alt=""/>
   </a>
 </template>
 <script>
@@ -36,11 +37,20 @@ if ($f7.device.desktop) {
           src
         ],
         theme:'dark',
-        navbar:navbar,
+        navbar:true,
         toolbar:false,
         routableModals:true,
         url:'/png',
-        popupCloseLinkText:'<i class="f7-icons">multiply</i>'
+        popupCloseLinkText:'<i class="f7-icons">multiply</i>',
+        renderNavbar:function(){
+          return `
+          <div class="navbar navbar-photo-browser navbar-photo-browser-dark">
+              <div class="navbar-inner navbar-inner-centered-title sliding">
+                <div class="left"><a class="link popup-close wide rem2_4Auto" data-popup=".photo-browser-popup"><i
+                        class="f7-icons">${$f7.device.desktop?'multiply':'arrow_left'}</i></a></div>
+              </div>
+            </div>`
+        }
         // type:'popup'
       });
       window.pb=myPhotoBrowserStandalone;

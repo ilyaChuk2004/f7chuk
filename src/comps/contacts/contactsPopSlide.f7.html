@@ -13,9 +13,7 @@
 <script>
 
   export default (props,{$onMounted, $f7}) => {
-var styles = `background-color:${props.btn_bgcol} !important;`
-
-
+var styles = `background-color:${($f7.device.prefersColorScheme()==='dark')?props.btn_bgcol:props.btn_bgcoln} !important;`
 
 $onMounted(() => {
   $f7.emit('e-got986');

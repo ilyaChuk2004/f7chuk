@@ -17,6 +17,7 @@ const store = createStore({
           href: 'https://t.me/IlyaChuk',
           disc: 'написать мне',
           btn_bgcol: '#00a2ff',
+          btn_bgcoln: '#00a2ff',
           img: 'telegIco.svg',
         },
         {
@@ -24,6 +25,7 @@ const store = createStore({
           href: 'https://chuk.dx.am',
           disc: 'заказать работу',
           btn_bgcol: '#c3ae19',
+          btn_bgcoln: '#e5cf2f',
           img: 'freelIco.png'
         },
 
@@ -78,25 +80,32 @@ const store = createStore({
 
     pngs:[
       {
-        name:'autummLandscapeCopy'
+        name:'autummLandscapeCopy',
+
       },
       {
-        name:'pixelLandscapeEdited'
+        name:'pixelLandscapeEdited',
+
       },
       {
-        name:'firewatchCopy'
+        name:'firewatchCopy',
+
       },
       {
-        name:'mount'
+        name:'mount',
+
       },
       {
-        name:'pinkLandscapeCopeeEdited'
+        name:'pinkLandscapeCopeeEdited',
+
       },
       {
-        name:'forest'
+        name:'forest',
+
       },
       {
-        name:'winter'
+        name:'winter',
+
       },
     ]
   }
