@@ -375,25 +375,18 @@ non {
     box-shadow: var(--pageWrapperBSh);
 }
 
+.page-content{
+    @media (@bp-mobile) {
+        margin-bottom: -3rem;
+    }
+}
+
 
 .fak {
     margin-bottom: -0.1em;
     display: inline-block;
     .noselect();
 }
-
-.content {
-    height: auto;
-    background-color: var(--contentBGColor);
-    transition-duration: 0.4s;
-    display: grid;
-    border-radius: 0px 0px 65px 65px;
-    padding-bottom: 70px;
-    position: relative;
-    z-index: -1;
-}
-
-
 
 .tabsB {
     // color: red;
@@ -523,50 +516,34 @@ non {
     transition-duration: 0.4s;
     display: grid;
     border-radius: 0px 0px 65px 65px;
-    padding-bottom: 70px;
     position: relative;
     z-index: -1;
+    @media (@bp-mobile) {
+        padding: 0 1rem 4rem 1rem;
+    }
 }
 
 .post {
     cursor: default;
     z-index: 2;
+    width: fit-content;
     position: relative;
     left: 50%;
     bottom: 0px;
     transform: translateX(-50%);
     display: inline-block;
     transition: all 0.5s ease 0s;
-    margin: 50px 0px;
     transition-timing-function: cubic-bezier(1, 0.01, 1, 0);
-
+    &:not(:last-child){
+        margin: 50px 0px;
+    }
     @media (@bp-tablet) {
         position: relative;
         left: 50%;
         transform: translateX(-50%);
         display: inline-block;
         transition: all 0.2s ease 0s;
-        margin: 50px 0px;
-    }
-
-    &:hover #kschImg {
-        filter: hue-rotate(125deg);
-        box-shadow: rgba(46, 53, 255, 0.42) 0 24px 50px -7px, black 0 0 0 20px inset;
-    }
-
-    &:hover #medImg {
-        filter: saturate(3);
-        box-shadow: rgba(178, 208, 255, 0.39) 0px 24px 50px -7px, black 0px 0px 0px 20px inset;
-    }
-
-    :hover #singleImg {
-        filter: sepia(3.6);
-        box-shadow: rgba(132, 117, 91, 0.75) 0 24px 50px -7px, black 0 0 0 20px inset;
-    }
-
-    &:hover #tripImg {
-        animation: tripPrewAni 2s ease infinite;
-        box-shadow: rgb(15 255 75 / 39%) 0px 24px 50px -7px, black 0px 0px 0px 20px inset;
+        
     }
 
     &:hover .pod {
@@ -598,6 +575,7 @@ non {
             border-radius: 40px;
             transform: translateX(-50%);
             left: 50%;
+            max-width: 100vw;
         }
     }
 
@@ -624,16 +602,18 @@ non {
     }
 
 }
-.page-wrapper.png {
-    margin: 1rem 4rem;
-    @media (@bp-mobile){
-        margin: 1rem 1rem;
+.content.png {
+    @media not all and (@bp-tablet){
+        padding: 1rem 2rem 3rem;
+
+
     }
 }
 
 .pngPost{
     margin: ;
-    @media (@bp-mobile){
+    @media (@bp-tablet){
+        // padding: 0rem 1rem;
         &:not(:last-child){
             margin-bottom: 3rem;
         }
@@ -664,4 +644,18 @@ non {
     box-shadow: 1px 1px 0 2000px #000000;
     transition: 0.3s;
 
+}
+
+footer{
+        background-image: var(--footerImage);
+        color: white;
+        background-size: cover;
+        text-align: center;
+        background-position-y: 100px;
+        padding: 40px;
+        box-shadow: var(--footerBSh);
+    
+        position: relative;
+        z-index: -2;
+    
 }

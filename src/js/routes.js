@@ -11,7 +11,7 @@ var routes = [
   },
     {
       path: '/single/',
-      component: single
+      component: single,
     },
 ];
 
