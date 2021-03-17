@@ -6,16 +6,16 @@
         </style>
 
         ${$store.state.data.posts.map((item) => $h`
-          <a class="post"  style="cursor:${item.cursor()}" href="/single/">
+          <a class="post" id='post-${item.name}' style="cursor:${item.cursor()}" href="/single/">
             
             ${support_format_webp() && $h`
-              <img data-src=${item.img_webp()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/>
+              <img data-src=${item.img_webp()} alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
 
               `
             }
     
             ${!support_format_webp() &&  $h`
-              <img data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' id='post-${item.name}' class="lazy lazy-fade-in post-img"/>
+              <img data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
               `
     
             }
@@ -36,7 +36,15 @@
     let css = ``;
 
     $store.state.data.posts.map((item) =>{
-      css=css+`#post-${item.name}:hover{
+      css=css+`
+      @media(hover: hover) and (pointer: fine) {
+        #post-${item.name}:hover img {
+          box-shadow:${item.h_box_shadow};
+        ${item.h_filter} !important;
+        }
+      }
+
+      #post-${item.name}.active-state img{
         box-shadow:${item.h_box_shadow};
         ${item.h_filter} !important;
       }

@@ -26,6 +26,19 @@
     user-select: text;
 }
 
+.hover(@code){
+    @media(hover: hover) and (pointer: fine) {
+        &:hover {
+            font-style:inherit~";@{code}";
+        }
+    }
+
+    &.active-state{
+        font-style:inherit~";@{code}";
+    }
+}
+
+
 
 
 @fontFamily: 'Inter', sans-serif;
@@ -281,6 +294,10 @@ p {
     }
 }
 
+img{
+    // pointer-events: none;
+}
+
 non {
     text-decoration: line-through;
     opacity: 0.5;
@@ -292,6 +309,27 @@ non {
     background-color: var(--day-bg);
 }
 
+.ripple-wave {
+    // background-color: rgba(0, 0, 0, 0.253);
+    // background-color: rgba(255, 255, 255, 0.253);
+    background-color: #00000038;
+    z-index: 100;
+    
+}
+
+.ripple{
+    
+    &.overflow-hidden{
+        overflow: hidden;
+    }
+
+    &.ripple-dark-white .ripple-wave{
+        @media (prefers-color-scheme: dark) {
+            background-color: #ffffff1c;
+        }
+    }
+}
+
 .mainScreen {
     background-image: var(--mainScreenImg);
     background-repeat: no-repeat;
@@ -301,6 +339,7 @@ non {
     width: 100%;
     position: relative;
     z-index: 3;
+    pointer-events: none;
     height: 116%;
     border-radius: 0px 0px 115px 115px;
     filter: var(--mainScreenFilter);
@@ -312,6 +351,7 @@ non {
 
     &-tips {
         display: inline-block;
+        pointer-events: all;
         left: 20%;
         color: #ffffffe0;
         font-size: 30px;
@@ -353,12 +393,8 @@ non {
     text-decoration: underline;
     transition: all 0.2s ease 0s;
     width: min-content;
-}
 
-#disactiveTip:hover {
-    display: inline-block;
-    transition: 0.2s;
-    opacity: 0.9;
+    .hover('display: inline-block;transition: 0.2s;opacity: 0.9;')
 }
 
 #about {
@@ -559,10 +595,6 @@ non {
         
     }
 
-    &:hover .pod {
-        opacity: 0.1;
-    }
-
     &-img {
         box-shadow: var(--postImgBSh);
         transition: all 1s ease 0s;
@@ -592,10 +624,6 @@ non {
             margin: 22px;
             font-size: 20pt;
         }
-    }
-
-    &:hover &-tit {
-        opacity: 0.1;
     }
 
 }
@@ -652,6 +680,9 @@ non {
 
 }
 
+.photo-browser-caption{
+    margin-bottom: 1rem;
+}
 footer{
         background-image: var(--footerImage);
         color: white;

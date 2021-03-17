@@ -64,7 +64,7 @@ var app = new Framework7({
   el: '#app', // App root element
   component: App, // App main component
   view: {
-    browserHistory:true
+    browserHistory:true,
   },
 
   // App store
@@ -72,9 +72,12 @@ var app = new Framework7({
   // App routes
   routes: routes,
   touch: {
-    mdTouchRipple:false,
+    // mdTouchRipple:true,
+    // iosTouchRipple:true,
+    auroraTouchRipple:false,
     disableContextMenu:true,
-    touchRippleElements:'.ripple',
+    touchRippleElements:'.ripple, .ripple-dark-white',
+    // activeStateOnMouseMove:true,
   },
   lazy: {
     threshold: 800,
@@ -116,6 +119,7 @@ import { s_imports } from './mods/imports/s-imports'
 s_imports();
 // //import to store
 
+$(document).on("dragstart", 'img, a', function(event) { event.preventDefault(); });
 
 // console.log(store);
 window.store = store;

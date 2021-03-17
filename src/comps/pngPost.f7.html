@@ -34,12 +34,16 @@ if ($f7.device.desktop) {
         /*=== Default standalone ===*/
       var myPhotoBrowserStandalone = $f7.photoBrowser.create({
         photos: [
-          src
+          {
+            url:src,
+            caption: 'привет тест вцатуоа уотца цау аца цуцуцу пкпуы '
+          }
         ],
         theme:'dark',
         navbar:true,
         toolbar:false,
         routableModals:true,
+        expositionHideCaptions:true,
         url:'/png',
         popupCloseLinkText:'<i class="f7-icons">multiply</i>',
         renderNavbar:function(){
