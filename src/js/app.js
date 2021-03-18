@@ -116,7 +116,7 @@ s_scroll_event();
 
 // import to store
 import { s_imports } from './mods/imports/s-imports'
-s_imports();
+await s_imports();
 // //import to store
 
 $(document).on("dragstart", 'img, a', function(event) { event.preventDefault(); });

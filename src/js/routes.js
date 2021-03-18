@@ -10,7 +10,7 @@ var routes = [
     component: HomePage,
   },
     {
-      path: '/single/',
+      path: '/p/:id/',
       component: single,
     },
 ];

@@ -213,4 +213,5 @@ module.exports = {
       swSrc: resolvePath('src/service-worker.js'),
     }),
   ],
+  experiments:{topLevelAwait:true}
 };

@@ -1,28 +1,35 @@
 <template>
       <div class="content page-wrapper" id="pageWrapper">
 
-        <style innerHTML=${css}>
-
-        </style>
-
         ${$store.state.data.posts.map((item) => $h`
-          <a class="post" id='post-${item.name}' style="cursor:${item.cursor()}" href="/single/">
+          <style innerHTML=${`
+            @media(hover: hover) and (pointer: fine) {
+              #post-${item.name}:hover img {
+                box-shadow:${item.h_box_shadow};
+              ${item.h_filter} !important;
+              }
+            }
+      
+            #post-${item.name}.active-state img{
+              box-shadow:${item.h_box_shadow};
+              ${item.h_filter} !important;
+            }
+            ${item.h_animation}`}>
+            
+          </style>
+          <a class="post" id='post-${item.name}' style="cursor:url(/static/img/${item.name}/${item.name}Cur.cur), auto;" href="/p/${item.name}/">
             
             ${support_format_webp() && $h`
-              <img data-src=${item.img_webp()} alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
+              <img data-src="/static/img/${item.name}/${item.name}.webp" alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
 
               `
             }
     
             ${!support_format_webp() &&  $h`
-              <img data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
+              <img data-src="/static/img/${item.name}/${item.name}.jpg" alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
               `
     
-            }
-            <!-- <picture>
-              <source data-src=${item.img_webp()} alt='Приложение «трип» постер.png' type="image/webp"/>
-                <img id="tripImg" data-src=${item.img_jpg()} alt='Приложение «трип» постер.png' class="lazy lazy-fade-in post-img"/>
-            </picture> -->
+        }
         </a>
         `)}
 
@@ -31,48 +38,34 @@
   </div>
   </template>
   <script>
-  export default (props, {$store, $f7, $, $onMounted}) => {
+  export default (props, {$store, $f7, $, $onMounted, $update}) => {
+    
+    $f7.on('e-postsLoaded',()=>{
+      $update(()=>{console.log($store.state.data.posts  );
+        $f7.lazy.create($('.page-wrapper'));
+      })
+
+    })
 
     let css = ``;
 
-    $store.state.data.posts.map((item) =>{
-      css=css+`
-      @media(hover: hover) and (pointer: fine) {
-        #post-${item.name}:hover img {
-          box-shadow:${item.h_box_shadow};
-        ${item.h_filter} !important;
-        }
-      }
-
-      #post-${item.name}.active-state img{
-        box-shadow:${item.h_box_shadow};
-        ${item.h_filter} !important;
-      }
-      ${item.h_animation}`
-    });
+    
 
     // console.log(css);
 
 
-    function support_format_webp()
-{
- var elem = document.createElement('canvas');
+        function support_format_webp() {
+          var elem = document.createElement('canvas');
 
- if (!!(elem.getContext && elem.getContext('2d')))
- {
-  // was able or not to get WebP representation
-  return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
- }
- else
- {
-  // very old browser like IE 8, canvas not supported
-  return false;
- }
-}
-    $onMounted(() => {
-      $f7.lazy.create($('.page-wrapper'));
-
-  });
+          if (!!(elem.getContext && elem.getContext('2d'))) {
+            // was able or not to get WebP representation
+            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+          }
+          else {
+            // very old browser like IE 8, canvas not supported
+            return false;
+          }
+        }
 
   $f7.on('lazyLoaded', (e)=>{
     setTimeout(() => {

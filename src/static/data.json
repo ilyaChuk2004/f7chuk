@@ -2,5 +2,9 @@
     "about": {
         "1": "<h2 class='tooltip-init' data-tooltip='ssss'>Привет <picture> <source srcset='/static/img/wavHand.webp' type='image/webp' alt='👋'/><img class='fak'style='height:1em; transform:translateY(0%);' src='/static/img/wavHand.png' alt='👋'/></picture></h2><p>Здесь мои работы&#160;—&#160;<strong>Ильи Матвийчука</strong>. В каждомпосте рассказывается, как продвигалась работа, икакие технологии использовались. <strong>Типа блог, да.</strong></p><p>Все контакты в правом нижнем углу.</p>",
         "2": "<h4 style='text-align: center;'>Рисую чисто для себя <picture><source srcset='/static/img/ww1.webp' alt='🤹‍♂️' type='image/webp'/><img style='height: 1.3em; transform: translateY(0%);' class='fak' src='/static/img/ww1.png' alt='🤹‍♂️'></picture></h4>"
+    },
+    "ss": {
+        "1": "<h2 class='tooltip-init' data-tooltip='ssss'>Привет <picture> <source srcset='/static/img/wavHand.webp' type='image/webp' alt='👋'/><img class='fak'style='height:1em; transform:translateY(0%);' src='/static/img/wavHand.png' alt='👋'/></picture></h2><p>Здесь мои работы&#160;—&#160;<strong>Ильи Матвийчука</strong>. В каждомпосте рассказывается, как продвигалась работа, икакие технологии использовались. <strong>Типа блог, да.</strong></p><p>Все контакты в правом нижнем углу.</p>",
+        "2": "<h4 style='text-align: center;'>Рисую чисто для себя <picture><source srcset='/static/img/ww1.webp' alt='🤹‍♂️' type='image/webp'/><img style='height: 1.3em; transform: translateY(0%);' class='fak' src='/static/img/ww1.png' alt='🤹‍♂️'></picture></h4>"
     }
 }
