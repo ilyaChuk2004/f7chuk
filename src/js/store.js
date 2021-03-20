@@ -36,23 +36,15 @@ const store = createStore({
       {
         name:'ww',
         name_ru:'',
-        h_box_shadow:'',
-        h_filter:'',
-        h_animation:''
-      },
-      {
-        name:'ww',
-        name_ru:'',
-        h_box_shadow:'',
-        h_filter:'',
-        h_animation:''
-      },
-      {
-        name:'ww',
-        name_ru:'',
-        h_box_shadow:'',
-        h_filter:'',
-        h_animation:''
+        postcss:{
+        boxshadow:'',
+        filter:'',
+        animation:''
+        },
+        cursour:{
+          path:'',
+          _id:''
+        }
       },
     ],
 

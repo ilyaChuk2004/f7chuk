@@ -121,6 +121,7 @@ await s_imports();
 
 $(document).on("dragstart", 'img, a', function(event) { event.preventDefault(); });
 
+
 // console.log(store);
 window.store = store;
 window.app = app;

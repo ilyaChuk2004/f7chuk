@@ -11,17 +11,37 @@ export async function s_imports(e) {
          ress=res.data
     });
     store.state.data.posts = ress;
-    setTimeout(() => {
     app.emit(`e-${whatToLoad}Loaded`);
-      
-    }, 7000);
   }
 
-    let arr = ['posts'];
-    for (let index = 0; index < arr.length; index++) {
-      const el = arr[index];
-      load(el);
-    }
+  async function posts(){
+  let ress=0;
+  await app.request.post('https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41', 
+  {
+  filter:{
+      published:true
+  },
+  fields:{
+      name:1,
+      thumbjpg:1,
+      thumbwebp:1,
+      postcss:1,
+      cursour:1
+  },
+  sort: {_created:-1}
+  }
+  ) 
+    .then(function (res) {
+      ress=(JSON.parse(res.data))
+    });
+    store.state.data.posts = ress.entries;
+    app.emit(`e-postsLoaded`);
+  }
+
+  await posts()
+
+    // let arr = ['posts'];
+
 
 
 

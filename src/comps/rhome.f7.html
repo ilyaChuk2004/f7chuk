@@ -5,19 +5,19 @@
           <style innerHTML=${`
             @media(hover: hover) and (pointer: fine) {
               #post-${item.name}:hover img {
-                box-shadow:${item.h_box_shadow};
-              ${item.h_filter} !important;
+                box-shadow:${item.postcss.boxshadow};
+              ${item.postcss.filter} !important;
               }
             }
       
             #post-${item.name}.active-state img{
-              box-shadow:${item.h_box_shadow};
-              ${item.h_filter} !important;
+              box-shadow:${item.postcss.boxshadow};
+              ${item.postcss.filter} !important;
             }
-            ${item.h_animation}`}>
+            ${item.postcss.animation}`}>
             
           </style>
-          <a class="post" id='post-${item.name}' style="cursor:url(/static/img/${item.name}/${item.name}Cur.cur), auto;" href="/p/${item.name}/">
+          <a class="post" id='post-${item.name}' style="cursor:url(https://chuk.dx.am/${item.cursour}), auto;" href="/p/${item.name}/">
             
             ${support_format_webp() && $h`
               <img data-src="/static/img/${item.name}/${item.name}.webp" alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
