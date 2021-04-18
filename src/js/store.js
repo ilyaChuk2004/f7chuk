@@ -44,7 +44,31 @@ const store = createStore({
         cursour:{
           path:'',
           _id:''
-        }
+        },
+        thumbjpg:{_id:''},
+        thumbwebp:{_id:''},
+        shorttext:'',
+        mainscreen:{
+          bgpos:'',shorttext:'',title:''
+        },
+        published:{
+          date:''
+        },
+        type:'update',
+        gall:[
+          {
+            path:'11',
+            meta:{
+              title:'top'
+            }
+          },
+          {
+            path:'11',
+            meta:{
+              title:'top'
+            }
+          },
+        ]
       },
     ],
 
@@ -78,7 +102,11 @@ const store = createStore({
 
       },
     ]
-  }
+    },
+    gf:{
+      support_format_webp(){var elem=document.createElement("canvas");return!(!elem.getContext||!elem.getContext("2d"))&&0==elem.toDataURL("image/webp").indexOf("data:image/webp")},
+      getRandomInRange(min, max){return Math.floor(Math.random() * (max - min + 1)) + min}
+    },
   },
 })
 export default store;

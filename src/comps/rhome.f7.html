@@ -1,71 +1,35 @@
 <template>
       <div class="content page-wrapper" id="pageWrapper">
 
-        ${$store.state.data.posts.map((item) => $h`
-          <style innerHTML=${`
-            @media(hover: hover) and (pointer: fine) {
-              #post-${item.name}:hover img {
-                box-shadow:${item.postcss.boxshadow};
-              ${item.postcss.filter} !important;
-              }
-            }
-      
-            #post-${item.name}.active-state img{
-              box-shadow:${item.postcss.boxshadow};
-              ${item.postcss.filter} !important;
-            }
-            ${item.postcss.animation}`}>
-            
-          </style>
-          <a class="post" id='post-${item.name}' style="cursor:url(https://chuk.dx.am/${item.cursour}), auto;" href="/p/${item.name}/">
-            
-            ${support_format_webp() && $h`
-              <img data-src="/static/img/${item.name}/${item.name}.webp" alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
-
-              `
-            }
-    
-            ${!support_format_webp() &&  $h`
-              <img data-src="/static/img/${item.name}/${item.name}.jpg" alt='Приложение «трип» постер.png' id='post-${item.name}-img' class="lazy lazy-fade-in post-img"/>
-              `
-    
-        }
-        </a>
-        `)}
-
+        <div class="el"></div>
+      ${$store.state.data.posts.map((item) => $h`
+        <${q_post} post=${item} />
+      `)}
         <!-- style="cursor: url(img/trip/tripCur.cur), auto;" -->
       
   </div>
   </template>
   <script>
+    import q_post from './post.f7.html'
+
   export default (props, {$store, $f7, $, $onMounted, $update}) => {
     
     $f7.on('e-postsLoaded',()=>{
       $update(()=>{console.log($store.state.data.posts  );
+        setTimeout(() => {
         $f7.lazy.create($('.page-wrapper'));
+        }, 5);
       })
 
     })
 
     let css = ``;
-
     
 
     // console.log(css);
 
 
-        function support_format_webp() {
-          var elem = document.createElement('canvas');
 
-          if (!!(elem.getContext && elem.getContext('2d'))) {
-            // was able or not to get WebP representation
-            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-          }
-          else {
-            // very old browser like IE 8, canvas not supported
-            return false;
-          }
-        }
 
   $f7.on('lazyLoaded', (e)=>{
     setTimeout(() => {

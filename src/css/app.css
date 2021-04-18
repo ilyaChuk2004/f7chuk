@@ -24,6 +24,33 @@
   /* Internet Explorer/Edge */
   user-select: text;
 }
+.hair::before {
+  content: '';
+  position: absolute;
+  background-color: var(--hair) !important;
+  display: block;
+  z-index: 15;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  height: 1px;
+  width: 100%;
+  transform-origin: 50% 0%;
+  transform: scaleY(calc(1 / var(--f7-device-pixel-ratio)));
+}
+.hair::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 100%;
+  bottom: 100%;
+  height: 8px;
+  top: auto;
+  pointer-events: none;
+  background: var(--f7-toolbar-bottom-shadow-image);
+  transform: translate3d(0, 0, 0);
+}
 @main ScreenImg: chukKrivie.svg;
 @media (prefers-color-scheme: light) {
   #mediaFlag500 {
@@ -71,6 +98,7 @@
     --headerTipsBG: #d6d6d6;
     --headerTipsColor: #373737;
     --headerTipsMainColor: #925f35;
+    --commentSendColorHover: #6b6b6b;
   }
 }
 @media (prefers-color-scheme: dark) {
@@ -120,6 +148,7 @@
     --headerTipsBG: #1e1e1e;
     --headerTipsColor: #7f7f7f;
     --headerTipsMainColor: #530a1b;
+    --commentSendColorHover: #606060;
   }
 }
 :root {
@@ -488,10 +517,18 @@ non {
   position: relative;
   display: inline-block;
   transition: all 0.5s cubic-bezier(1, 0.01, 1, 0) 0s;
-  margin-top: 2rem;
+  background-color: var(--f7-autocomplete-dropdown-bg-color);
+  border: 1px var(--f7-actions-bg-color) solid;
+  border-radius: 2rem;
+  width: min-content;
+}
+@media (prefers-color-scheme: light) {
+  .post {
+    box-shadow: 0px 0px 30px -11px #00000045;
+  }
 }
 .post:not(:last-child) {
-  margin-bottom: 2rem;
+  margin-bottom: calc(3rem + 0rem);
 }
 @media (max-width: 700px) {
   .post {
@@ -501,34 +538,105 @@ non {
     transition: all 0.2s ease 0s;
   }
 }
-.post-img {
-  box-shadow: var(--postImgBSh);
-  transition: all 1s ease 0s;
-  border-radius: 40px;
-  height: 80vh;
+.post .gal {
+  border-radius: 2rem;
+  height: 60vh;
+  width: 60vh;
 }
 @media (max-width: 700px) {
-  .post-img {
-    width: 100%;
-    height: auto;
-    box-shadow: #767676 0px 0px 50px -7px;
+  .post .gal {
+    width: calc(100vw - 2rem);
+    height: calc(100vw - 2rem);
   }
 }
-.post-tit {
+.post .gal .snext {
   position: absolute;
-  top: 0px;
-  -webkit-text-stroke: -337px;
-  font-weight: 800;
-  z-index: 3;
-  color: #ffffff;
-  margin: 33px;
-  font-size: 30pt;
-  transition: all 0.5s ease 0s;
+  top: 50%;
+  font-size: 16pt;
+  background-color: #ffffff78;
+  right: 0.3rem;
+  backdrop-filter: blur(4px);
+  color: black;
+  z-index: 1;
+  border-radius: 100rem;
+  padding: 0.4rem;
+}
+.post .gal .snext:focus {
+  outline: none;
+}
+.post .gal .sprew {
+  position: absolute;
+  top: 50%;
+  font-size: 16pt;
+  background-color: #ffffff78;
+  left: 0.3rem;
+  backdrop-filter: blur(4px);
+  color: black;
+  z-index: 1;
+  /* filter: drop-shadow(0px 0px 2px white); */
+  border-radius: 100rem;
+  padding: 0.4rem;
+}
+.post .gal .sprew:focus {
+  outline: none;
+}
+.post .gal .bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  background-color: var(--f7-autocomplete-dropdown-bg-color);
+}
+.post .gal .dis {
+  display: none;
+}
+.post-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.post .type {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+.post .type .meta .name {
+  font-size: 13pt;
+  color: var(--pColor);
+}
+.post .type .meta .time {
+  font-size: 9pt;
+  color: var(--commentSendColorHover);
+}
+.post .type .ava {
+  width: 3rem;
+  margin-right: 0.7rem;
+}
+.post .disc {
+  padding: 0rem 1rem 1rem;
+  box-sizing: border-box;
+}
+.post .disc .text {
+  color: var(--pColor);
+  font-size: 13pt;
 }
 @media (max-width: 700px) {
-  .post-tit {
-    margin: 22px;
-    font-size: 20pt;
+  .post .disc .text {
+    font-size: 10.5pt;
+  }
+}
+.post .disc button {
+  box-sizing: border-box;
+  width: 80%;
+  margin: 1rem auto 0rem;
+  color: var(--iMenuTelegText);
+  border-color: var(--f7-badge-bg-color);
+}
+@media (max-width: 700px) {
+  .post .disc button {
+    width: 100%;
   }
 }
 .pngPost {
@@ -573,9 +681,6 @@ non {
   box-shadow: 1px 1px 0 2000px #000000;
   transition: 0.3s;
 }
-.photo-browser-caption {
-  margin-bottom: 1rem;
-}
 footer {
   background-image: var(--footerImage);
   color: white;
@@ -613,4 +718,11 @@ footer {
   transform: translate(-50%, -50%);
   width: var(--w);
   height: var(--w);
+}
+.actions-backdrop.backdrop-in {
+  backdrop-filter: blur(10px);
+  background-color: #0000004f;
+}
+.actions-button-text {
+  width: auto;
 }

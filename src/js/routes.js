@@ -12,6 +12,8 @@ var routes = [
     {
       path: '/p/:id/',
       component: single,
+      // asyncComponent: () => import('../css/singleCss.css')
+      
     },
 ];
 

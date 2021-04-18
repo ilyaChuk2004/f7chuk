@@ -1,0 +1,364 @@
+// out: singleCss.css, compress: true, sourceMap: false
+@bp-tablet: ~'max-width: 700px';
+@media (prefers-color-scheme: light) {
+    #mediaFlag500 {
+        color: white;
+    }
+    body .page-content.single{
+        --day-bg: #f5f5f5;
+        --footerBSh: rgb(83, 9, 27) 0 0 0 170px, rgba(0, 0, 0, .44) 0 -20px 16px -10px inset;
+        --hColor: #110e4a;
+        --pColor: #464646;
+        --strongColor: #110e4a;
+        --nonColor: #b7b7b7;
+        --otstupColor: #8a8a8a;
+        --jiZwhYColor: #3e3d3d;
+        --aDefColor: #231790;
+        --aHovColor: #8b0202;
+        --aVisColor: #6e1b79;
+        --pageWrapperBGColor: rgb(248, 249, 251);
+        --pageWrapperColor: #3e3d3d;
+        --ggColor: #616161;
+        --ggBGColor: #f5f5f5;
+        --ggBSh: 0 0 0 13px #f5f5f5;
+        --invertImgFilter: invert(0);
+        --likeValColor: #4c4c4c;
+        --miniPostBGColor: #fdbb85;
+        --miniPostTitColor: #476365;
+        --miniPostDiscColor: #717171;
+        --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
+        --postImgBSh: rgba(0, 0, 0, .58) 0 0 26px -7px, black 0 0 0 20px inset;
+        --iMenuBGColor: white;
+        --iMenuTelegText: #212121;
+        --iMenuArrColor: #a2a2a2;
+        --iMenuLineColor: #00000042;
+        --iBGColor: #6b4124;
+        --bottomPadBGcolor: rgb(219, 214, 214);
+        --backFilter: invert(0);
+        --commentBG:#dfdfdf;
+     --commentShadow:5px 5px 22px -7px #00000042, -5px -5px 22px 2px #ffffff, 5px 5px 153px 500px #00000017;
+     --commentShadowHover:inset 5px 5px 22px -7px #00000042, inset -5px -5px 22px -3px #ffffff, 5px 5px 153px 500px #00000017;
+     --commentNameShadow:5px 5px 16px -7px #0000001f, -5px -5px 22px 2px #ffffff;
+     --commentNameShadowHover:inset 5px 5px 16px -7px #0000001f, inset -5px -5px 22px 2px #ffffff;
+     --commentSendShadow:0px 0px 8px -3px #66ffcf94, 2px 2px 12px -2px #00000030, -2px -2px 10px -1px #ffffff;
+     --commentSendShadowHover:0px 0px 8px -3px #66ffcf94, inset 2px 2px 12px -2px #00000030, inset -2px -2px 10px -1px #ffffff;
+     --commentSendColor:#698982;
+     --commentSendColorHover:#6b6b6b;
+
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #mediaFlag500 {
+        color: black;
+    }
+    body .page-content.single{
+        --day-bg: #151111;
+        --footerBSh: rgb(83, 9, 27) 0 0 0 170px, rgba(0, 0, 0, .44) 0 -20px 16px -10px inset;
+        --hColor: #afaedc;
+        --pColor: #b7b7b7;
+        --strongColor: #dcdcdc;
+        --nonColor: #b7b7b7;
+        --otstupColor: #6f6f6f;
+        --jiZwhYColor: #dcdcdc;
+        --aDefColor: #908acf;
+        --aHovColor: #d17b7b;
+        --aVisColor: #e4ade8;
+        --pageWrapperBGColor: #252525;
+        --pageWrapperColor: #dcdcdc;
+        --ggColor: #c1c1c1;
+        --ggBGColor: #151111;
+        --ggBSh: 0 0 0 13px #151111;
+        --invertImgFilter: invert(1);
+        --likeValColor: white;
+        --miniPostBGColor: #53091b;
+        --miniPostTitColor: #d4d4d4;
+        --miniPostDiscColor: #949494;
+        --miniPostHoverBSh: rgb(62, 0, 51) 0 0 30px 0;
+        --postImgBSh: 0 0 12px #739cff69;
+        --iMenuBGColor: #1d1c1c;
+        --iMenuTelegText: #c3c3c3;
+        --iMenuArr: #a2a2a2;
+        --iMenuLine: #383838;
+        --iBGColor: #53091b;
+        --bottomPadBGcolor: rgb(51, 51, 51);
+        --bdyContBSh: rgba(0, 0, 0, .25) 0 0 31px -5px, rgb(55, 51, 51) 0 0 0 200px;
+        --backFilter: invert(1);
+        --commentBG:#151111;
+     --commentShadow:5px 5px 36px -7px #000000d6, -5px -5px 22px 2px #ffffff0f;
+     --commentShadowHover:inset 5px 5px 36px -7px #000000d6, inset -5px -5px 22px 2px #ffffff0f;
+     --commentNameShadow:5px 5px 11px -7px #000000d6, -5px -5px 14px -7px #ffffff12;
+     --commentNameShadowHover:inset 5px 5px 11px -7px #000000d6, inset -5px -5px 14px -7px #ffffff12;
+     --commentSendShadow:2px 2px 12px 1px #000000b3, -2px -2px 10px -3px #ffffff26;
+     --commentSendShadowHover:inset 2px 2px 12px 1px #000000ba, inset -2px -2px 10px -3px #ffffff21;
+     --commentSendColor:#9a9a9a;
+     --commentSendColorHover:#606060;
+    } 
+}
+
+.page-content.single{
+  margin: 0;
+     perspective-origin: 77px 60px;
+     height: 100%;
+     perspective: 1px;
+     overflow-x: hidden;
+     position: relative;
+     bottom: 0;
+     overflow-y: auto;
+     transition-duration: .6s;
+     transition-timing-function: cubic-bezier(.27, .49, .31, .99);
+     background-color: var(--day-bg);
+     
+     padding-bottom: 0;
+     padding-top: 1rem;
+    
+
+    .cont{
+        padding-right: 13vw;
+        padding-left: 13vw;
+        @media(@bp-tablet) {
+            padding-right: 5vw;
+            padding-left: 5vw;
+        }
+    }
+
+     & p a {
+     color: var(--aDefColor);
+     cursor: pointer;
+     text-decoration: underline;
+     transition-duration: .2s
+ }
+
+ & p a:hover {
+     color: var(--aHovColor)
+ }
+
+ & p a:visited {
+     color: var(--aVisColor)
+ }
+
+ & strong {
+     color: var(--strongColor);
+     font-weight: 500;
+     -ms-user-select: text;
+     -moz-user-select: text;
+     -khtml-user-select: text;
+     -webkit-user-select: text
+ }
+
+ &  non {
+     text-decoration: line-through;
+     opacity: .5;
+     color: var(--nonColor);
+     -ms-user-select: text;
+     -moz-user-select: text;
+     -khtml-user-select: text;
+     -webkit-user-select: text
+ }
+
+ & h1,
+ & h2,
+ & h3,
+ & h4,
+ & h5,
+ & h6 {
+     font-family: Inter, sans-serif;
+     font-size: 23pt;
+     color: var(--hColor);
+     margin-inline-start: 30px;
+     margin-top: 2em;
+     -ms-user-select: text;
+     -moz-user-select: text;
+     -khtml-user-select: text;
+     -webkit-user-select: text
+ }
+
+ & h6 {
+     font-size: 20pt;
+     margin-top: 1em;
+     margin-bottom: 1em;
+     margin-inline-start: 80px
+ }
+
+ & p {
+     color: var(--pColor);
+     font-size: 19pt;
+    //  margin: 30px 130px;
+     line-height: 150%;
+     font-weight: 500;
+     position: relative;
+     font-family: Inter, sans-serif;
+     -ms-user-select: text;
+     -moz-user-select: text;
+     -khtml-user-select: text;
+     -webkit-user-select: text;
+     @media(@bp-tablet) {
+        font-size:15pt
+    }
+ }
+
+ & .linkBtn{
+    display: inline-flex;
+    align-items: center;
+    font-size: 15pt;
+    padding: 0.4rem 1rem;
+    font-weight: 800;
+    border-radius: .9rem;
+
+     & img{
+        margin: 0.2rem 0.5rem 0.2rem 0rem;
+        height: 2rem;
+     }
+
+ }
+
+ .img, img{
+    margin: auto; 
+    display: block;
+    cursor: pointer;
+    max-height: 72vh; 
+    max-width: 100%;
+
+    &.under{
+        filter: blur(11px) opacity(.5);
+        transform: translate(-50%, -100%);
+        z-index: -1;
+        position: absolute;
+        left: 50%;
+    }
+}
+.photo-browser-caption {
+    // box-shadow: 0px 20px 0 20px var(--f7-photobrowser-caption-dark-bg-color);
+    background: #0000006b !important;
+
+    @media(@bp-tablet) {
+        box-shadow: none;
+        //  margin-bottom: 1rem;
+    }
+
+    
+
+}
+
+
+.toolbar.toolbar-bottom.tabbar {
+    background-color: #0000006b !important;
+    backdrop-filter: none !important;
+}
+
+.footer{
+    width: 100vw;
+    padding: 2rem;
+    padding-top: 4.5rem;
+    box-sizing: border-box;
+    background-image: var(--footerImage);
+    background-size: cover;
+    position: relative;
+    text-align: center;
+    background-position: center;
+    font-size: 14pt;
+    @media(@bp-tablet) {
+    font-size: 4vw;
+
+        //  margin-bottom: 1rem;
+    }
+
+&::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3rem;
+    background-color: black;
+    top: 0px;
+    left: 0;
+    border-radius: 0rem 0rem 5rem 5rem;
+    background-color: var(--day-bg);
+}
+}
+.time{
+    color: var(--pColor);
+    opacity: 0.6;
+}
+
+.title-large{
+    font-size: 24pt;
+    font-weight: 800;
+    color: #b5b5b5;
+    @media (prefers-color-scheme: light) {
+        color: #414141;
+    }
+}
+
+.toolt{
+    position: relative;
+    &::after{
+        content: "i";
+        background-color: #7979795e;
+        backdrop-filter: blur(1.5px);
+        display: flex;
+        top: 0px;
+        position: absolute;
+        /* left: 130%; */
+        right: 0px;
+        transform: translate(50%, -40%);
+        /* padding: 1rem; */
+        box-sizing: border-box;
+        line-height: 0px;
+        border-radius: 11rem;
+        width: 1rem;
+        height: 1rem;
+        font-size: 12pt;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.5;
+    }
+}
+
+otstup {
+    color: #6f6f6f;
+    width: 100%;
+    display: inline-block;
+    font-size: 12pt;
+    padding: 1rem;
+    line-height: 150%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+cent{
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    font-size: 15pt;
+    margin-bottom: 1rem;
+}
+
+
+}
+.home.link.back{
+    background-image: url('../static/img/chukIcoKrivieWhite.svg');
+    height: 2.4rem;
+    width: 2.4rem;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    @media (prefers-color-scheme: light) {
+           background-image: url('../static/img/chukIcoKrivie.svg');
+
+    }
+}
+.like{
+    background-image: url('../static/img/heart.svg');
+    height: 2.4rem;
+    width: 2.4rem;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+img.swiper-lazy.swiper-lazy-loaded{
+    width: 100%;
+}
+
+.margin-left5{
+    margin-left: 5rem;
+}

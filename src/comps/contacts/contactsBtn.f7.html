@@ -9,7 +9,7 @@
   }
 
   ${!$store.state.appData.desktop &&  $h`
-    <a href="#" data-sheet=".contacts" @click=${swiperInit} style=${css} class="contactsBtn sheet-open">
+    <a href="#" @click=${swiperInit} style=${css} class="contactsBtn">
       я
         </a>
     `
@@ -29,15 +29,51 @@
     $store, $f7,$, $update
   }) => {
 
+    // $on('pageInit', () => {
+          //- Three groups
+          var ac4;
+setTimeout(() => {
+  ac4 = $f7.actions.create({
+    // backdropEl:'.bgBlur',
+        buttons: [
+          [
+            {
+              text: 'заказать работу',
+              label: true
+            },
+            {
+              text: 'фрилансхант',
+              onClick:()=>{window.location.href='#'},
+              // icon:'<div class="contactImg" style="background-image:url(static/img/freelIco.png)"></div>'
+            },
+          ],
+          [
+            {
+              text: 'написать мне',
+              label: true
+            },
+            {
+              text: 'телеграм',
+              onClick:()=>{window.location.href='https://t.me/IlyaChuk'}
+            },
+          ],
+          [
+            {
+              text: 'закрыть',
+              color: 'red'
+            }
+          ]
+        ],
+      });
+}, 5);
+// window.ac=ac4
+    // });
+      
     function swiperInit() {
-      var swiper = $f7.swiper.create('.Scontacts', {
-    speed: 400,
-    spaceBetween: 100
-});
-
+      ac4.open()
     }
 
-    let css='z-index:5;';
+    let css='z-index:5;'+props.style;
     $f7.on('qTabsLoad', function(){
       $update();
       css=`z-index:5;transform: translate(-50%, -${$('.tabsB')[0].offsetHeight+10}px) !important;`;

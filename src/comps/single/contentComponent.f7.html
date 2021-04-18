@@ -1,0 +1,19 @@
+<template>
+  <div>
+    <div>
+    ${props.text ? $h`
+      <div>
+      <div innerHTML=${props.text}></div>
+      </div> 
+      `: $h`
+      <p>Text will be visible when "props.text" is falsy</p>
+    `}
+    </div>
+  </div>
+</template>
+<script>
+  export default (props, {}) => {
+console.log(7575);
+    return $render;
+  }
+</script>

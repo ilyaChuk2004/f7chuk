@@ -1,0 +1,22 @@
+<template>
+  ${props.col!=='' && $h`
+  <div class="linkBtn" style="background-color: ${props.bgcol}; color: ${props.col}; box-shadow:${props.bsh}">
+    ${props.img!=='' && $h`
+      <img src="https://chuk.dx.am/cock/storage/uploads${props.img}" alt=""/>
+    `}
+    <span>посмотреть сайт</span>
+  </div>
+  `}
+</template>
+<script>
+  export default (props, {
+    $store,
+    $f7,
+    $h,
+    $update,
+    $onBeforeMount
+  }) => {
+
+    return $render;
+  }
+</script>

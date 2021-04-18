@@ -1,33 +1,190 @@
 <template>
   <div class="page" data-name="single">
-
-    <div class="navbar navbar-large navbar-transparent">
-      <div class="navbar-bg"></div>
-      <div class="navbar-inner">
-        hello
+    ${!$store.state.appData.desktop &&  $h`
+      <div class="toolbar toolbar-bottom">
+        <div class="toolbar-inner">
+            <q-contactsBtn 
+              style="color: rgba(255, 255, 255, 0.767);position: relative;transform: none !important;width: 2.4rem;height: 2.4rem;font-size: 13pt;">
+            </q-contactsBtn>
+          <a class="home link back"></a>
+          <div class="like"></div>
+        </div>
       </div>
-    </div>
+      `
+    }
 
-
-    <div class="page-content">
-     ${post}
-     <br/>
-      data:${data}
+    <div class="page-content single">
+      <div class="cont">
+        <div class="title-large">${rdat.mainscreen.shorttext}</div>
+        <div class="time">${rdat.data()}</div>
+        <br/>
+        <${linkBtn} bgcol=${rdat.btn.bgcol} col=${rdat.btn.col} bsh=${rdat.btn.bsh} img=${support_format_webp()?rdat.btn.favwebp:rdat.btn.fav}/>
+        <${contentComponent} text=${rdat.content()}/>
+      </div>
+      <${footer}/>
   </div>
+  
 </div>
 </template>
+<style>
+
+</style>
 <script>
-export default (props, {$store, $f7, $update}) => {
-let post = 76;
-let data = 76;
-  app.request.getJSON(`static/posts/${props.id}.json`).then((res) => {
-    post = res.data.text;
-    data = res.data.data;
-    window.ttest = res.data;
-    $update();
-});
+import css from 'bundle-loader?lazy!../css/singleCss.css';
+css();
+
+import { gallery } from '../comps/single/gallery.js'
+import { grey } from '../comps/single/grey.js'
+import { bold } from '../comps/single/bold.js'
+import linkBtn from '../comps/single/linkBtn.f7.html'
+import footer from '../comps/single/footer.f7.html'
+import contentComponent from '../comps/single/contentComponent.f7.html'
+
+export default (props, {$store, $f7, $update, $}) => {
+  
+  var moment = require('moment');
+  window.mom = moment;
+  moment.lang('ru');
+let rdat={
+  data:()=>{},
+  content:()=>{},
+  btn:{bgcol:'',col:'',bsh:'',fav:'',favwebp:''},
+  header:{jpg:'', webp:''},
+  mainscreen:{
+    bgpos:'',shorttext:'',title:''
+  }
+}
+var datar=0;
+
+$f7.preloader.show();
+
+$f7.request({
+  url:'https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41',
+  method:'POST',
+  cache:true,
+  data:{
+    filter:{
+    published:true,
+    name:props.id
+  },
+}}).then(function (res) {
+      datar = JSON.parse(res.data).entries[0];
+      console.log(datar);
+
+    rdat = {
+      data:()=>{
+        return moment(datar.published.date).format('DD MMMM YYYY')
+      },
+      content:()=>{
+        let co = datar.content;
+        // if (co.indexOf('<pre>')!==-1) {
+        //   let tag = co.slice(co.indexOf('<pre>'), co.indexOf('</pre>')+6);
+        //   let newtag=()=>{
+        //     let items = tag.slice(13,-6).split(',').map(it => '"'+it+'"');
+        //     return `<div>${gallery(items)}</div>`
+        //   }
+        //   co=co.replace(tag, newtag())
+          
+        // }
+        let i=0;
+        // while (co.indexOf(`img src="https://chuk.dx.am/cock`)!==-1) {
+          // console.log(co);
+          //   zzzco.replace(
+          //     co.slice(
+          //       co.indexOf('<img src="https://chuk.dx.am/cock'),
+          //       co.indexOf('" alt="')+11
+          //     ),
+          //     img(
+          //       co.slice(
+          //         co.indexOf('<img src="https://chuk.dx.am/cock'),
+          //         co.indexOf('" alt="')+11
+          //       )
+          //     )
+          //   )
 
 
+          
+
+          
+        // }
+        while (co.indexOf('::')!==-1) {
+          let str = co.slice(co.indexOf('::')).slice(0,co.slice(co.indexOf('::')+2).indexOf('::')+4);
+          let arr = str.slice(2, str.length-2).split("^");
+          // debugger
+          let newstr='nonnee';
+          switch (arr[0]) {
+            case 'gallery':
+              newstr=gallery(arr);
+            break;
+            case 'grey':
+              newstr=grey(arr);
+            break;
+            case 'bold':
+              newstr=bold(arr);
+            break;
+            // default
+            //   break;
+          }
+          co=co.replace(str, newstr);
+          i++;
+        }
+        for (let index = 0; index < (co.split('href="http').length - 1); index++) {
+          co=co.replace('a href="http', `a class="link external" href="http`)
+          debugger
+          
+        }
+        co=`<div>${co}</div>`;
+        // console.log(co);
+        // console.log(co);
+        return co
+      },
+      btn:{
+        bgcol:datar.btn.bgcolor,
+        col:datar.btn.color,
+        bsh:datar.btn.boxshadow,
+        fav:(datar.btn.fav==null)?'':datar.btn.fav.path,
+        favwebp:(datar.btn.fav==null)?'':datar.btn.favwebp.path,
+      },
+      header:{
+        jpg:datar.thumbjpg.path,
+        webp:datar.thumbwebp.path,
+      },
+      mainscreen:{
+        bgpos:datar.mainscreen.bgpos,shorttext:datar.mainscreen.shorttext,title:datar.mainscreen.title
+      }
+    }
+    window.ttest = datar;
+    window.rdat = rdat
+    $update(()=>{
+      // $update(()=>{
+      console.log(1);
+    // })
+    })
+
+    document.title = rdat.mainscreen.title;
+
+  $f7.preloader.hide(); 
+  });
+
+  $f7.on('e-update', ()=>{
+    $update(()=>{
+      console.log(1);
+    })
+  })
+
+  function support_format_webp() {
+          var elem = document.createElement('canvas');
+
+          if (!!(elem.getContext && elem.getContext('2d'))) {
+            // was able or not to get WebP representation
+            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
+          }
+          else {
+            // very old browser like IE 8, canvas not supported
+            return false;
+          }
+        }
+// debugger
   return $render;
 }
 </script>

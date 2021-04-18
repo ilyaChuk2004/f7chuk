@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .container {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: rgb(209, 209, 209);
+    position: relative;
+}
+
+.container:after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: rgb(255, 255, 255);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sector {
+    width: 50%;
+    height: 50%;
+    transition-duration: 0.2s;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform-origin: left bottom;
+    background: #000;
+}
+    </style>
+    <div class="container">
+    </div>
+
+    <div class="diagItem" onclick="diagramColorShow();"  onmousemove="diagramColorShow(this);" id="red">red</div>
+    <div class="diagItem" onclick="diagramColorShow();"  onmousemove="diagramColorShow(this);" id="green">green</div>
+    <div class="diagItem" onclick="diagramColorShow();"  onmousemove="diagramColorShow(this);" id="blue">blue</div>
+    <div class="diagItem" onclick="diagramColorShow();"  onmousemove="diagramColorShow(this);" id="yellow">yellow</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+    <script>
+       const name= ["Интернет", "Интернет", "Интернет", "Развлечения", "Развлечения", "Роуминг", "Роуминг", "Роуминг", "Сообщения"];
+const price = [800, 700, 2, 50, 145, 450, 700, 600, 60];
+
+
+
+const [nameNew, priceNew] = 
+  _.unzip(
+    _.toPairs(
+      _.groupBy(
+        _.zip(name, price).map(([name, price]) => ({ name, price })), 
+        'name'
+      )
+    ).map(([name, prices]) => [name, _.sumBy(prices, 'price')])
+  )
+
+    </script>
+</body>
+</html>
