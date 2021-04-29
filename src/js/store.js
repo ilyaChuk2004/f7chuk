@@ -36,18 +36,10 @@ const store = createStore({
       {
         name:'ww',
         name_ru:'',
-        postcss:{
-        boxshadow:'',
-        filter:'',
-        animation:''
-        },
-        cursour:{
-          path:'',
-          _id:''
-        },
+        btn:{bgcolor: "rgb(190, 255, 110)",boxshadow: "0px 8px 14px -10px #0eff00",color: "rgb(70, 111, 31)",fav:{path:''},favwebp:{path:''}},
         thumbjpg:{_id:''},
         thumbwebp:{_id:''},
-        shorttext:'',
+        shorttext:'ttttt',
         mainscreen:{
           bgpos:'',shorttext:'',title:''
         },

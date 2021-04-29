@@ -18,9 +18,15 @@
         <div class="title-large">${rdat.mainscreen.shorttext}</div>
         <div class="time">${rdat.data()}</div>
         <br/>
-        <${linkBtn} bgcol=${rdat.btn.bgcol} col=${rdat.btn.col} bsh=${rdat.btn.bsh} img=${support_format_webp()?rdat.btn.favwebp:rdat.btn.fav}/>
+        <${linkBtn} data=${rdat.btn}/>
         <${contentComponent} text=${rdat.content()}/>
+        
+
       </div>
+      ${loaded &&  $h`
+         <${last_post} thispost=${datar}/>
+        `}
+        <div>     </div>
       <${footer}/>
   </div>
   
@@ -33,10 +39,9 @@
 import css from 'bundle-loader?lazy!../css/singleCss.css';
 css();
 
-import { gallery } from '../comps/single/gallery.js'
-import { grey } from '../comps/single/grey.js'
-import { bold } from '../comps/single/bold.js'
+import { content_parse } from '../comps/single/content_parse.js'
 import linkBtn from '../comps/single/linkBtn.f7.html'
+import last_post from '../comps/single/last_post.f7.html'
 import footer from '../comps/single/footer.f7.html'
 import contentComponent from '../comps/single/contentComponent.f7.html'
 
@@ -48,14 +53,14 @@ export default (props, {$store, $f7, $update, $}) => {
 let rdat={
   data:()=>{},
   content:()=>{},
-  btn:{bgcol:'',col:'',bsh:'',fav:'',favwebp:''},
   header:{jpg:'', webp:''},
   mainscreen:{
     bgpos:'',shorttext:'',title:''
-  }
+  },
+  btn:{bgcolor:'', color:null, boxshadow:'', fav:null}
 }
-var datar=0;
-
+var datar=$store.state.data.posts[0];
+var loaded=false;
 $f7.preloader.show();
 
 $f7.request({
@@ -68,82 +73,24 @@ $f7.request({
     name:props.id
   },
 }}).then(function (res) {
-      datar = JSON.parse(res.data).entries[0];
-      console.log(datar);
+    loaded=true;
+
+    datar = JSON.parse(res.data).entries[0];
+    console.log(datar);
 
     rdat = {
       data:()=>{
         return moment(datar.published.date).format('DD MMMM YYYY')
       },
       content:()=>{
-        let co = datar.content;
-        // if (co.indexOf('<pre>')!==-1) {
-        //   let tag = co.slice(co.indexOf('<pre>'), co.indexOf('</pre>')+6);
-        //   let newtag=()=>{
-        //     let items = tag.slice(13,-6).split(',').map(it => '"'+it+'"');
-        //     return `<div>${gallery(items)}</div>`
-        //   }
-        //   co=co.replace(tag, newtag())
-          
-        // }
-        let i=0;
-        // while (co.indexOf(`img src="https://chuk.dx.am/cock`)!==-1) {
-          // console.log(co);
-          //   zzzco.replace(
-          //     co.slice(
-          //       co.indexOf('<img src="https://chuk.dx.am/cock'),
-          //       co.indexOf('" alt="')+11
-          //     ),
-          //     img(
-          //       co.slice(
-          //         co.indexOf('<img src="https://chuk.dx.am/cock'),
-          //         co.indexOf('" alt="')+11
-          //       )
-          //     )
-          //   )
-
-
-          
-
-          
-        // }
-        while (co.indexOf('::')!==-1) {
-          let str = co.slice(co.indexOf('::')).slice(0,co.slice(co.indexOf('::')+2).indexOf('::')+4);
-          let arr = str.slice(2, str.length-2).split("^");
-          // debugger
-          let newstr='nonnee';
-          switch (arr[0]) {
-            case 'gallery':
-              newstr=gallery(arr);
-            break;
-            case 'grey':
-              newstr=grey(arr);
-            break;
-            case 'bold':
-              newstr=bold(arr);
-            break;
-            // default
-            //   break;
-          }
-          co=co.replace(str, newstr);
-          i++;
-        }
-        for (let index = 0; index < (co.split('href="http').length - 1); index++) {
-          co=co.replace('a href="http', `a class="link external" href="http`)
-          debugger
-          
-        }
-        co=`<div>${co}</div>`;
-        // console.log(co);
-        // console.log(co);
-        return co
+       return content_parse(datar);
       },
       btn:{
-        bgcol:datar.btn.bgcolor,
-        col:datar.btn.color,
-        bsh:datar.btn.boxshadow,
-        fav:(datar.btn.fav==null)?'':datar.btn.fav.path,
-        favwebp:(datar.btn.fav==null)?'':datar.btn.favwebp.path,
+        color:datar.btn.color,
+        bgcolor:datar.btn.bgcolor,
+        boxshadow:datar.btn.boxshadow,
+        fav:datar.btn.fav,
+        favwebp:datar.btn.fav,
       },
       header:{
         jpg:datar.thumbjpg.path,
@@ -155,22 +102,32 @@ $f7.request({
     }
     window.ttest = datar;
     window.rdat = rdat
-    $update(()=>{
-      // $update(()=>{
-      console.log(1);
-    // })
-    })
+    
+    $f7.emit('e-update');
+    
 
     document.title = rdat.mainscreen.title;
-
   $f7.preloader.hide(); 
+
+  setTimeout(() => {
+    $f7.lazy.create('.page-content.single')
+  }, 500);
   });
 
   $f7.on('e-update', ()=>{
     $update(()=>{
-      console.log(1);
+      
+      console.log(0);
     })
   })
+
+
+
+let item = $store.state.data.posts[0];
+
+$f7.on('e-postsLoaded',()=>{
+console.log('looooooaded', $store.state.data.posts);
+})
 
   function support_format_webp() {
           var elem = document.createElement('canvas');
@@ -184,7 +141,6 @@ $f7.request({
             return false;
           }
         }
-// debugger
   return $render;
 }
 </script>

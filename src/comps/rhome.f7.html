@@ -3,14 +3,13 @@
 
         <div class="el"></div>
       ${$store.state.data.posts.map((item) => $h`
-        <${q_post} post=${item} />
+        <q-post post=${item}></q-post>
       `)}
         <!-- style="cursor: url(img/trip/tripCur.cur), auto;" -->
       
   </div>
   </template>
   <script>
-    import q_post from './post.f7.html'
 
   export default (props, {$store, $f7, $, $onMounted, $update}) => {
     
@@ -18,7 +17,7 @@
       $update(()=>{console.log($store.state.data.posts  );
         setTimeout(() => {
         $f7.lazy.create($('.page-wrapper'));
-        }, 5);
+        }, 50);
       })
 
     })

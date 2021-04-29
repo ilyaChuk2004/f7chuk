@@ -81,7 +81,7 @@ window.opo=myPhotoBrowserStandalone;
 $(document).on('click', `#${id}`, ()=> {
     myPhotoBrowserStandalone.open();
   });
-    let res=`<img id="${id}" class="img" src="${src[0]}"/>
-            <img class="img under" src="${src[0]}"/>`;
+    let res=`<img id="${id}" class="img lazy" data-src="${src[0]}"/>
+            <img class="img under lazy" data-src="${src[0]}"/>`;
 return res
 }

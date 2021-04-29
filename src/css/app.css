@@ -521,6 +521,7 @@ non {
   border: 1px var(--f7-actions-bg-color) solid;
   border-radius: 2rem;
   width: min-content;
+  font-weight: 500;
 }
 @media (prefers-color-scheme: light) {
   .post {

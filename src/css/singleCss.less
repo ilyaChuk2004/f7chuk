@@ -9,6 +9,7 @@
         --footerBSh: rgb(83, 9, 27) 0 0 0 170px, rgba(0, 0, 0, .44) 0 -20px 16px -10px inset;
         --hColor: #110e4a;
         --pColor: #464646;
+        --titleC:#414141;
         --strongColor: #110e4a;
         --nonColor: #b7b7b7;
         --otstupColor: #8a8a8a;
@@ -23,10 +24,7 @@
         --ggBSh: 0 0 0 13px #f5f5f5;
         --invertImgFilter: invert(0);
         --likeValColor: #4c4c4c;
-        --miniPostBGColor: #fdbb85;
-        --miniPostTitColor: #476365;
-        --miniPostDiscColor: #717171;
-        --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
+        --neoShadowInset:inset 5px 5px 13px #ffffff, inset -5px -5px 13px #00000014;
         --postImgBSh: rgba(0, 0, 0, .58) 0 0 26px -7px, black 0 0 0 20px inset;
         --iMenuBGColor: white;
         --iMenuTelegText: #212121;
@@ -57,6 +55,7 @@
         --footerBSh: rgb(83, 9, 27) 0 0 0 170px, rgba(0, 0, 0, .44) 0 -20px 16px -10px inset;
         --hColor: #afaedc;
         --pColor: #b7b7b7;
+        --titleC:#b5b5b5;
         --strongColor: #dcdcdc;
         --nonColor: #b7b7b7;
         --otstupColor: #6f6f6f;
@@ -71,10 +70,7 @@
         --ggBSh: 0 0 0 13px #151111;
         --invertImgFilter: invert(1);
         --likeValColor: white;
-        --miniPostBGColor: #53091b;
-        --miniPostTitColor: #d4d4d4;
-        --miniPostDiscColor: #949494;
-        --miniPostHoverBSh: rgb(62, 0, 51) 0 0 30px 0;
+        --neoShadowInset:inset 5px 5px 11px black, inset -5px -5px 11px rgba(255,255,255,0.14118);
         --postImgBSh: 0 0 12px #739cff69;
         --iMenuBGColor: #1d1c1c;
         --iMenuTelegText: #c3c3c3;
@@ -255,6 +251,7 @@
     background-size: cover;
     position: relative;
     text-align: center;
+    color: white;
     background-position: center;
     font-size: 14pt;
     @media(@bp-tablet) {
@@ -283,10 +280,7 @@
 .title-large{
     font-size: 24pt;
     font-weight: 800;
-    color: #b5b5b5;
-    @media (prefers-color-scheme: light) {
-        color: #414141;
-    }
+    color: var(--titleC);
 }
 
 .toolt{
@@ -331,6 +325,35 @@ cent{
     width: 100%;
     font-size: 15pt;
     margin-bottom: 1rem;
+}
+
+.lastPost{
+    padding: 2rem;
+    transform: scale(1);
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 4rem; */
+    box-shadow: var(--neoShadowInset);
+    align-items: center;
+    width: fit-content;
+    border-radius: 2rem;
+    margin: auto;
+    margin-top: -4rem;
+    transform: scale(0.75);
+    margin-top: -6%;
+    margin-bottom: -6%;
+    @media(@bp-tablet) {
+        margin-left: -2rem;
+        width: 100vw;
+
+    }
+
+    &>:nth-child(1){
+        margin-bottom: 1rem;
+        font-size: 21pt;
+        font-weight: 800;
+        color: var(--titleC);
+    }
 }
 
 

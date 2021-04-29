@@ -1,0 +1,33 @@
+<template>
+  <div class="lastPost">
+    <span>Следующий пост: </span>
+    <q-post post=${post}></q-post>
+  </div>
+</template>
+<script>
+  import store from '../../js/store'
+  export default (props, {
+    $store,
+    $f7,
+    $h,
+    $update,
+    $onMounted,
+    $el
+  }) => {
+    let arr=[];
+    // console.log('props', props);
+    let post=props.thispost;
+    store.state.data.posts.map((it)=>{arr.push(it.name)})
+    if (props.thispost.name!==(arr[0]+'')) {
+      // console.log(false, props.thispost.name, arr[0], arr[arr.indexOf(props.thispost.name)-1]);
+      post = store.state.data.posts[arr.indexOf(props.thispost.name)-1];
+    }else{
+      $onMounted(()=>{
+        $el.value[0].parentNode.removeChild($el.value[0])
+      })
+      // post=false;
+      
+    }
+    return $render;
+  }
+</script>

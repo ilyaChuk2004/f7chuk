@@ -1,5 +1,6 @@
 <template>
-    <div class="post">
+  ${props.post &&  $h`
+    <div class="post" >
        <div class="type">
          <object class="ava" data="static/img/${props.post.type}.svg"></object>
          <div class="meta">
@@ -48,23 +49,8 @@
       <i class="f7-icons sprew size-22">arrow_left</i>
   </div>
 
-<!-- 
-  <style innerHTML=${`
-    @media(hover: hover) and (pointer: fine) {
-      #post-${props.post.name}:hover img {
-        box-shadow:${props.post.postcss.boxshadow};
-      ${props.post.postcss.filter} !important;
-      }
-    }
-
-    #post-${props.post.name}.active-state img{
-      box-shadow:${props.post.postcss.boxshadow};
-      ${props.post.postcss.filter} !important;
-    }
-    ${props.post.postcss.animation}`}>
-    
-  </style> -->
 </div>
+`}
 </template>
 <script>
 
@@ -77,6 +63,7 @@
     $onMounted,
     $el
   }) => {
+    // console.log(props);
     let name = ()=>{
       switch (props.post.type) {
         case 'order':
