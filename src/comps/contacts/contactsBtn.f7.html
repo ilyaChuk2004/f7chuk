@@ -1,40 +1,20 @@
 <template>
-<div>
-
-  ${$store.state.appData.desktop && $h`
-    <!-- <a href="#" data-fab=".fab-buttons" class="contactsBtn fab fab-open">
-      я
-        </a> -->
-    `
-  }
-
-  ${!$store.state.appData.desktop &&  $h`
-    <a href="#" @click=${swiperInit} style=${css} class="contactsBtn">
-      я
-        </a>
-    `
-
-  }
-
-  <style innerHTML=${css}>
-
-  </style>
+  <div>
+    ${!$store.state.appData.desktop && $h`
+      <a href="#" @click=${swiperInit} style="${css}" class="contactsBtn">
+        я
+      </a>
+    `}
   </div>
 </template>
 <script>
-
-
   export default (props, {
     $on,
-    $store, $f7,$, $update
+    $store, $f7, $, $update
   }) => {
-
-    // $on('pageInit', () => {
-          //- Three groups
-          var ac4;
-setTimeout(() => {
-  ac4 = $f7.actions.create({
-    // backdropEl:'.bgBlur',
+    var ac4;
+    setTimeout(() => {
+      ac4 = $f7.actions.create({
         buttons: [
           [
             {
@@ -43,8 +23,7 @@ setTimeout(() => {
             },
             {
               text: 'фрилансхант',
-              onClick:()=>{window.location.href='#'},
-              // icon:'<div class="contactImg" style="background-image:url(static/img/freelIco.png)"></div>'
+              onClick: () => { window.location.href = '#' },
             },
           ],
           [
@@ -54,7 +33,7 @@ setTimeout(() => {
             },
             {
               text: 'телеграм',
-              onClick:()=>{window.location.href='https://t.me/IlyaChuk'}
+              onClick: () => { window.location.href = 'https://t.me/IlyaChuk' }
             },
           ],
           [
@@ -65,18 +44,16 @@ setTimeout(() => {
           ]
         ],
       });
-}, 5);
-// window.ac=ac4
-    // });
-      
+    }, 5);
+    
     function swiperInit() {
       ac4.open()
     }
 
-    let css='z-index:5;'+props.style;
-    $f7.on('qTabsLoad', function(){
+    let css = 'z-index:5;' + props.style;
+    $f7.on('qTabsLoad', function () {
       $update();
-      css=`z-index:5;transform: translate(-50%, -${$('.tabsB')[0].offsetHeight+10}px) !important;`;
+      css = `z-index:5;transform: translate(-50%, -${$('.tabsB')[0].offsetHeight + 10}px) !important;`;
     })
 
     return $render;

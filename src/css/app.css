@@ -25,7 +25,7 @@
   user-select: text;
 }
 .hair::before {
-  content: '';
+  content: "";
   position: absolute;
   background-color: var(--hair) !important;
   display: block;
@@ -40,7 +40,7 @@
   transform: scaleY(calc(1 / var(--f7-device-pixel-ratio)));
 }
 .hair::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   width: 100%;
@@ -64,7 +64,8 @@
     --mainScreenImgMob: url(../img/chukMKrivie.svg);
     --mainScreenFilter: drop-shadow(0px 0px 45px #b0733f);
     --footerImage: url(../img/chukKrivie.svg);
-    --footerBSh: #925f35 0px 0px 0px 170px, inset 0px -20px 16px -10px #0000001c;
+    --footerBSh: #925f35 0px 0px 0px 170px,
+      inset 0px -20px 16px -10px #0000001c;
     --hair: #00000034;
     --iBGColor: #6b4124;
     --iPcBGColor: #6b4124;
@@ -114,7 +115,8 @@
     --mainScreenImgMob: url(../img/chukMkrivieNight.svg);
     --mainScreenFilter: drop-shadow(#53091b 0px 0px 45px);
     --footerImage: url(../img/chukKrivieNightsvg.svg);
-    --footerBSh: #53091b 0px 0px 0px 170px, #0000001c 0px -20px 16px -10px inset;
+    --footerBSh: #53091b 0px 0px 0px 170px,
+      #0000001c 0px -20px 16px -10px inset;
     --hair: #ffffff23;
     --iBGColor: #53091b;
     --iPcBGColor: #53091b;
@@ -163,7 +165,7 @@
   color: white;
 }
 ::-webkit-scrollbar-button {
-  background-image: url('');
+  background-image: url("");
   background-repeat: no-repeat;
   width: 5px;
   height: 0px;
@@ -180,7 +182,7 @@
   background-color: #6c4124;
 }
 ::-webkit-resizer {
-  background-image: url('');
+  background-image: url("");
   background-repeat: no-repeat;
   width: 4px;
   height: 0px;
@@ -198,7 +200,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -226,13 +228,13 @@ h6 {
   font-weight: 900;
 }
 h2 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 26pt;
   color: var(--hColor);
   margin-top: 1.5em;
 }
 h4 {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.5em;
   color: var(--hColor);
   margin-top: 2em;
@@ -243,7 +245,7 @@ p {
   font-size: 19pt;
   line-height: 30px;
   font-weight: 500;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 @media (max-width: 700px) {
   p {
@@ -352,6 +354,22 @@ non {
   z-index: 2;
   background-color: var(--aboutBGColor);
 }
+#about img {
+  margin-bottom: -0.1em;
+  display: inline-block;
+  height: 26pt;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
 .pageWrapper {
   text-align: justify;
   padding: 30px 30px 50px 30px;
@@ -374,21 +392,6 @@ non {
   .page-content {
     margin-bottom: -3rem;
   }
-}
-.fak {
-  margin-bottom: -0.1em;
-  display: inline-block;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
 }
 .tabsB {
   display: flex;
@@ -552,6 +555,7 @@ non {
 }
 .post .gal .snext {
   position: absolute;
+  transition: opacity 0.1s ease;
   top: 50%;
   font-size: 16pt;
   background-color: #ffffff78;
@@ -561,12 +565,14 @@ non {
   z-index: 1;
   border-radius: 100rem;
   padding: 0.4rem;
+  opacity: 0.7;
 }
 .post .gal .snext:focus {
   outline: none;
 }
 .post .gal .sprew {
   position: absolute;
+  transition: opacity 0.1s ease;
   top: 50%;
   font-size: 16pt;
   background-color: #ffffff78;
@@ -577,6 +583,7 @@ non {
   /* filter: drop-shadow(0px 0px 2px white); */
   border-radius: 100rem;
   padding: 0.4rem;
+  opacity: 0;
 }
 .post .gal .sprew:focus {
   outline: none;
@@ -713,7 +720,7 @@ footer {
   }
 }
 .wide::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   top: 50%;

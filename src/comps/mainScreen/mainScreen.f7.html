@@ -1,49 +1,43 @@
 <template>
-    <div id="mainScreen" class="mainScreen">
-        ${t && $h`
-          <${topng}/>
-          `
-        }
+  <div id="mainScreen" class="mainScreen">
+    ${t && $h`
+      <${topng} />
+    `}
 
-        ${!t &&  $h`
-          <${tohome}/>
-          `
-
-        }
-
-        <div onclick="shes();document.getElementById('pwap').style.width=document.getElementById('pwaspan').offsetWidth+'px';document.getElementById('pwaalert').classList.add('pwaalertMin');" class="shes"></div>
-    </div>
-  </template>
-  <script>
-
-const topng = (props, { $h }) => {
-  return () => (<div class="mainScreen-tips">
-          <q-mainScreenItemDiv text='программист дизайнер'></q-mainScreenItemDiv>
-            <q-mainScreenItemLink link='#tab2' text='художникк'/>
-            </div>)
-  }
-const tohome = (props, { $h }) => {
-  return () => (<div class="mainScreen-tips">
-          <q-mainScreenItemLink text='программист дизайнер' link='#tab1'></q-mainScreenItemLink>
-          <q-mainScreenItemDiv link='#tab1' text='художник'/>
-          </div>)
-  }
-
-    export default (props, { $on, $, $f7, $update, $store }) => {
-
-
-   
-  
-      let t=true;
-      $(document).on('click', '.tab-link', (e)=>{
-        if (e.target.href[e.target.href.length-1] == 1) {
-          t=true;
-        }else{
-          t=false;
-        }
-        $update();
-      });
-
-      return $render;
+    ${!t && $h`
+      <${tohome} />
+    `}
+  </div>
+</template>
+<script>
+  export default (props, {$, $update}) => {
+    const topng = (props, { $h }) => {
+      return () => (
+        <div class="mainScreen-tips">
+          <div class="mainScreen-tip" id='activeTip'>программист дизайнер</div>
+          <a class="mainScreen-tip tab-link" href="#tab2" id='disactiveTip'>художник</a>
+        </div>
+      )
     }
-  </script>
+    const tohome = (props, { $h }) => {
+      return () => (
+        <div class="mainScreen-tips">
+          <a class="mainScreen-tip tab-link" href="#tab1" id='disactiveTip'>программист дизайнер</a>
+          <div class="mainScreen-tip" id='activeTip'>художник</div>
+        </div>
+      )
+    }
+
+    let t = true;
+    $(document).on('click', '.tab-link', (e) => {
+      if (e.target.href[e.target.href.length - 1] == 1) {
+        t = true;
+      } else {
+        t = false;
+      }
+      $update();
+    });
+
+    return $render;
+  }
+</script>

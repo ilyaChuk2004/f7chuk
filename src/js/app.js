@@ -1,20 +1,15 @@
 import $ from 'dom7';
 import Framework7 from 'framework7/bundle';
 
-// Import F7  Styles    
 import 'framework7/framework7-bundle.css';
 
-// Import Icons and App Custom Styles
 import '../css/icons.css';
 import '../css/app.less';
 
-
-// Import Routes
 import routes from './routes.js';
-// Import Store
+
 import store from './store.js';
 
-// Import main app component
 import App from '../app.f7.html';
 
 import { s_components_import } from './mods/imports/s_components_import'
@@ -31,7 +26,7 @@ var app = new Framework7({
     // preloadPreviousPage:false,
     // stackPages:false,
     browserHistoryAnimate:false,
-    animate:false
+    // animate:false
   },
 
   // App store
@@ -52,12 +47,7 @@ var app = new Framework7({
   },
 
   toolbar: {
-    hideOnPageScroll: true,
-  },
-
-  navbar: {
-    showOnPageScrollEnd: false,
-    hideOnPageScroll: true
+    // hideOnPageScroll: true,
   },
 
   // Register service worker

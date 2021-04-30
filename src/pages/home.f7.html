@@ -1,35 +1,28 @@
 <template>
   <div class="page" data-name="home">
-    <!-- Scrollable page content-->
+
     ${$store.state.appData.desktop && $h`
       <div class="fab-backdrop"></div>
       <q-fab></q-fab>
-      `
-    }
+    `}
 
-    ${!$store.state.appData.desktop &&  $h`
-<q-tabsButt></q-tabsButt>
-      `
-
-    }
+    ${!$store.state.appData.desktop && $h`
+      <q-tabsButt></q-tabsButt>
+    `}
 
     <q-contactsBtn></q-contactsBtn>
-    
-    <q-contactsPop></q-contactsPop>
-    
 
-    <div class="page-content home hide-toolbar-on-scroll">
-
-      <q-mainScreen></q-main_screen>
-        <q-about></q-about>
+    <div class="page-content home">
+      <q-mainScreen></q-mainScreen>
+      <q-about></q-about>
       <q-tabs></q-tabs>
-        <q-footer></q-footer>
+      <q-footer></q-footer>
     </div>
+
   </div>
 </template>
 <script>
-export default (props, {$store}) => {
-  // var desk=
-  return $render;
-}
+  export default (props) => {
+    return $render;
+  }
 </script>

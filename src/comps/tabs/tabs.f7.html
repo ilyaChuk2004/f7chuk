@@ -1,6 +1,5 @@
 <template>
   <div class="tabs">
-    <!-- each tabs is a "page-content" -->
     <div class="page-content tab tab-active" id="tab1">
       <q-rhome></q-rhome>
     </div>
@@ -10,24 +9,11 @@
   </div>
 </template>
 <script>
-  import {
-    s_tab_show
-  } from '../../js/mods/events/s-tab-show'
+  import {s_tab_show} from '../../js/mods/events/s-tab-show'
 
-  export default (props, {
-    $on,
-    $store
-  }) => {
-    // $('#tab1').on('tab:show', (e)=>{
-    //   console.log(1);
-    // });
-
-    // $('#tab2').on('tab:show', (e)=>{
-    //   console.log(2);
-    // });
+  export default (props, { $on}) => {
     $on('tabShow', (e) => {
       s_tab_show(e);
-
     });
     return $render;
   }

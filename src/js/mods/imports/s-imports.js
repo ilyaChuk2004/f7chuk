@@ -43,22 +43,28 @@ export async function s_imports(e) {
     app.emit(`e-postsLoaded`);
   }
 
-  async function contacts(){
+  async function about(){
     let ress=0;
-    await app.request.post('https://chuk.dx.am/cock/api/singletons/get/contacts?token=9dde4ae7fbe1301336d54310078f41', 
+    await app.request.post('https://chuk.dx.am/cock/api/collections/get/about?token=9dde4ae7fbe1301336d54310078f41', 
+    {
+    fields:{
+        name:1,
+        text:1,
+    },
+    sort: {_created:-1}
+    }
     ) 
       .then(function (res) {
         ress=(JSON.parse(res.data))
       });
-      store.state.data.contacts = ress;
-      app.emit(`e-contactsLoaded`);
-      // console.log(ress);
-      window.re=ress
+      store.state.data.about = ress.entries;
+      app.emit(`e-aboutLoaded`);
     }
 
 
+
   await posts()
-  await contacts()
+  await about()
 
     // let arr = ['posts'];
 

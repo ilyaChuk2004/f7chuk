@@ -42,8 +42,9 @@
 
     $onMounted(() => {
       setTimeout(() => {
-        var swiper = $f7.swiper.create($el.value[0].childNodes[2], {
-          speed: 400,
+        var swiper = $f7.swiper.create($el.value[0], {
+          speed: 300,
+          resistanceRatio:0.1,
           spaceBetween: 0,
           navigation: {
             nextEl: '.snext',
@@ -55,8 +56,26 @@
           mousewheel: {
             invert: false,
           },
+          on:{
+            slideChangeTransitionEnd:function(s){
+              console.log(s);
+              let prev = s.navigation.$prevEl[0]
+              let next = s.navigation.$nextEl[0]
+              if (!s.isBeginning) {
+                prev.style.opacity='0.7'
+              }else{
+                prev.style.opacity='0'
+              }
+
+              if (!s.isEnd) {
+                next.style.opacity='0.7'
+              }else{
+                next.style.opacity='0'
+              }
+            }
+          }
         });
-      }, 500);
+      }, 50);
     });
     return $render;
   }
