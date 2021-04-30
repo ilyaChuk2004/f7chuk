@@ -16,7 +16,7 @@ export function gallery(items) {
         photos.push({url:src[i], caption:alt[i]})
     }
     // debugger
-    console.log(src, alt);
+    // console.log(src, alt);
     let id = `q${store.state.gf.getRandomInRange(0,10000000000)}`;
 
     let myPhotoBrowserStandalone = app.photoBrowser.create({

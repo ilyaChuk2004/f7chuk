@@ -33,35 +33,35 @@ const store = createStore({
       ],
 
     posts:[
-      {
-        name:'ww',
-        name_ru:'',
-        btn:{bgcolor: "rgb(190, 255, 110)",boxshadow: "0px 8px 14px -10px #0eff00",color: "rgb(70, 111, 31)",fav:{path:''},favwebp:{path:''}},
-        thumbjpg:{_id:''},
-        thumbwebp:{_id:''},
-        shorttext:'ttttt',
-        mainscreen:{
-          bgpos:'',shorttext:'',title:''
-        },
-        published:{
-          date:''
-        },
-        type:'update',
-        gall:[
-          {
-            path:'11',
-            meta:{
-              title:'top'
-            }
-          },
-          {
-            path:'11',
-            meta:{
-              title:'top'
-            }
-          },
-        ]
-      },
+      // {
+      //   name:'ww',
+      //   name_ru:'',
+      //   btn:{bgcolor: "rgb(190, 255, 110)",boxshadow: "0px 8px 14px -10px #0eff00",color: "rgb(70, 111, 31)",fav:{path:''},favwebp:{path:''}},
+      //   thumbjpg:{path:'aa',_id:''},
+      //   thumbwebp:{path:'aa',_id:''},
+      //   shorttext:'ttttt',
+      //   mainscreen:{
+      //     bgpos:'',shorttext:'',title:''
+      //   },
+      //   published:{
+      //     date:''
+      //   },
+      //   type:'update',
+      //   gall:[
+      //     {
+      //       path:'11',
+      //       meta:{
+      //         title:'top'
+      //       }
+      //     },
+      //     {
+      //       path:'11',
+      //       meta:{
+      //         title:'top'
+      //       }
+      //     },
+      //   ]
+      // },
     ],
 
     pngs:[

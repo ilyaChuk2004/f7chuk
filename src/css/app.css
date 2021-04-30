@@ -613,6 +613,7 @@ non {
 }
 .post .type .ava {
   width: 3rem;
+  margin: inherit;
   margin-right: 0.7rem;
 }
 .post .disc {

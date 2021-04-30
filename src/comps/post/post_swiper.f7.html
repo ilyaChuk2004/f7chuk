@@ -1,0 +1,63 @@
+<template>
+  <div class="swiper-container gal">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <a href="/p/${props.post.name}/">
+          <img data-src="https://chuk.dx.am/cock/storage/uploads${formatthumb}"
+            alt='Приложение «трип» постер.png' class="lazy post-img" />
+        </a>
+      </div>
+      ${props.post.gall.map((item)=>$h`
+      <div class="swiper-slide">
+        <a href="/p/${props.post.name}/">
+          ${item.meta.type == "contain" && $h`
+          <img data-src="https://chuk.dx.am${item.path}" style="object-fit: contain; object-position: ${item.meta.pos};"
+             alt='Приложение «трип» постер.png' class="lazy post-img" />
+          <div class="bg"></div>
+          `
+          }
+          ${item.meta.type !== "contain" && $h`
+          <img data-src="https://chuk.dx.am${item.path}" style="object-fit: cover; object-position: ${item.meta.pos};"
+             alt='Приложение «трип» постер.png' class="lazy post-img" />
+          `
+
+          }
+        </a>
+      </div>
+      `)}
+    </div>
+    <i class="f7-icons snext size-22">arrow_right</i>
+    <i class="f7-icons sprew size-22">arrow_left</i>
+  </div>
+</template>
+<script>
+
+
+  export default (props, {
+    $f7, $el, $store, $onMounted
+  }) => {
+    console.log(props);
+    let formatthumb = $store.state.gf.support_format_webp() ? props.post.thumbwebp.path : props.post.thumbjpg.path
+
+
+    $onMounted(() => {
+      setTimeout(() => {
+        var swiper = $f7.swiper.create($el.value[0].childNodes[2], {
+          speed: 400,
+          spaceBetween: 0,
+          navigation: {
+            nextEl: '.snext',
+            prevEl: '.sprew',
+            disabledClass: 'dis',
+            lockClass: 'dis',
+            hiddenClass: 'dis'
+          },
+          mousewheel: {
+            invert: false,
+          },
+        });
+      }, 500);
+    });
+    return $render;
+  }
+</script>

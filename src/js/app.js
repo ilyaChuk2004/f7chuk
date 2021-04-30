@@ -47,8 +47,7 @@ var app = new Framework7({
     // activeStateOnMouseMove:true,
   },
   lazy: {
-    threshold: 50,
-    sequential: false,
+
     placeholder:'/static/img/ww2.png'
   },
 

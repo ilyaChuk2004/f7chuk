@@ -76,7 +76,7 @@ $f7.request({
     loaded=true;
 
     datar = JSON.parse(res.data).entries[0];
-    console.log(datar);
+    // console.log(datar);
 
     rdat = {
       data:()=>{
@@ -117,7 +117,7 @@ $f7.request({
   $f7.on('e-update', ()=>{
     $update(()=>{
       
-      console.log(0);
+      // console.log(0);
     })
   })
 
@@ -126,7 +126,7 @@ $f7.request({
 let item = $store.state.data.posts[0];
 
 $f7.on('e-postsLoaded',()=>{
-console.log('looooooaded', $store.state.data.posts);
+// console.log('looooooaded', $store.state.data.posts);
 })
 
   function support_format_webp() {

@@ -16,7 +16,7 @@ import fab from '../../../comps/contacts/fab.f7.html';
 import pngPost from '../../../comps/pngPost.f7.html';
 import home from '../../../pages/home.f7.html';
 import footer from '../../../comps/footer.f7.html';
-import post from '../../../comps/post.f7.html';
+import post from '../../../comps/post/post.f7.html';
 export function s_components_import() {
 
   

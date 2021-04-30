@@ -1,0 +1,39 @@
+<template>
+       <div class="type">
+         <img class="ava lazy" data-src="static/img/${props.type}.svg"/>
+         <div class="meta">
+          <div class="name">${name()}</div>
+          <div class="time">
+           ${date()}
+          </div>
+         </div>
+       </div>
+</template>
+<script>
+
+
+  export default (props, {
+    $f7,
+  }) => {
+    let name = ()=>{
+      switch (props.type) {
+        case 'order':
+          return 'заказ'
+          break;
+          case 'update':
+          return 'обновление'
+          break;
+          case 'mywork':
+          return 'свой проект'
+          break;
+      }
+    }
+    var moment = require('moment');
+    window.mom = moment;
+    moment.lang('ru');
+    let date=()=>{
+      return moment(props.date).format('D MMMM YYYY')
+    }
+    return $render;
+  }
+</script>
