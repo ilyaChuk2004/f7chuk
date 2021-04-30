@@ -5,15 +5,6 @@ import store from '../../store';
 import {app} from '../../app'
 
 export async function s_imports(e) {
-  async function load(whatToLoad){
-    let ress=0;
-    await app.request.getJSON(`/static/${whatToLoad}.json`).then((res) => {
-         ress=res.data
-    });
-    store.state.data.posts = ress;
-    app.emit(`e-${whatToLoad}Loaded`);
-  }
-
   async function posts(){
   let ress=0;
   await app.request.post('https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41', 

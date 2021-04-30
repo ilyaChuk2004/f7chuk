@@ -3,7 +3,7 @@ import { s_store_about_imp } from '../imports/items/s-store-about-imp'
 
 export function s_tab_show(e, callback) {
 
-  if (e != 0 && e != false && e != undefined) {
+  if (e) {
     store.state.appData.tab = e.target.id.slice(-1);
   }
 

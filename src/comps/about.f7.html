@@ -1,102 +1,38 @@
 <template>
-
   <div id="about">
-    <!-- <h2>Привет
-        <picture>
-          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt="" />
-          <source srcset=${wawHandWebp} type="image/webp" alt="👋" />
-        </picture>
-      </h2>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit
-        voluptas necessitatibus quasi amet.</p> -->
-
-      <!-- <h2>Привет
-        <picture>
-          <img class="fak" style="height:1em; transform:translateY(0%);" src=${wawHand} alt="" />
-          <source srcset=${wawHandWebp} type="image/webp" alt="👋" />
-        </picture>
-      </h2>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid omnis qui aut debitis voluptate modi sit
-        voluptas necessitatibus quasi amet.</p> -->
-        <${cont}/>
-
+    <div class="pageWrapper" innerHTML=${content}></div>
   </div>
 </template>
 <style>
 </style>
 <script>
-  import wawHand from '../img/wavHand.png';
-  import wawHandWebp from '../img/wavHand.webp';
-
-  import {
-    s_store_about_imp
-  } from '../js/mods/imports/items/s-store-about-imp'
-
-
   export default (props, {
     $store,
     $f7,
-    $h,
-    $update,
-    $onBeforeMount
+    $update
   }) => {
 
-
-    var content;
-
-    const contIn = (props, { $h }) => {
-    return () => $h`${content}`;
-  }
-
-    const cont = (props, {$h}) => {
-      return () => $h `
-      <div style="text-align:left;" class="pageWrapper" innerHTML=${content}>
-      </div>
-      `
+    var content='';
+    function create_content() {
+      let data = $store.state.data.about
+      let name = data.map((it)=>{return it.name})
+      let vals = Object.values(data)
+      for (let i = 0; i < Object.keys(data).length; i++) {
+        const keyEl = name[i]
+        const valEl = vals[i]
+        if ($store.state.appData.tab == keyEl) {
+          content = valEl.text
+        }
+      }
+      $update()
     }
 
-
-    $f7.on('e-tabShow', function (data, callback) {
-
-      // console.log('call');
-        // console.group($store.state.appData.tab);
-        for (let index = 0; index < Object.keys(data).length; index++) {
-          const val = Object.values(data)[index];
-          const key = Object.keys(data)[index];
-          // console.group(`if ${$store.state.appData.tab} == ${key}`);
-          if ($store.state.appData.tab == key) {
-            content = val;
-            // console.log('get');
-            // console.log(content);
-            // console.log(`yes`);
-
-          } else {
-            // console.log(`no`);
-          }
-          // console.groupEnd();
-
-
-        }
-        // console.groupEnd();
-
-      
-
-      $update(function(){
-        // console.log('updated');
-      });
-
-    });
-
-
-//     setTimeout(() => {
-//   $f7.emit('e-tabShow', function(){
-//     $update();
-// });
-// }, 1);
-
-
-
-
-    return $render;
+    $f7.on('e-aboutLoaded', ()=> {
+      create_content()
+    })
+    $f7.on('e-tabChange', ()=> {
+      create_content()
+    })
+    return $render
   }
 </script>

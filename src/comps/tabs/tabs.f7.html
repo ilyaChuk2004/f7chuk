@@ -9,12 +9,12 @@
   </div>
 </template>
 <script>
-  import {s_tab_show} from '../../js/mods/events/s-tab-show'
 
-  export default (props, { $on}) => {
+  export default (props, { $on, $f7}) => {
     $on('tabShow', (e) => {
-      s_tab_show(e);
+      store.state.appData.tab = e.target.id.slice(-1)
+      $f7.emit('e-tabChange', e.target.id.slice(-1))
     });
-    return $render;
+    return $render
   }
 </script>

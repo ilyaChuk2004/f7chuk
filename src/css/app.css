@@ -371,7 +371,7 @@ non {
   user-select: none;
 }
 .pageWrapper {
-  text-align: justify;
+  text-align: left;
   padding: 30px 30px 50px 30px;
   margin-bottom: 2em;
   -webkit-touch-callout: text;
