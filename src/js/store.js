@@ -31,12 +31,8 @@ const store = createStore({
         },
 
       ],
-
-    posts:[
-    ],
-
-    pngs:[
-    ]
+      posts:[],
+      pngs:[]
     },
     gf:{
       support_format_webp(){var elem=document.createElement("canvas");return!(!elem.getContext||!elem.getContext("2d"))&&0==elem.toDataURL("image/webp").indexOf("data:image/webp")},

@@ -5,7 +5,8 @@ export async function s_imports(e) {
   
   async function posts() {
     let ress = 0;
-    await app.request.post('https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41',
+    if (navigator.onLine) {
+      await app.request.post('https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41',
       {
         filter: {
           published: true
@@ -27,13 +28,22 @@ export async function s_imports(e) {
     )
       .then(function (res) {
         ress = (JSON.parse(res.data))
+        store.state.data.posts = ress.entries;
+        localStorage.posts=JSON.stringify(ress.entries);
+        app.emit(`e-postsLoaded`);
       });
-    store.state.data.posts = ress.entries;
-    app.emit(`e-postsLoaded`);
+    }else{
+      console.log('try to load by cache');
+
+      store.state.data.posts = JSON.parse(localStorage.posts);
+      app.emit(`e-postsLoaded`);
+    }
   }
+
   async function about() {
     let ress = 0;
-    await app.request.post('https://chuk.dx.am/cock/api/collections/get/about?token=9dde4ae7fbe1301336d54310078f41',
+    if (navigator.onLine) {
+      await app.request.post('https://chuk.dx.am/cock/api/collections/get/about?token=9dde4ae7fbe1301336d54310078f41',
       {
         fields: {
           name: 1,
@@ -44,21 +54,34 @@ export async function s_imports(e) {
     )
       .then(function (res) {
         ress = (JSON.parse(res.data))
+        store.state.data.about = ress.entries;
+        localStorage.about=JSON.stringify(ress.entries);
+        app.emit(`e-aboutLoaded`);
       });
-    store.state.data.about = ress.entries;
-    app.emit(`e-aboutLoaded`);
+    }else{
+      store.state.data.about = JSON.parse(localStorage.about);
+      app.emit(`e-aboutLoaded`);
+    }
   }
   async function pngs() {
     let ress = 0;
-    await app.request.get('https://chuk.dx.am/cock/api/collections/get/pngs?token=9dde4ae7fbe1301336d54310078f41')
+    if (navigator.onLine) {
+      await app.request.get('https://chuk.dx.am/cock/api/collections/get/pngs?token=9dde4ae7fbe1301336d54310078f41')
       .then(function (res) {
         ress = (JSON.parse(res.data))
-      });
-    store.state.data.pngs = ress.entries;
-    app.emit(`e-pngsLoaded`);
+        store.state.data.pngs = ress.entries;
+        window.store=store
+        localStorage.pngs=JSON.stringify(ress.entries);
+        app.emit(`e-pngsLoaded`);
+      })
+    }else{
+      store.state.data.pngs = JSON.parse(localStorage.pngs);
+      app.emit(`e-pngsLoaded`);
+    }
   }
 
   await about()
   await posts()
   await pngs()
+
 }

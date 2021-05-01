@@ -8,7 +8,11 @@
 
 
   export default (props, { $, $f7, $onMounted, $on, $store }) => {
-    let src=`https://chuk.dx.am/cock/storage/uploads${props.data_src}`
+    let src = `https://chuk.dx.am${props.data_src[0].path}`
+    let photos=props.data_src.map((it)=>{return {
+      url:`https://chuk.dx.am${it.path}`,
+      caption:it.meta.title
+    }})
     
 
     function getRandomInRange(min, max) {
@@ -20,14 +24,9 @@
     $onMounted(() => {
       setTimeout(() => {
         var myPhotoBrowserStandalone = $f7.photoBrowser.create({
-          photos: [
-            {
-              url: src,
-              caption: props.alt
-            }
-          ],
+          photos: photos,
           theme: 'dark',
-          toolbar: false,
+          toolbar: photos.length>1?true:false,
           routableModals: true,
           expositionHideCaptions: true,
           url: '/png',

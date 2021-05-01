@@ -2,7 +2,7 @@
   <div class="content page-wrapper png">
     <div class="row">
       ${$store.state.data.pngs.map((item) => $h`
-        <q-pngPost data_src=${item.img.path} alt=${item.alt}></q-pngPost>
+        <q-pngPost data_src=${item.img} alt=${item.alt}></q-pngPost>
       `)}
     </div>
   </div>
