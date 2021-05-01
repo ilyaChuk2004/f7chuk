@@ -39,7 +39,23 @@
                         class="f7-icons">${$f7.device.desktop ? 'multiply' : 'arrow_left'}</i></a></div>
               </div>
             </div>`
-          }
+          },
+          swiper: {
+            preloadImages: true,
+            zoom: {
+              maxRatio: 2.4,
+            },
+            lazy: {
+              enabled: true,
+            },
+            keyboard: {
+              enabled: true,
+              onlyInViewport: false,
+            },
+            mousewheel: {
+              invert: false,
+            },
+          },
         });
 
         myPhotoBrowserStandalone.on('close', function () {
