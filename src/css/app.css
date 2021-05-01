@@ -677,6 +677,14 @@ non {
   box-shadow: 1px 1px 0 2000px #000000;
   transition: 0.3s;
 }
+.photo-browser-popup .toolbar {
+  backdrop-filter: blur(6px);
+  background: #1b1b1b91 !important;
+}
+.photo-browser-captions-dark .photo-browser-caption {
+  background: #1b1b1b91 !important;
+  backdrop-filter: blur(6px);
+}
 footer {
   background-image: var(--footerImage);
   color: white;
