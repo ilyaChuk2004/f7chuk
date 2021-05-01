@@ -1,5 +1,5 @@
 <template>
-  <a href="#tab${props.tab}" @click=${()=> tabActive()} class='tab-link tabsB-item ${props.cl}'>
+  <a href="#tab${props.tab}" @click=${tabActive} class='tab-link tabsB-item ${props.cl}'>
     <i class="f7-icons">${props.text}</i>
   </a>
 </template>
@@ -7,14 +7,13 @@
   export default (props, { $store, $el }) => {
 
     function tabActive(params) {
-      $store.state.appData.page = props.tab;
+      $store.state.appData.page = props.tab
       for (let index = 0; index < $el.value[0].parentElement.children.length; index++) {
-        const element = $el.value[0].parentElement.children[index];
-        element.classList.remove('tab-link-active');
-
+        const element = $el.value[0].parentElement.children[index]
+        element.classList.remove('tab-link-active')
       }
-      $el.value[0].classList.add('tab-link-active');
+      $el.value[0].classList.add('tab-link-active')
     }
-    return $render;
+    return $render
   }
 </script>

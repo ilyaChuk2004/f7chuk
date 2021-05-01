@@ -1,96 +1,64 @@
 <template>
   <a class=${classFull} href="#">
-    <img data-src=${src} class="lazy lazy-fade-in" alt=""/>
-    <img data-src=${src} class="lazy lazy-fade-in imgUnder" alt=""/>
+    <img data-src=${src} class="lazy" alt=${props.alt} />
+    <img data-src=${src} class="lazy imgUnder" alt=${props.alt} />
   </a>
 </template>
 <script>
 
 
-export default (props, { $, $f7, $onMounted, $on }) => {
-  let src = ()=>{
-    if (support_format_webp()){
-      return `static/img/${props.data_src}.webp`
-    }else{
-      return `static/img/${props.data_src}.jpg`
+  export default (props, { $, $f7, $onMounted, $on, $store }) => {
+    let src=`https://chuk.dx.am/cock/storage/uploads${props.data_src}`
+    
+
+    function getRandomInRange(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min
     }
-  }
-  src=src();
 
-  function getRandomInRange(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-let classN = 'pb'+getRandomInRange(0, 10000000);
-let classFull = classN+' col-100 medium-33 pngPost'
-let navbar=false;
-
-if ($f7.device.desktop) {
-  navbar=true
-}
-
+    let classN = 'pb' + getRandomInRange(0, 10000000);
+    let classFull = classN + ' col-100 medium-33 pngPost'
     $onMounted(() => {
       setTimeout(() => {
-        /*=== Default standalone ===*/
-      var myPhotoBrowserStandalone = $f7.photoBrowser.create({
-        photos: [
-          {
-            url:src,
-            caption: 'привет тест вцатуоа уотца цау аца цуцуцу пкпуы '
-          }
-        ],
-        theme:'dark',
-        navbar:true,
-        toolbar:false,
-        routableModals:true,
-        expositionHideCaptions:true,
-        url:'/png',
-        popupCloseLinkText:'<i class="f7-icons">multiply</i>',
-        renderNavbar:function(){
-          return `
+        var myPhotoBrowserStandalone = $f7.photoBrowser.create({
+          photos: [
+            {
+              url: src,
+              caption: props.alt
+            }
+          ],
+          theme: 'dark',
+          toolbar: false,
+          routableModals: true,
+          expositionHideCaptions: true,
+          url: '/png',
+          popupCloseLinkText: '<i class="f7-icons">multiply</i>',
+          renderNavbar: function () {
+            return `
           <div class="navbar navbar-photo-browser navbar-photo-browser-dark">
               <div class="navbar-inner navbar-inner-centered-title sliding">
                 <div class="left"><a class="link popup-close wide rem2_4Auto" data-popup=".photo-browser-popup"><i
-                        class="f7-icons">${$f7.device.desktop?'multiply':'arrow_left'}</i></a></div>
+                        class="f7-icons">${$f7.device.desktop ? 'multiply' : 'arrow_left'}</i></a></div>
               </div>
             </div>`
-        }
-        // type:'popup'
-      });
-      window.pb=myPhotoBrowserStandalone;
+          }
+        });
 
-      myPhotoBrowserStandalone.on('close', function(){
-        myPhotoBrowserStandalone.el.style.opacity='0';
-      })
+        myPhotoBrowserStandalone.on('close', function () {
+          myPhotoBrowserStandalone.el.style.opacity = '0';
+        })
 
-      document.addEventListener("keydown", event => {
-  if (event.isComposing || event.keyCode === 27) { //esc
-    myPhotoBrowserStandalone.close();
-    return;
-  }
-  // do something
-});
-      //Open photo browser on click
-      $(`.${classN}`).on('click', function () {
-        myPhotoBrowserStandalone.open();
-      });
+        document.addEventListener("keydown", event => {
+          if (event.isComposing || event.keyCode === 27) { //esc
+            myPhotoBrowserStandalone.close();
+            return;
+          }
+        });
+        
+        $(`.${classN}`).on('click', function () {
+          myPhotoBrowserStandalone.open();
+        });
       }, 100);
     })
-function support_format_webp()
-{
- var elem = document.createElement('canvas');
-
- if (!!(elem.getContext && elem.getContext('2d')))
- {
-  // was able or not to get WebP representation
-  return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
- }
- else
- {
-  // very old browser like IE 8, canvas not supported
-  return false;
- }
-}
 
     return $render;
   }

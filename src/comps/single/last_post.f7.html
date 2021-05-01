@@ -1,35 +1,21 @@
 <template>
   <div>
-  ${post!==false &&  $h`
-  <div class="lastPost">
-    <span>Следующий пост: </span>
-    <q-post post=${post}></q-post>
+    ${post!==false && $h`
+      <div class="lastPost">
+        <span>Следующий пост: </span>
+        <q-post post=${post}></q-post>
+      </div>
+    `}
   </div>
-  `}
-</div>
 </template>
 <script>
-  import store from '../../js/store'
-  export default (props, {
-    $store,
-    $f7,
-    $h,
-    $update,
-    $onMounted,
-    $el
-  }) => {
-    let arr=[];
-    console.log('props', props);
-    let post=false;
-    store.state.data.posts.map((it)=>{arr.push(it.name)})
-    if (props.thispost.name!==(arr[0]+'')) {
-      // console.log(false, props.thispost.name, arr[0], arr[arr.indexOf(props.thispost.name)-1]);
-      post = store.state.data.posts[arr.indexOf(props.thispost.name)-1];
-    }else{
-      post=false
-      // post=false;
-      
+  export default (props, {$store,$h}) => {
+    let arr = $store.state.data.posts.map((it) => {return it.name})
+    let post = false
+    if (props.thispost.name !== (arr[0] + '')) {
+      post = $store.state.data.posts[arr.indexOf(props.thispost.name) - 1]
     }
-    return $render;
+
+    return $render
   }
 </script>

@@ -1,13 +1,14 @@
 <template>
   <div>
-  ${props.data.color!==null && $h`
-  <div class="linkBtn" style="background-color: ${props.data.bgcolor}; color: ${props.data.color}; box-shadow:${props.data.boxshadow}">
-    ${img()!==false && $h`
-      <img src="https://chuk.dx.am/cock/storage/uploads${img()}" alt=""/>
+    ${props.data.color!==null && $h`
+      <div class="linkBtn"
+        style="background-color: ${props.data.bgcolor}; color: ${props.data.color}; box-shadow:${props.data.boxshadow}">
+        ${img()!==false && $h`
+          <img src="https://chuk.dx.am/cock/storage/uploads${img()}" alt="" />
+        `}
+        <span>посмотреть сайт</span>
+      </div>
     `}
-    <span>посмотреть сайт</span>
-  </div>
-  `}
   </div>
 </template>
 <script>
@@ -16,18 +17,16 @@
     $f7,
     $h,
     $update,
-    $onBeforeMount
   }) => {
-// console.log(props);
-let img=()=>{
-  if (props.data.fav!==null) {
-    return $store.state.gf.support_format_webp()?props.data.favwebp.path:props.data.fav.path;
-  }else return false
-}
+    let img = () => {
+      if (props.data.fav !== null) {
+        return $store.state.gf.support_format_webp() ? props.data.favwebp.path : props.data.fav.path;
+      } else return false
+    }
 
-$f7.on('e-update', ()=>{
-    $update()
-  })
+    $f7.on('e-update', () => {
+      $update()
+    })
 
     return $render;
   }

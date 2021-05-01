@@ -1,31 +1,28 @@
 <template>
-  ${props.post &&  $h`
-    <div class="post" >
+  ${props.post && $h`
+    <div class="post">
 
-      <${post_type} type=${props.post.type} date=${props.post.published.date}/>
+      <${post_type} type=${props.post.type} date=${props.post.published.date} />
 
-     <div class="disc">
-       <div class="text">
-        ${props.post.shorttext}
-       </div>
-       <a href="/p/${props.post.name}/"><button class="col button button-outline button-raised">посмотреть</button></a>
-     </div>
-     
-     <${post_swiper} post=${props.post}/>
-     
+      <div class="desc">
+        <div class="text">
+          ${props.post.shorttext}
+        </div>
+        <a href="/p/${props.post.name}/">
+          <button class="col button button-outline button-raised">посмотреть</button>
+        </a>
+      </div>
 
-</div>
-`}
+      <${post_swiper} post=${props.post} />
+
+    </div>
+  `}
 </template>
 <script>
 
-import post_type from "./post_type.f7.html";
-import post_swiper from "./post_swiper.f7.html";
-  export default (props, {
-    $store,
-  }) => {
-    let formatthumb = $store.state.gf.support_format_webp()?props.post.thumbwebp.path:props.post.thumbjpg.path
-
+  import post_type from "./post_type.f7.html";
+  import post_swiper from "./post_swiper.f7.html";
+  export default (props, {$store}) => {
     return $render;
   }
 </script>

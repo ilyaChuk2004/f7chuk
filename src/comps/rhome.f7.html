@@ -1,28 +1,23 @@
 <template>
   <div class="content page-wrapper home" id="pageWrapper">
-      ${$store.state.data.posts.map((item) => $h`
-    <q-post post=${item}></q-post>
+    ${$store.state.data.posts.map((item) => $h`
+      <q-post post=${item}></q-post>
     `)}
-
   </div>
 </template>
 <script>
   export default (props, {
     $store,
     $f7,
-    $,
-    $onMounted,
     $update
   }) => {
 
     $f7.on('e-postsLoaded', () => {
       $update(() => {
         setTimeout(() => {
-            $f7.lazy.create('.page-wrapper.content.home');
-            console.log(5);
+          $f7.lazy.create('.page-wrapper.content.home');
         }, 1);
       })
-
     })
     return $render;
   }

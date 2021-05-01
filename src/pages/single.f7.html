@@ -1,146 +1,87 @@
 <template>
   <div class="page" data-name="single">
-    ${!$store.state.appData.desktop &&  $h`
-      <div class="toolbar toolbar-bottom">
-        <div class="toolbar-inner">
-            <q-contactsBtn 
-              style="color: rgba(255, 255, 255, 0.767);position: relative;transform: none !important;width: 2.4rem;height: 2.4rem;font-size: 13pt;">
-            </q-contactsBtn>
-          <a class="home link back"></a>
-          <div class="like"></div>
-        </div>
-      </div>
-      `
-    }
-
+    <${toolbar} />
     <div class="page-content single">
       <div class="cont">
-        <div class="title-large">${rdat.mainscreen.shorttext}</div>
-        <div class="time">${rdat.data()}</div>
-        <br/>
-        <${linkBtn} data=${rdat.btn}/>
-        <${contentComponent} text=${rdat.content()}/>
-        
-
-      </div>
-      ${loaded &&  $h`
-         <${last_post} thispost=${datar}/>
+        ${loaded && $h`
+          <div class="title-large">${rawData.mainscreen.shorttext}</div>
+          <div class="time">${proData.date()}</div>
+          <br />
+          <${linkBtn} data=${rawData.btn} />
         `}
-        <div>     </div>
-      <${footer}/>
+        <${contentComponent} text=${proData.content()} />
+      </div>
+      ${loaded && $h`
+        <${last_post} thispost=${rawData} />
+      `}
+      <div>
+        <!-- пустой див — костыль чтобы не дублировался футер(непонятно почему) -->
+      </div>
+      <${footer} />
+    </div>
+
   </div>
-  
-</div>
 </template>
 <style>
 
 </style>
 <script>
-import css from 'bundle-loader?lazy!../css/singleCss.css';
-css();
+  import css from 'bundle-loader?lazy!../css/singleCss.css'; css()
 
-import { content_parse } from '../comps/single/content_parse.js'
-import linkBtn from '../comps/single/linkBtn.f7.html'
-import last_post from '../comps/single/last_post.f7.html'
-import footer from '../comps/single/footer.f7.html'
-import contentComponent from '../comps/single/contentComponent.f7.html'
+  import { content_parse } from '../comps/single/content_parse.js'
+  import linkBtn from '../comps/single/linkBtn.f7.html'
+  import last_post from '../comps/single/last_post.f7.html'
+  import footer from '../comps/single/footer.f7.html'
+  import toolbar from '../comps/single/toolbar.f7.html'
+  import contentComponent from '../comps/single/contentComponent.f7.html'
 
-export default (props, {$store, $f7, $update, $}) => {
-  
-  var moment = require('moment');
-  window.mom = moment;
-  moment.lang('ru');
-let rdat={
-  data:()=>{},
-  content:()=>{},
-  header:{jpg:'', webp:''},
-  mainscreen:{
-    bgpos:'',shorttext:'',title:''
-  },
-  btn:{bgcolor:'', color:null, boxshadow:'', fav:null}
-}
-var datar=$store.state.data.posts[0];
-var loaded=false;
-$f7.preloader.show();
+  export default (props, { $store, $f7, $update, $ }) => {
 
-$f7.request({
-  url:'https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41',
-  method:'POST',
-  cache:true,
-  data:{
-    filter:{
-    published:true,
-    name:props.id
-  },
-}}).then(function (res) {
-    loaded=true;
-
-    datar = JSON.parse(res.data).entries[0];
-    // console.log(datar);
-
-    rdat = {
-      data:()=>{
-        return moment(datar.published.date).format('DD MMMM YYYY')
-      },
-      content:()=>{
-       return content_parse(datar);
-      },
-      btn:{
-        color:datar.btn.color,
-        bgcolor:datar.btn.bgcolor,
-        boxshadow:datar.btn.boxshadow,
-        fav:datar.btn.fav,
-        favwebp:datar.btn.fav,
-      },
-      header:{
-        jpg:datar.thumbjpg.path,
-        webp:datar.thumbwebp.path,
-      },
-      mainscreen:{
-        bgpos:datar.mainscreen.bgpos,shorttext:datar.mainscreen.shorttext,title:datar.mainscreen.title
-      }
+    var moment = require('moment');
+    moment.lang('ru');
+    let proData = {
+      content: () => { },
     }
-    window.ttest = datar;
-    window.rdat = rdat
-    
-    $f7.emit('e-update');
-    
+    var rawData;
+    var loaded = false;
+    $f7.preloader.show();
 
-    document.title = rdat.mainscreen.title;
-  $f7.preloader.hide(); 
-
-  setTimeout(() => {
-    $f7.lazy.create('.page-content.single')
-  }, 500);
-  });
-
-  $f7.on('e-update', ()=>{
-    $update(()=>{
-      
-      // console.log(0);
-    })
-  })
-
-
-
-let item = $store.state.data.posts[0];
-
-$f7.on('e-postsLoaded',()=>{
-// console.log('looooooaded', $store.state.data.posts);
-})
-
-  function support_format_webp() {
-          var elem = document.createElement('canvas');
-
-          if (!!(elem.getContext && elem.getContext('2d'))) {
-            // was able or not to get WebP representation
-            return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-          }
-          else {
-            // very old browser like IE 8, canvas not supported
-            return false;
-          }
+    $f7.request({
+      url: 'https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41',
+      method: 'POST',
+      cache: true,
+      data: {
+        filter: {
+          published: true,
+          name: props.id
+        },
+      }
+    }).then(function (res) {
+      loaded = true;
+      rawData = JSON.parse(res.data).entries[0];
+      proData = {
+        date: () => {
+          return moment(rawData.published.date).format('DD MMMM YYYY')
+        },
+        content: () => {
+          return content_parse(rawData);
         }
-  return $render;
-}
+      }
+
+      $f7.emit('e-update');
+
+      document.title = rawData.mainscreen.title;
+      $f7.preloader.hide();
+
+      setTimeout(() => {
+        $f7.lazy.create('.page-content.single')
+      }, 300);
+    });
+
+    $f7.on('e-update', () => {
+      $update()
+    })
+
+    return $render;
+  }
 </script>

@@ -1,46 +1,22 @@
 <template>
   <div class="content page-wrapper png">
-<div class="row">
-    ${$store.state.data.pngs.map((item) => $h`
-      <q-pngPost data_src=${item.name}></q-pngPost>
-    `)}
+    <div class="row">
+      ${$store.state.data.pngs.map((item) => $h`
+        <q-pngPost data_src=${item.img.path} alt=${item.alt}></q-pngPost>
+      `)}
+    </div>
   </div>
-
-  
- </div> 
-  </template>
-  <script>
-  export default (props, {$store, $f7, $, $onMounted}) => {
-
-    $onMounted(()=>{
-setTimeout(() => {
-  $f7.lazy.create($('.page-wrapper.png'));
-  
-}, 10);    
-});
-
-
-function support_format_webp()
-{
-var elem = document.createElement('canvas');
-
-if (!!(elem.getContext && elem.getContext('2d')))
-{
-// was able or not to get WebP representation
-return elem.toDataURL('image/webp').indexOf('data:image/webp') == 0;
-}
-else
-{
-// very old browser like IE 8, canvas not supported
-return false;
-}
-}
-
-var format='jpg';
-if (support_format_webp()) {
-  format = 'webp'
-}
+</template>
+<script>
+  export default (props, { $store, $f7, $, $update }) => {
+    $f7.on('e-pngsLoaded', ()=>{
+      $update(()=>{
+        setTimeout(() => {
+          $f7.lazy.create('#tab2')
+        }, 10);
+      })
+    })
 
     return $render;
   }
-  </script>
+</script>

@@ -16,22 +16,19 @@ import { s_components_import } from './mods/imports/s_components_import'
 s_components_import();
 
 var app = new Framework7({
-  name: 'chuk', // App name
-  theme: 'ios', // Automatic theme detection
-  el: '#app', // App root element
-  component: App, // App main component
+  name: 'chuk',
+  theme: 'ios',
+  el: '#app',
+  component: App,
   view: {
     browserHistory:true,
     iosSwipeBack:false,
     // preloadPreviousPage:false,
     // stackPages:false,
     browserHistoryAnimate:false,
-    // animate:false
   },
 
-  // App store
   store: store,
-  // App routes
   routes: routes,
   touch: {
     // mdTouchRipple:true,
@@ -42,15 +39,13 @@ var app = new Framework7({
     // activeStateOnMouseMove:true,
   },
   lazy: {
-
     placeholder:'/static/img/ww2.png'
   },
 
   toolbar: {
-    // hideOnPageScroll: true,
+    hideOnPageScroll: true,
   },
 
-  // Register service worker
   serviceWorker: {
     path: '/service-worker.js',
   },
@@ -58,26 +53,17 @@ var app = new Framework7({
 
 export { app, }
 
-
-
 store.state.appData.desktop = Framework7.device.desktop;
 
-import { s_theme_color_init } from './mods/s-theme-color-init'
-s_theme_color_init();
+import { s_theme_color_init } from './mods/s-theme-color-init'; s_theme_color_init(Framework7);
 
 ////events 
-import { s_scroll_event } from './mods/events/s-scroll-event'
-s_scroll_event();
+import { s_scroll_event } from './mods/events/s-scroll-event'; s_scroll_event()
 ///////events
 
 // import to store
-import { s_imports } from './mods/imports/s-imports'
-await s_imports();
+import { s_imports } from './mods/imports/s-imports'; await s_imports()
 // //import to store
 
-$(document).on("dragstart", 'img, a', function(event) { event.preventDefault(); });
-
-
-// console.log(store);
-window.store = store;
-window.app = app;
+//отменяет перетаскивание мышкой ссылок и картинок
+$(document).on("dragstart", 'img, a', function(event) { event.preventDefault(); }); 

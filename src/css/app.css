@@ -87,10 +87,6 @@
     --headerBSh: rgba(0, 0, 0, 0.22) 0px 0px 26px -4px;
     --tabsIcoSh: drop-shadow(0px 0px 9px #a46b3bb8);
     --tabsIcoColor: #a46b3b;
-    --miniPostBGColor: #fdbb85;
-    --miniPostTitColor: #476365;
-    --miniPostDiscColor: #717171;
-    --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
     --chTitleColor: #404040;
     --fillColor: #252525;
     --chLoginBGColor: #f3f3f3;
@@ -138,10 +134,6 @@
     --headerBSh: #69222238 0 0 26px -4px;
     --tabsIcoSh: drop-shadow(0px 0px 9px #fa4d6a8f);
     --tabsIcoColor: #962240;
-    --miniPostBGColor: #53091b;
-    --miniPostTitColor: #d4d4d4;
-    --miniPostDiscColor: #949494;
-    --miniPostHoverBSh: #3e0033 0px 0px 30px 0px;
     --chTitleColor: #b3b3b3;
     --fillColor: #e0e0e0;
     --chLoginBGColor: #171717;
@@ -623,20 +615,20 @@ non {
   margin: inherit;
   margin-right: 0.7rem;
 }
-.post .disc {
+.post .desc {
   padding: 0rem 1rem 1rem;
   box-sizing: border-box;
 }
-.post .disc .text {
+.post .desc .text {
   color: var(--pColor);
   font-size: 13pt;
 }
 @media (max-width: 700px) {
-  .post .disc .text {
+  .post .desc .text {
     font-size: 10.5pt;
   }
 }
-.post .disc button {
+.post .desc button {
   box-sizing: border-box;
   width: 80%;
   margin: 1rem auto 0rem;
@@ -644,7 +636,7 @@ non {
   border-color: var(--f7-badge-bg-color);
 }
 @media (max-width: 700px) {
-  .post .disc button {
+  .post .desc button {
     width: 100%;
   }
 }
@@ -668,14 +660,9 @@ non {
   position: absolute;
   left: 0px;
   top: 0px;
-  opacity: 0.6;
+  opacity: 0.8;
   filter: blur(15px) brightness(0.6) saturate(2);
   z-index: -1;
-}
-@media (prefers-color-scheme: light) {
-  .pngPost .imgUnder {
-    opacity: 0.8;
-  }
 }
 .photo-browser-swiper-wrapper {
   box-shadow: 1px 1px 0 2000px #000000b0;

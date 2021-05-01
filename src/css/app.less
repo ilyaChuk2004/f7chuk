@@ -130,11 +130,6 @@
     --tabsIcoSh: drop-shadow(0px 0px 9px #a46b3bb8);
     --tabsIcoColor: #a46b3b;
 
-    --miniPostBGColor: #fdbb85;
-    --miniPostTitColor: #476365;
-    --miniPostDiscColor: #717171;
-    --miniPostHoverBSh: 0 0 30px 4px #fcbb858a;
-
     --chTitleColor: #404040;
     --fillColor: #252525;
     --chLoginBGColor: #f3f3f3;
@@ -194,11 +189,6 @@
     --headerBSh: #69222238 0 0 26px -4px;
     --tabsIcoSh: drop-shadow(0px 0px 9px #fa4d6a8f);
     --tabsIcoColor: #962240;
-
-    --miniPostBGColor: #53091b;
-    --miniPostTitColor: #d4d4d4;
-    --miniPostDiscColor: #949494;
-    --miniPostHoverBSh: rgb(62, 0, 51) 0px 0px 30px 0px;
 
     --chTitleColor: #b3b3b3;
     --fillColor: #e0e0e0;
@@ -704,7 +694,7 @@ non {
     }
   }
 
-  .disc {
+  .desc {
     padding: 0rem 1rem 1rem;
     box-sizing: border-box;
     .text {
@@ -749,12 +739,9 @@ non {
     position: absolute;
     left: 0px;
     top: 0px;
-    opacity: 0.6;
+    opacity: 0.8;
     filter: blur(15px) brightness(0.6) saturate(2);
     z-index: -1;
-    @media (prefers-color-scheme: light) {
-      opacity: 0.8;
-    }
   }
 }
 

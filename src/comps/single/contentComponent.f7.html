@@ -1,19 +1,28 @@
 <template>
   <div>
     <div>
-    ${props.text ? $h`
+      ${props.text ? $h`
       <div>
-      <div innerHTML=${props.text}></div>
-      </div> 
+        <div innerHTML=${props.text}></div>
+      </div>
       `: $h`
-      <p>Text will be visible when "props.text" is falsy</p>
-    `}
+        <div class="title-large skeleton-text skeleton-effect-wave">----- - ----- ----</div>
+        <div class="time skeleton-text skeleton-effect-wave">-- ----- ----</div>
+        <br />
+        <div>
+          <div class="skeleton-block skeleton-effect-wave" style="width: 15rem; height: 3rem;"></div>
+        </div>
+        <h2 class="skeleton-text skeleton-effect-wave">____ __________</h2>
+        <p class="skeleton-text skeleton-effect-wave">_____ _________ _____ _____ __________ _____ _______ _____ ___________ ___ _____ ______ _____ ________ ________
+           _______ _______ ____ ____ -________</p>
+        <p class="skeleton-text skeleton-effect-wave">______ _______ _____ _____ _____ __________ ___ _______ ______ ____ ____ ___ __________ _______ ______ ______</p>
+        <p><div class="skeleton-block skeleton-effect-wave" style="width: 80vw; height: 20rem;"></div></p>
+      `}
     </div>
   </div>
 </template>
 <script>
-  export default (props, {}) => {
-console.log(7575);
+  export default (props, { }) => {
     return $render;
   }
 </script>

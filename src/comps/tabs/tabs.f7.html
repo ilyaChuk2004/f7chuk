@@ -10,9 +10,9 @@
 </template>
 <script>
 
-  export default (props, { $on, $f7}) => {
+  export default (props, { $on, $f7, $store }) => {
     $on('tabShow', (e) => {
-      store.state.appData.tab = e.target.id.slice(-1)
+      $store.state.appData.tab = e.target.id.slice(-1)
       $f7.emit('e-tabChange', e.target.id.slice(-1))
     });
     return $render
