@@ -78,7 +78,7 @@
 // @pColor: #464646;
 @mainScreenImg: chukKrivie.svg;
 @bp-mobile: ~"max-width: 500px";
-@bp-tablet: ~"max-width: 700px";
+@bp-tablet: ~"max-width: 800px";
 
 //night colors
 @night-bg: #151111;
@@ -607,9 +607,9 @@ non {
   }
   .gal {
     border-radius: 2rem;
-    height: 60vh;
+    height: 70vh;
     // margin-bottom: -3rem;
-    width: 60vh;
+    width: 70vh;
 
     @media (@bp-tablet) {
       width: calc(100vw - 2rem);
@@ -761,17 +761,12 @@ non {
   box-shadow: 1px 1px 0 2000px #000000;
   transition: 0.3s;
 
-  .toolbar{
+  .toolbar, .photo-browser-captions-dark .photo-browser-caption, .navbar{
     backdrop-filter: blur(6px);
     background: #1b1b1b91 !important;
-
   }
 }
-.photo-browser-captions-dark .photo-browser-caption{
-background: #1b1b1b91 !important;
-backdrop-filter: blur(6px);
 
-}
 footer {
   background-image: var(--footerImage);
   color: white;

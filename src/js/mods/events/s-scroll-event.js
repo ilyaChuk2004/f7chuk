@@ -14,7 +14,10 @@ export function s_scroll_event(e) {
           s_tabs("page-content");
         }
       },
-      true
+      {
+        capture: true,
+        passive: true
+      }
     );
   }
 
