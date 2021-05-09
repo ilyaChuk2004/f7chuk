@@ -261,6 +261,9 @@ body {
   -webkit-tap-highlight-color: transparent;
   .noselect();
   background-color: var(--day-bg);
+  @media (display-mode: standalone) {
+    overscroll-behavior: contain;
+  }
 }
 
 strong {

@@ -16,7 +16,7 @@ import { s_components_import } from './mods/imports/s_components_import'
 s_components_import();
 
 var app = new Framework7({
-  name: 'chuk',
+  name: 'Чук',
   theme: 'ios',
   el: '#app',
   component: App,
@@ -53,6 +53,7 @@ var app = new Framework7({
 
 export { app, }
 
+window.app=app
 store.state.appData.desktop = Framework7.device.desktop;
 
 import { s_theme_color_init } from './mods/s-theme-color-init'; s_theme_color_init(Framework7);

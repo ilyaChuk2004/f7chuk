@@ -47,7 +47,7 @@
     $f7.preloader.show();
 
     $f7.request({
-      url: 'https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41',
+      url: `https://${$store.state.appData.url}${$store.state.appData.cockUrlGet}name?token=${$store.state.appData.taken}`,
       method: 'POST',
       cache: true,
       data: {

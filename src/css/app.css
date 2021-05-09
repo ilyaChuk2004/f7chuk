@@ -207,6 +207,12 @@ body {
   user-select: none;
   background-color: var(--day-bg);
 }
+@media (display-mode: standalone) {
+  html,
+  body {
+    overscroll-behavior: contain;
+  }
+}
 strong {
   color: var(--strongColor);
   font-weight: 500;

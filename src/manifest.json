@@ -1,12 +1,13 @@
 {
-  "name": "chuk",
-  "short_name": "chuk",
+  "name": "Чук",
+  "short_name": "Чук",
   "description": "chuk",
-  "lang": "en-US",
+  "lang": "ru",
+  "orientation": "portrait",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#EE350F",
-  "theme_color": "#EE350F",
+  "background_color": "transparent",
+  "theme_color": "#151111",
   "icons": [
     {
       "src": "/static/icons/128x128.png",

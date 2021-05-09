@@ -6,7 +6,7 @@ export async function s_imports(e) {
   async function posts() {
     let ress = 0;
     if (navigator.onLine) {
-      await app.request.post('https://chuk.dx.am/cock/api/collections/get/name?token=9dde4ae7fbe1301336d54310078f41',
+      await app.request.post(`https://${store.state.appData.url}${store.state.appData.cockUrlGet}name?token=${store.state.appData.taken}`,
       {
         filter: {
           published: true
@@ -43,7 +43,7 @@ export async function s_imports(e) {
   async function about() {
     let ress = 0;
     if (navigator.onLine) {
-      await app.request.post('https://chuk.dx.am/cock/api/collections/get/about?token=9dde4ae7fbe1301336d54310078f41',
+      await app.request.post(`https://${store.state.appData.url}${store.state.appData.cockUrlGet}about?token=${store.state.appData.taken}`,
       {
         fields: {
           name: 1,
@@ -66,7 +66,7 @@ export async function s_imports(e) {
   async function pngs() {
     let ress = 0;
     if (navigator.onLine) {
-      await app.request.get('https://chuk.dx.am/cock/api/collections/get/pngs?token=9dde4ae7fbe1301336d54310078f41')
+      await app.request.get(`https://${store.state.appData.url}${store.state.appData.cockUrlGet}pngs?token=${store.state.appData.taken}`)
       .then(function (res) {
         ress = (JSON.parse(res.data))
         store.state.data.pngs = ress.entries;

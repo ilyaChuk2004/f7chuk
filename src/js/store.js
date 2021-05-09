@@ -7,9 +7,10 @@ const store = createStore({
     count: 10,
     appData: {
       tab: '1',
-      events: {
-
-      },
+      events: {},
+      taken:'a2ec067e66c2cf479a189b5284bde3',
+      url:'chuk.dx.am',
+      cockUrlGet:`/cock/api/collections/get/`
     },
     data: {
       contacts: [

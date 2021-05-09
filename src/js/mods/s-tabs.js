@@ -1,31 +1,33 @@
-import $ from 'dom7';
-
-
 export function s_tabs(page) {
-let pageEl = $('.'+page)
+let pageEl = document.querySelector('.'+page)
 let wHeight = window.innerHeight
+let opacity=0
 let ms = {
-    el:$('#mainScreen'),
-    height(){return this.el.height()},
+    el:document.getElementById('mainScreen'),
+    height: document.getElementById('mainScreen').offsetHeight
 }
 let tabsB = {
-    el:$('.tabsB'),
-    height(){return this.el.height()},
+    el:document.querySelector('.tabsB'),
+    height: document.querySelector('.tabsB').offsetHeight
 }
 
 let scroll = ()=>{
-    return pageEl.scrollTop()
+    return pageEl.scrollTop
 };
 
 if (underMs()) {
-    tabsB.el.css('opacity','1');
+    tabsB.el.style.opacity='1'
+    console.log(1, scroll());
+    opacity=1
 }else{
-    tabsB.el.css('opacity','0');
+    tabsB.el.style.opacity='0'
+    console.log(0);
+    opacity=0
 }
 
 function underMs() {
-    let paddind = tabsB.height();
-    if ((ms.height() - scroll() - wHeight)+paddind < 0) {
+    let paddind = tabsB.height;
+    if ((ms.height - scroll() - wHeight)+paddind < 0) {
         return true
     }
 }
