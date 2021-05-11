@@ -1,5 +1,5 @@
 <template>
-  <div class="fab fab-right-bottom ripple-color-black contactsBtn">
+  <div @click=${hide} class="fab fab-right-bottom ripple-color-black contactsBtn">
     <a class="no-active-state" href="#">
       я
     </a>
@@ -18,7 +18,28 @@
   </div>
 </template>
 <script>
-  export default (props) => {
+  export default (props, {$f7}) => {
+    let toolt
+    setTimeout(() => {
+      toolt = $f7.tooltip.create({
+        targetEl:'.contactsBtn',
+        text:'ссылки на меня',
+        offset:0,
+        on: {
+          show: function (e) {
+            if (e.targetEl.className.indexOf('fab-opened')!==-1) {
+              setTimeout(() => {
+                toolt.hide()
+              }, 1);
+            }
+          }
+  }
+      })
+    }, 100);
+
+    function hide() {
+      toolt.hide()
+    }
     return $render;
   }
 </script>

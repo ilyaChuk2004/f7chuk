@@ -12,7 +12,7 @@
         <${contentComponent} text=${proData.content()} />
       </div>
       ${loaded && $h`
-        <${last_post} thispost=${rawData} />
+        <${last_post} thispost=${rawData}/>
       `}
       <div>
         <!-- пустой див — костыль чтобы не дублировался футер(непонятно почему) -->
@@ -73,9 +73,9 @@
       document.title = rawData.mainscreen.title;
       $f7.preloader.hide();
 
-      setTimeout(() => {
+      $f7.on('e-lastPostUpdated', ()=>{
         $f7.lazy.create('.page-content.single')
-      }, 300);
+      })
     });
 
     $f7.on('e-update', () => {

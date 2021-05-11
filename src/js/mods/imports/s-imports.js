@@ -30,14 +30,15 @@ export async function s_imports(e) {
         ress = (JSON.parse(res.data))
         store.state.data.posts = ress.entries;
         localStorage.posts=JSON.stringify(ress.entries);
-        app.emit(`e-postsLoaded`);
+        app.emit(`e-postsLoaded`, ress.entries);
       });
     }else{
       console.log('try to load by cache');
 
       store.state.data.posts = JSON.parse(localStorage.posts);
-      app.emit(`e-postsLoaded`);
+      app.emit(`e-postsLoaded`, JSON.parse(localStorage.posts));
     }
+    store.state.appData.postsLoaded=true;
   }
 
   async function about() {

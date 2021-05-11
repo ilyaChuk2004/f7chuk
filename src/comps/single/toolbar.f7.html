@@ -1,18 +1,21 @@
 <template>
-  ${!$store.state.appData.desktop &&  $h`
+  ${!$store.state.appData.desktop ?  $h`
     <div class="toolbar toolbar-bottom">
       <div class="toolbar-inner">
           <q-contactsBtn 
             style="color: rgba(255, 255, 255, 0.767);position: relative;transform: none !important;width: 2.4rem;height: 2.4rem;font-size: 13pt;">
           </q-contactsBtn>
         <a class="home link back"></a>
-        <div class="like"></div>
+        <${like}/>
       </div>
     </div>
+    `:$h`
+    <div></div>
     `
   }
 </template>
 <script>
+  import like from './like.f7.html'
   export default (props, {$store}) => {
 
     return $render;

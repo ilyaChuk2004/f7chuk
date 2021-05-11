@@ -649,6 +649,7 @@ non {
 .pngPost {
   position: relative;
   margin-top: 1.5rem;
+  cursor: zoom-in;
 }
 @media (max-width: 800px) {
   .pngPost {

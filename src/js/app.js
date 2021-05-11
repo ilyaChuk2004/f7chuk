@@ -39,7 +39,7 @@ var app = new Framework7({
     // activeStateOnMouseMove:true,
   },
   lazy: {
-    placeholder:'/static/img/ww2.png'
+    placeholder:'/static/img/loading.webp'
   },
 
   toolbar: {
