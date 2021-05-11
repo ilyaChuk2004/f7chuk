@@ -1,5 +1,5 @@
 <template>
-  ${props.post && $h`
+  ${props.post ? $h`
     <div class="post">
 
       <${post_type} type=${props.post.type} date=${props.post.published.date} />
@@ -16,7 +16,8 @@
       <${post_swiper} post=${props.post} />
 
     </div>
-  `}
+  `:$h`
+  <div></div>`}
 </template>
 <script>
 
