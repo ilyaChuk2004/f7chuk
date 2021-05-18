@@ -10,11 +10,17 @@
 </template>
 <script>
 
-  export default (props, { $on, $f7, $store }) => {
+  export default (props, { $on, $f7, $store, $el}) => {
     $on('tabShow', (e) => {
       $store.state.appData.tab = e.target.id.slice(-1)
       $f7.emit('e-tabChange', e.target.id.slice(-1))
+
+      let num = e.target.id.slice(-1);
+      let tabEl = document.querySelector(`.tabsB-item[href='#tab${num}']`)
+      console.log(tabEl.firstElementChild.innerText);
     });
+
+
     return $render
   }
 </script>

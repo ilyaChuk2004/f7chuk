@@ -1,5 +1,3 @@
-import store from '../../js/store';
-
 export function grey(items) {
   return `
   <otstup>

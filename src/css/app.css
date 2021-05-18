@@ -408,7 +408,7 @@ non {
 }
 .tabsB-item {
   padding: 1rem 2rem;
-  color: var(--iBGColor) !important;
+  color: var(--tabsIcoColor) !important;
   transition: 0.2s ease;
 }
 .tabsB-item > * {

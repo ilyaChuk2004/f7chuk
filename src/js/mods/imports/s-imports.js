@@ -15,13 +15,13 @@ export async function s_imports(e) {
           name: 1,
           thumbjpg: 1,
           thumbwebp: 1,
-          postcss: 1,
-          cursour: 1,
           type: 1,
           shorttext: 1,
           published: 1,
           gall: 1,
-          mainscreen: 1
+          mainscreen: 1,
+          _id:1,
+          likes:1
         },
         sort: { _created: -1 }
       }

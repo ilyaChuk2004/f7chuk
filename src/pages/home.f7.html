@@ -5,10 +5,13 @@
       <div class="fab-backdrop"></div>
       <q-fab></q-fab>
     `}
-
+    
     ${!$store.state.appData.desktop && $h`
-      <q-tabsButt></q-tabsButt>
+      <nav class="tabsB toolbar tabbar toolbar-bottom">
+        <q-tabsButt></q-tabsButt>
+      </nav>
     `}
+   
 
     <q-contactsBtn></q-contactsBtn>
 
@@ -22,7 +25,7 @@
   </div>
 </template>
 <script>
-  export default (props) => {
+  export default (props, {$store}) => {
     return $render;
   }
 </script>

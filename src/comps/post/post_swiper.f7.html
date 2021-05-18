@@ -2,13 +2,13 @@
   <div class="swiper-container gal">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <a href="/p/${props.post.name}/">
+        <a href="//${props.post.name}/">
           <img data-src="https://chuk.dx.am/cock/storage/uploads${formatthumb}" class="lazy post-img" />
         </a>
       </div>
-      ${props.post.gall.map((item)=>$h`
+      ${props.post.gall==null?'':props.post.gall.map((item)=>$h`
         <div class="swiper-slide">
-          <a href="/p/${props.post.name}/">
+          <a href="//${props.post.name}/">
             ${item.meta.type == "contain" && $h`
               <img data-src="https://chuk.dx.am${item.path}" style="object-fit: contain; object-position: ${item.meta.pos};"
               class="lazy post-img" />
@@ -31,7 +31,10 @@
   export default (props, {
     $f7, $el, $store, $onMounted
   }) => {
-    let formatthumb = $store.state.gf.support_format_webp() ? props.post.thumbwebp.path : props.post.thumbjpg.path
+    let formatthumb;
+    if (props.post.thumbwebp!==null) {
+      formatthumb = $store.state.gf.support_format_webp() ? props.post.thumbwebp.path : props.post.thumbjpg.path
+    }else{formatthumb= props.post.thumbjpg.path}
 
     $onMounted(() => {
       setTimeout(() => {

@@ -4,15 +4,16 @@
   </a>
 </template>
 <script>
-  export default (props, { $store, $el }) => {
-
+  export default (props, { $store, $el, $onMount }) => {
     function tabActive(params) {
       $store.state.appData.page = props.tab
       for (let index = 0; index < $el.value[0].parentElement.children.length; index++) {
         const element = $el.value[0].parentElement.children[index]
         element.classList.remove('tab-link-active')
+        element.firstElementChild.innerText=element.firstElementChild.innerText.split('_')[0]
       }
       $el.value[0].classList.add('tab-link-active')
+      $el.value[0].firstElementChild.innerText+='_fill'
     }
     return $render
   }

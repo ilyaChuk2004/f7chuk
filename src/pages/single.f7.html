@@ -1,24 +1,37 @@
 <template>
   <div class="page" data-name="single">
-    <${toolbar} />
-    <div class="page-content single">
+
+    <div class="page-content hide-toolbar-on-scroll single">
       <div class="cont">
         ${loaded && $h`
-          <div class="title-large">${rawData.mainscreen.shorttext}</div>
-          <div class="time">${proData.date()}</div>
-          <br />
-          <${linkBtn} data=${rawData.btn} />
+          <header>
+            <div class="title-large">${rawData.mainscreen.shorttext}</div>
+            <time class="time">${proData.date()}</time>
+            <br />
+            <${linkBtn} data=${rawData.btn} id=${rawData._id}/>
+          </header>
         `}
+        <main>
         <${contentComponent} text=${proData.content()} />
+        </main>
       </div>
       ${loaded && $h`
+
+        <${like} id=${rawData._id} likes=${rawData.likes}/>
+
         <${last_post} thispost=${rawData}/>
       `}
       <div>
         <!-- пустой див — костыль чтобы не дублировался футер(непонятно почему) -->
       </div>
+    
       <${footer} />
     </div>
+    <nav class="toolbar toolbar-bottom nav">
+      ${loaded && $h`
+        <${toolbar} id=${rawData._id} likes=${rawData.likes}/>
+      `}
+    </nav>
 
   </div>
 </template>
@@ -34,6 +47,8 @@
   import footer from '../comps/single/footer.f7.html'
   import toolbar from '../comps/single/toolbar.f7.html'
   import contentComponent from '../comps/single/contentComponent.f7.html'
+  import like from '../comps/single/like.f7.html'
+
 
   export default (props, { $store, $f7, $update, $ }) => {
 

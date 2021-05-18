@@ -1,0 +1,24 @@
+<template>
+  <div id="anycomment-app"></div>
+</template>
+<script>
+export default (props, {$store, $f7, $update, $onMounted}) => {
+setTimeout(() => {
+  window.AnyComment = window.AnyComment || []; window.AnyComment.Comments = [];
+    window.AnyComment.Comments.push({
+        "root": "anycomment-app",
+        "app_id": 2419,
+        "language": "ru"
+    })
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.async = true;
+    script.src = "https://widget.anycomment.io/comment/embed.js";
+
+    document.body.appendChild(script);
+    console.log(1);
+}, 5000);
+
+    return $render;
+  }
+</script>

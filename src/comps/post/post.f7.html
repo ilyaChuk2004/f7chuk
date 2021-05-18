@@ -1,6 +1,6 @@
 <template>
   ${props.post ? $h`
-    <div class="post">
+    <article class="post">
 
       <${post_type} type=${props.post.type} date=${props.post.published.date} />
 
@@ -15,7 +15,7 @@
 
       <${post_swiper} post=${props.post} />
 
-    </div>
+    </article>
   `:$h`
   <div></div>`}
 </template>

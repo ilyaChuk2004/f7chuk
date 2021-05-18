@@ -1,12 +1,25 @@
 <template>
-  <div @click=${click} class="like"></div>
+  ${$store.state.appData.desktop ?  $h`
+    <div @click=${()=>{likeLogic(props.id, props.likes)}} class="like">${likes}</div>
+  `:$h`
+    <div></div>
+  `
+  }
 </template>
 <script>
-  export default (props, {$store, $el}) => {
-    function click() {
-      let el = $el.value[0]
-      console.log();
+    import {likeLogic} from './likeLogic.js'
+  export default (props, {$store, $f7, $update, $onMounted}) => {
+    let likes = props.likes
+    $f7.on('e-liked', (li)=>{
+      likes=li
+      $update()
+    })
+
+    $onMounted(()=>{
+      if ($store.state.gf.getCookie(`m-like-${props.id}`)!==undefined && $store.state.gf.getCookie(`m-like-${props.id}`)!=='0') {
+      document.querySelector('.like').style.animation='like 0.5s ease forwards'
     }
+    })
     return $render;
   }
 </script>

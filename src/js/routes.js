@@ -10,7 +10,7 @@ var routes = [
     component: HomePage,
   },
     {
-      path: '/p/:id/',
+      path: '//:id/',
       component: single,
       options:{
         // reloadPrevious:true

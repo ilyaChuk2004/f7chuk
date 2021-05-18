@@ -1,9 +1,9 @@
 <template>
-  <div class="content page-wrapper home" id="pageWrapper">
+  <section class="content page-wrapper home" id="pageWrapper">
     ${$store.state.data.posts.map((item) => $h`
       <q-post post=${item}></q-post>
     `)}
-  </div>
+  </section>
 </template>
 <script>
   export default (props, {

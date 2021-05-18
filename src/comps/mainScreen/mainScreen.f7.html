@@ -1,5 +1,5 @@
 <template>
-  <div id="mainScreen" class="mainScreen">
+  <header id="mainScreen" class="mainScreen">
     ${t && $h`
       <${topng} />
     `}
@@ -7,24 +7,24 @@
     ${!t && $h`
       <${tohome} />
     `}
-  </div>
+  </header>
 </template>
 <script>
   export default (props, {$, $update}) => {
     const topng = (props, { $h }) => {
       return () => (
-        <div class="mainScreen-tips">
+        <nav class="mainScreen-tips">
           <div class="mainScreen-tip" id='activeTip'>программист дизайнер</div>
           <a class="mainScreen-tip tab-link" href="#tab2" id='disactiveTip'>художник</a>
-        </div>
+        </nav>
       )
     }
     const tohome = (props, { $h }) => {
       return () => (
-        <div class="mainScreen-tips">
+        <nav class="mainScreen-tips">
           <a class="mainScreen-tip tab-link" href="#tab1" id='disactiveTip'>программист дизайнер</a>
           <div class="mainScreen-tip" id='activeTip'>художник</div>
-        </div>
+        </nav>
       )
     }
 

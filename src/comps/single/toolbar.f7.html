@@ -6,7 +6,7 @@
             style="color: rgba(255, 255, 255, 0.767);position: relative;transform: none !important;width: 2.4rem;height: 2.4rem;font-size: 13pt;">
           </q-contactsBtn>
         <a class="home link back"></a>
-        <${like}/>
+        <div @click=${()=>{likeLogic(props.id, props.likes)}} class="like">${likes}</div>
       </div>
     </div>
     `:$h`
@@ -15,9 +15,19 @@
   }
 </template>
 <script>
-  import like from './like.f7.html'
-  export default (props, {$store}) => {
+  import {likeLogic} from './likeLogic.js'
+  export default (props, {$store, $f7, $update, $onMounted}) => {
+    let likes = props.likes
+    $f7.on('e-liked', (li)=>{
+      likes=li
+      $update()
+    })
 
+    $onMounted(()=>{
+      if ($store.state.gf.getCookie(`m-like-${props.id}`)!==undefined && $store.state.gf.getCookie(`m-like-${props.id}`)!=='0') {
+      document.querySelector('.like').style.animation='like 0.5s ease forwards'
+    }
+    })
     return $render;
   }
 </script>
