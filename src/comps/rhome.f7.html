@@ -1,7 +1,7 @@
 <template>
   <section class="content page-wrapper home" id="pageWrapper">
-    ${$store.state.data.posts.map((item) => $h`
-      <q-post post=${item}></q-post>
+    ${sortPosts($store.state.appData.activeCategory).map((item) => $h`
+        <q-post ref='main' key=${item._id} post=${item}></q-post>
     `)}
   </section>
 </template>
@@ -11,6 +11,19 @@
     $f7,
     $update
   }) => {
+
+    function sortPosts(cat) {
+      if (cat=='all') {
+        return $store.state.data.posts
+      }else{
+        let posts = $store.state.data.posts.map((it)=>{
+          if (it.type==cat){return it}
+        })
+        posts=posts.filter((it)=>{if(it!==undefined){return it}})
+        return posts
+      }
+      
+    }
 
     $f7.on('e-postsLoaded', () => {
       $update(() => {

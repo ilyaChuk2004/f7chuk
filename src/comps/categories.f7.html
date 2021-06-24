@@ -1,0 +1,61 @@
+<template>
+
+  <section class="categories">
+    ${$store.state.data.categories.map((it)=>$h`
+      <div @click=${()=>{changeCategory(it.name)}} class="chip chip-outline ${activeCheck(it)}">
+        <div class="chip-label">${it.runame}:
+          <span class="num">
+            ${it.num} шт.
+          </span>
+        </div>
+      </div>
+      `)}
+  </section>
+
+  </template>
+  <script>
+    export default (props, {$store, $update, $f7}) => {
+
+      function countCategories(params) {
+        let arr = $store.state.data.posts.map((it, n)=>{
+         return it.type
+        })
+
+        let all = arr.length
+        let cats = [...new Set(arr)]
+
+        for (const key in $store.state.data.categories) {
+          const element = $store.state.data.categories[key];
+          element.num=arr.join('').split(element.name).length-1
+        }
+
+        $store.state.data.categories[0].num=all
+
+
+        // let catssss = cats.map((it)=>{
+        //   return {
+        //     ...cats 
+        //   }
+        // })
+
+      }
+
+$f7.on('e-postsLoaded', ()=>{
+  countCategories();
+  $update()
+})
+
+
+      function activeCheck(c) {
+        return c.name==$store.state.appData.activeCategory?'active':''
+      }
+
+      function changeCategory(it) {
+        $store.state.appData.activeCategory=it
+          $update(()=>{
+          $f7.emit('e-postsLoaded')
+        })
+      }
+      return $render;
+    }
+  </script>

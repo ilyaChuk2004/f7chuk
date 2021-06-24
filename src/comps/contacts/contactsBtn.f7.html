@@ -1,7 +1,7 @@
 <template>
   <div>
     ${!$store.state.appData.desktop && $h`
-      <a href="#" @click=${swiperInit} style="${css}" class="contactsBtn">
+      <a href="#" @click=${swiperInit} style="${css}" class="contactsBtn ripple overflow-hidden ${props.class}">
         я
       </a>
     `}

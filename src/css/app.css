@@ -69,7 +69,7 @@
     --hair: #00000034;
     --iBGColor: #6b4124;
     --iPcBGColor: #6b4124;
-    --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #f5f5f5;
+    --aboutBSh: 0px 20px 30px rgba(117, 117, 117, 0.08), 0px -250px 0px 200px #f5f5f5;
     --aboutBGColor: #f5f5f5;
     --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
     --pageWrapperBSh: 0 -180px 0 70px #f5f5f5;
@@ -116,10 +116,10 @@
     --hair: #ffffff23;
     --iBGColor: #53091b;
     --iPcBGColor: #53091b;
-    --aboutBSh: 0px 20px 80px #75757536, 0px -250px 0px 200px #151111;
-    --aboutBGColor: #151111;
+    --aboutBSh: 0px 20px 23px #7575750a, 0px -250px 0px 200px var(--aboutBGColor);
+    --aboutBGColor: #181313;
     --pngWinPostBlockBSh: 0px 0px 38px -14px #7803ffa1;
-    --pageWrapperBSh: 0 -180px 0 70px #151111;
+    --pageWrapperBSh: 0 -180px 0 70px var(--contentBGColor);
     --hColor: #afaedc;
     --pColor: #b7b7b7;
     --strongColor: #dcdcdc;
@@ -181,7 +181,7 @@
 }
 ::-webkit-scrollbar {
   width: 6px;
-  height: 3px;
+  height: 0px;
 }
 @media (max-width: 800px) {
   ::-webkit-scrollbar {
@@ -284,7 +284,7 @@ non {
   background-position: center;
   width: 100%;
   position: relative;
-  z-index: 3;
+  z-index: 4;
   pointer-events: none;
   height: 100vh;
   transition: 0.2s ease;
@@ -356,11 +356,37 @@ non {
   font-style: inherit ;display: inline-block;transition: 0.2s;opacity: 0.9;;
 }
 #about {
-  box-shadow: var(--aboutBSh);
   border-radius: 0px 0px 40px 40px;
   position: relative;
-  z-index: 2;
+  z-index: 3;
   background-color: var(--aboutBGColor);
+  text-align: left;
+  padding: 1rem 3rem 2.7rem 3rem;
+  -webkit-touch-callout: text;
+  /* iOS Safari */
+  -webkit-user-select: text;
+  /* Safari */
+  -khtml-user-select: text;
+  /* Konqueror HTML */
+  -moz-user-select: text;
+  /* Old versions of Firefox */
+  -ms-user-select: text;
+  /* Internet Explorer/Edge */
+  user-select: text;
+  border-bottom: 0.5px #ffffff12 solid;
+  box-shadow: 0px -250px 0px 200px var(--aboutBGColor);
+}
+@media (prefers-color-scheme: light) {
+  #about {
+    border-bottom: none;
+    box-shadow: var(--aboutBSh);
+  }
+}
+@media (prefers-color-scheme: light) {
+  #about {
+    border-bottom: none;
+    box-shadow: var(--aboutBSh);
+  }
 }
 #about img {
   margin-bottom: -0.1em;
@@ -378,23 +404,15 @@ non {
   /* Internet Explorer/Edge */
   user-select: none;
 }
-.pageWrapper {
-  text-align: left;
-  padding: 30px 30px 50px 30px;
-  margin-bottom: 2em;
-  -webkit-touch-callout: text;
-  /* iOS Safari */
-  -webkit-user-select: text;
-  /* Safari */
-  -khtml-user-select: text;
-  /* Konqueror HTML */
-  -moz-user-select: text;
-  /* Old versions of Firefox */
-  -ms-user-select: text;
-  /* Internet Explorer/Edge */
-  user-select: text;
-  cursor: text;
-  box-shadow: var(--pageWrapperBSh);
+.bottomShadow {
+  border-bottom: 0.5px #ffffff12 solid;
+  box-shadow: 0px -250px 0px 200px var(--aboutBGColor);
+}
+@media (prefers-color-scheme: light) {
+  .bottomShadow {
+    border-bottom: none;
+    box-shadow: var(--aboutBSh);
+  }
 }
 @media (max-width: 800px) {
   .page-content {
@@ -744,4 +762,46 @@ footer {
 }
 .actions-button-text {
   width: auto;
+}
+.categories {
+  display: flex;
+  margin-bottom: 2em;
+  border-bottom: 0.5px #ffffff12 solid;
+  box-shadow: 0px -250px 0px 200px var(--aboutBGColor);
+  border-radius: 0px 0px 40px 40px;
+  position: relative;
+  z-index: 2;
+  background-color: var(--aboutBGColor);
+  padding: 1.5rem 3rem;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+}
+@media (prefers-color-scheme: light) {
+  .categories {
+    border-bottom: none;
+    box-shadow: var(--aboutBSh);
+  }
+}
+.categories .chip {
+  margin-right: 1rem;
+  color: var(--pColor);
+  font-size: 14pt;
+  display: inline-flex;
+  padding: 1.1rem 1rem;
+  transition: 0.2s ease;
+  cursor: pointer;
+  scroll-snap-align: center;
+}
+.categories .chip .num {
+  opacity: 0.4;
+  margin-left: 0.2rem;
+}
+.categories .active.chip {
+  cursor: default;
+  box-shadow: 0px 0px 20px #ffffff17;
+}
+@media (prefers-color-scheme: light) {
+  .categories .active.chip {
+    box-shadow: 0px 0px 20px #00000021;
+  }
 }

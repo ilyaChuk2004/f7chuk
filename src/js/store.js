@@ -12,7 +12,8 @@ const store = createStore({
       url:'chuk.dx.am',
       cockUrlGet:`/cock/api/collections/get/`,
       lastLike:0,     //id поcта где был последний поставлен лайк юзером
-      msvidoeplayed:false //если видео на главном экране проигралось
+      msvidoeplayed:false, //если видео на главном экране проигралось
+      activeCategory: 'all',
     },
     data: {
       contacts: [
@@ -35,7 +36,29 @@ const store = createStore({
 
       ],
       posts:[],
-      pngs:[]
+      pngs:[],
+      categories:[
+        {
+          name:'all',
+          runame:'всё',
+          num:10
+        },
+        {
+          name:'order',
+          runame:'заказы',
+          num:2
+        },
+        {
+          name:'update',
+          runame:'обновления',
+          num:5
+        },
+        {
+          name:'mywork',
+          runame:'свои проекты',
+          num:9
+        },
+      ]
     },
     gf:{
       support_format_webp(){var elem=document.createElement("canvas");return!(!elem.getContext||!elem.getContext("2d"))&&0==elem.toDataURL("image/webp").indexOf("data:image/webp")},

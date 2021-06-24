@@ -1,9 +1,7 @@
 <template>
   ${props.post ? $h`
     <article class="post">
-
       <${post_type} type=${props.post.type} date=${props.post.published.date} />
-
       <div class="desc">
         <div class="text">
           ${props.post.shorttext}
@@ -12,9 +10,7 @@
           <button class="col button button-outline button-raised">посмотреть</button>
         </a>
       </div>
-
       <${post_swiper} reload=${reload} post=${props.post} />
-
     </article>
   `:$h`
   <div></div>`}
@@ -23,9 +19,10 @@
 
   import post_type from "./post_type.f7.html";
   import post_swiper from "./post_swiper.f7.html";
-  export default (props, {$store}) => {
-    console.log(props.ref);
+  export default (props, {$store, $f7, $update}) => {
     let reload = props.ref=='post'?'true':'false'
+    console.log(props.post);
+    
     // if(props.ref!=undefined){$store.state.appData.ref='main'; console.log('yes')}else{console.log('no')}
     return $render;
   }
