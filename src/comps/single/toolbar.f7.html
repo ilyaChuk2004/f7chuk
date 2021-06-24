@@ -3,10 +3,11 @@
     <div class="toolbar toolbar-bottom">
       <div class="toolbar-inner">
           <q-contactsBtn 
-            style="color: rgba(255, 255, 255, 0.767);position: relative;transform: none !important;width: 2.4rem;height: 2.4rem;font-size: 13pt;">
+            style="color: rgba(255, 255, 255, 0.767);position: relative;transform: none !important;width: 2.4rem;height: 2.4rem;font-size: 13pt;"
+            class="vibrate50">
           </q-contactsBtn>
-        <a class="home link back"></a>
-        <div @click=${()=>{likeLogic(props.id, props.likes)}} class="like">${likes}</div>
+        <a class="home link back vibrate50"></a>
+        <${like} id=${props.id} likes=${props.likes} m=1/>
       </div>
     </div>
     `:$h`
@@ -16,6 +17,7 @@
 </template>
 <script>
   import {likeLogic} from './likeLogic.js'
+  import like from './like.f7.html'
   export default (props, {$store, $f7, $update, $onMounted}) => {
     let likes = props.likes
     $f7.on('e-liked', (li)=>{

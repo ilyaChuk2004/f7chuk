@@ -1,21 +1,36 @@
 <template>
-  ${$store.state.appData.desktop ?  $h`
-    <div @click=${()=>{likeLogic(props.id, props.likes)}} class="like">${likes}</div>
-  `:$h`
-    <div></div>
-  `
-  }
+    <!-- <div @click=${()=>{likeLogic(props.id, props.likes)}} class="like">${likes}</div> -->
+    <div class="like">
+      <video src="static/heart.webm" class="" 
+    @click=${()=>{likeLogic(props.id, props.likes)}} ></video>
+    <div class="likeNum">${likes}</div>
+    </div>
+  
 </template>
+<style>
+  .like video{
+    height: 100%;
+    filter: drop-shadow(0px 0px 12px);
+    padding: 1rem 1rem 0.5rem 1rem;
+    color: #e9374870;
+  }
+
+</style>
 <script>
     import {likeLogic} from './likeLogic.js'
-  export default (props, {$store, $f7, $update, $onMounted}) => {
+  export default (props, {$store, $f7, $update, $onMounted, $el}) => {
     let likes = props.likes
-    $f7.on('e-liked', (li)=>{
+    
+
+    $onMounted(()=>{
+      let video = $el.value[0].childNodes[0];
+
+      $f7.on('e-liked', (li)=>{
+      video.play()
       likes=li
       $update()
     })
 
-    $onMounted(()=>{
       if ($store.state.gf.getCookie(`m-like-${props.id}`)!==undefined && $store.state.gf.getCookie(`m-like-${props.id}`)!=='0') {
       document.querySelector('.like').style.animation='like 0.5s ease forwards'
     }

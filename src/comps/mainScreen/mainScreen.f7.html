@@ -1,5 +1,7 @@
 <template>
   <header id="mainScreen" class="mainScreen">
+  <video src="static/mainscreenpc${theme}.mp4" type='video/mp4;' preload playsinline autoplay muted>
+  </video>
     ${t && $h`
       <${topng} />
     `}
@@ -10,7 +12,8 @@
   </header>
 </template>
 <script>
-  export default (props, {$, $update}) => {
+  export default (props, {$, $update, $onMounted, $el, $store}) => {
+    let theme=$store.state.appData.theme!==undefined?$store.state.appData.theme:'light'
     const topng = (props, { $h }) => {
       return () => (
         <nav class="mainScreen-tips">
@@ -37,6 +40,29 @@
       }
       $update();
     });
+
+    $onMounted(()=>{
+      $(document).on('click', (()=>{
+     if ($el.value[0].childNodes[0].played.length==0) {
+        $el.value[0].childNodes[0].play()
+        console.log();
+     }
+      }))
+
+        if ($el.value[0].childNodes[0].played.length==0) {
+        // $el.value[0].childNodes[0]
+        // console.log($('.page-content.home').scrollTop());
+        app.on('e-scroll', ()=>{
+          console.log($('.page-content.home').scrollTop());
+          let px=$store.state.appData.desktop?115:65
+          if ($('.page-content.home').scrollTop() <= px) {
+            $el.value[0].style.borderRadius=`0px 0px ${$('.page-content.home').scrollTop()}px ${$('.page-content.home').scrollTop()}px`
+          }else $el.value[0].style.borderRadius=`0px 0px ${px}px ${px}px`
+        })
+
+     }
+     
+    })
 
     return $render;
   }

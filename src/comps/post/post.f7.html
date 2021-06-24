@@ -8,12 +8,12 @@
         <div class="text">
           ${props.post.shorttext}
         </div>
-        <a href="/p/${props.post.name}/">
+        <a href="//${props.post.name}/" data-reload-current="${reload}">
           <button class="col button button-outline button-raised">посмотреть</button>
         </a>
       </div>
 
-      <${post_swiper} post=${props.post} />
+      <${post_swiper} reload=${reload} post=${props.post} />
 
     </article>
   `:$h`
@@ -24,6 +24,9 @@
   import post_type from "./post_type.f7.html";
   import post_swiper from "./post_swiper.f7.html";
   export default (props, {$store}) => {
+    console.log(props.ref);
+    let reload = props.ref=='post'?'true':'false'
+    // if(props.ref!=undefined){$store.state.appData.ref='main'; console.log('yes')}else{console.log('no')}
     return $render;
   }
 </script>

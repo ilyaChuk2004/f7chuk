@@ -2,13 +2,13 @@
   <div class="swiper-container gal">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <a href="//${props.post.name}/">
+        <a href="//${props.post.name}/" data-reload-current="${props.reload}">
           <img data-src="https://chuk.dx.am/cock/storage/uploads${formatthumb}" class="lazy post-img" />
         </a>
       </div>
       ${props.post.gall==null?'':props.post.gall.map((item)=>$h`
         <div class="swiper-slide">
-          <a href="//${props.post.name}/">
+          <a href="//${props.post.name}/" data-reload-current="${props.reload}">
             ${item.meta.type == "contain" && $h`
               <img data-src="https://chuk.dx.am${item.path}" style="object-fit: contain; object-position: ${item.meta.pos};"
               class="lazy post-img" />

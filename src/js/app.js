@@ -22,18 +22,19 @@ var app = new Framework7({
   component: App,
   view: {
     browserHistory:true,
-    iosSwipeBack:false,
-    // preloadPreviousPage:false,
-    // stackPages:false,
-    browserHistoryAnimate:false,
+    iosSwipeBack:true,
+    preloadPreviousPage:true,
+    stackPages:true,
+    browserHistoryAnimate:true,
+    
   },
 
   store: store,
   routes: routes,
   touch: {
-    // mdTouchRipple:true,
-    // iosTouchRipple:true,
-    auroraTouchRipple:false,
+    mdTouchRipple:true,
+    iosTouchRipple:true,
+    auroraTouchRipple:true,
     disableContextMenu:true,
     touchRippleElements:'.ripple, .ripple-dark-white',
     // activeStateOnMouseMove:true,
@@ -55,6 +56,7 @@ export { app, }
 
 window.app=app
 store.state.appData.desktop = Framework7.device.desktop;
+store.state.appData.theme = Framework7.device.prefersColorScheme();
 
 import { s_theme_color_init } from './mods/s-theme-color-init'; s_theme_color_init(Framework7);
 

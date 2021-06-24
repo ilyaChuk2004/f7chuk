@@ -16,14 +16,14 @@
         </main>
       </div>
       ${loaded && $h`
-
-        <${like} id=${rawData._id} likes=${rawData.likes}/>
-
+        ${$store.state.appData.desktop ?  $h`
+          <${like} id=${rawData._id} likes=${rawData.likes}/>
+          `:$h`
+          <div></div>
+        `
+        }
         <${last_post} thispost=${rawData}/>
       `}
-      <div>
-        <!-- пустой див — костыль чтобы не дублировался футер(непонятно почему) -->
-      </div>
     
       <${footer} />
     </div>

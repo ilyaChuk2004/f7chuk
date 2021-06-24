@@ -1,6 +1,6 @@
 <template>
   <div @click=${hide} class="fab fab-right-bottom ripple-color-black contactsBtn">
-    <a class="no-active-state" href="#">
+    <a class="no-active-state ripple overflow-hidden" href="#">
       я
     </a>
     <!-- Speed Dial action buttons -->
@@ -9,14 +9,26 @@
         <a href='${item.href}' class="fab-label-button external" target="blank">
           <!-- original button content -->
           <span
-            style='background-image: url(/static/img/${item.img}); width: 100%; height: 100%; background-size: cover;'></span>
+            style='background-image: url(/static/img/${item.img}); width: 100%; height: 100%; background-size: cover;' 
+            class='ripple overflow-hidden'></span>
           <!-- button label -->
-          <span style="pointer-events: all;" class="fab-label">${item.disc}</span>
+          <span style="pointer-events: all;" class="fab-label ripple overflow-hidden">${item.disc}</span>
         </a>
       `)}
     </div>
   </div>
 </template>
+<style>
+  .contactsBtn > a{
+    width: 100%;
+    height: 100%;
+    border-radius: 1000px;
+  }
+
+  .contactsBtn {
+    border-radius: 1000px;
+  }
+</style>
 <script>
   export default (props, {$f7}) => {
     let toolt

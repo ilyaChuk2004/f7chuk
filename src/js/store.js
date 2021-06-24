@@ -11,7 +11,8 @@ const store = createStore({
       taken:'a2ec067e66c2cf479a189b5284bde3',
       url:'chuk.dx.am',
       cockUrlGet:`/cock/api/collections/get/`,
-      lastLike:0
+      lastLike:0,     //id поcта где был последний поставлен лайк юзером
+      msvidoeplayed:false //если видео на главном экране проигралось
     },
     data: {
       contacts: [
